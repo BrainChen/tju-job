@@ -1,18 +1,34 @@
 <nav>
     <div class="nav-item">
         <ul>
-            <li><a>首页</a></li>
-            <li><a>公告信息</a></li>
-            <li><a>工作动态</a></li>
-            <li><a>招聘信息</a></li>
-            <li><a>就业政策</a></li>
-            <li><a>就业指导</a></li>
+            <li routerLink="/main"><a>首页</a></li>
+            <li routerLink="/public"><a>公告信息</a></li>
+            <li routerLink="/work"><a>工作动态</a></li>
+            <li routerLink="/recruitment"><a>招聘信息</a></li>
+            <li routerLink="/policy"><a>就业政策</a></li>
+            <li routerLink="/guidance"><a>就业指导</a></li>
         </ul>
     </div>
 </nav>
+
 <header>
     <div class="nav-item">
         <h2>天津大学就业指导中心</h2>
         <h3>THE CAREER CENTER OF TIANJIN UNIVERSITY</h3>
     </div>
 </header>
+
+<div class="navigation">
+    <div (click)="toggleArrow()" class="menu">
+        <img [ngClass]="around" src="../assets/arrow_down.png" alt="pull to get the navigation">
+    </div>
+    <ul (click)="toggleArrow()" [ngClass]="downmenu">
+        <li routerLink="/main"><a>首页</a></li>
+        <li routerLink="/public"><a>公告信息</a></li>
+        <li routerLink="/work"><a>工作动态</a></li>
+        <li routerLink="/recruitment"><a>招聘信息</a></li>
+        <li routerLink="/policy"><a>就业政策</a></li>
+        <li routerLink="/guidance"><a>就业指导</a></li>
+    </ul>
+</div>
+<router-outlet></router-outlet>
