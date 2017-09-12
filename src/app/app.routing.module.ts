@@ -34,6 +34,7 @@ const appRoutes: Routes = [
     {
         path: 'guidance',
         component: GuidanceComponent
+        //loadChildren: 'app/guidance/guidance.module#GuidanceModule'
     }
 ]
 

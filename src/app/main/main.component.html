@@ -1,3 +1,34 @@
-<p>
-  main works!
-</p>
+<img class="big-image" src={{mainData.data.image}} alt="big image">
+
+<div class="row-box">
+    <div class="box-left">
+        <p><a routerLink="/public">公告信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a routerLink="/work"><span>工作动态</span></a></p>
+        <ul *ngFor="let item of mainData.data.public">
+            <li>
+                <a href={{item.link}}>{{item.title}}</a>
+                <span class="li-time">{{item.time}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="box-right">
+        <p>招聘日历</p>
+    </div>
+</div>
+
+<div class="row-box">
+    <div class="box-left">
+        <p><a routerLink="/recruitment">招聘会</a>&nbsp;&nbsp;&nbsp;&nbsp;<a routerLink="/recruitment"><span>招聘简章</span></a></p>
+        <ul *ngFor="let item of mainData.data.recruitment">
+            <li>
+                <a href={{item.link}}>{{item.title}}</a>
+                <span class="li-time">{{item.time}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="advertisement">
+        <a href={{mainData.data.advertisement[0].link}} target="_blank"><img src={{mainData.data.advertisement[0].src}} alt="advertisement"></a>
+        <a href={{mainData.data.advertisement[1].link}} target="_blank"><img src={{mainData.data.advertisement[1].src}} alt="advertisement"></a>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    showAbout: Boolean = true;
+
     yesaround: Object = {'around': true};
     noaround: Object = {'around': false};
     around: Object = this.noaround;
