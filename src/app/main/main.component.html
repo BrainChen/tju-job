@@ -2,7 +2,7 @@
 
 <div class="row-box">
     <div class="box-left">
-        <p><a routerLink="/public">公告信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a routerLink="/work"><span>工作动态</span></a></p>
+        <p><a (click)="getpublic()">公告信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a (click)="getwork()"><span>工作动态</span></a></p>
         <ul *ngFor="let item of mainData.data.public">
             <li>
                 <a href={{item.link}}>{{item.title}}</a>
@@ -18,7 +18,7 @@
 
 <div class="row-box">
     <div class="box-left">
-        <p><a routerLink="/recruitment">招聘会</a>&nbsp;&nbsp;&nbsp;&nbsp;<a routerLink="/recruitment"><span>招聘简章</span></a></p>
+        <p><a (click)="getrecruitment()">招聘会</a>&nbsp;&nbsp;&nbsp;&nbsp;<a (click)="getrecruitmentinfo()"><span>招聘简章</span></a></p>
         <ul *ngFor="let item of mainData.data.recruitment">
             <li>
                 <a href={{item.link}}>{{item.title}}</a>

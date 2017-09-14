@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { GuidanceComponent } from './guidance/guidance.component';
-import { routing } from './app.routing.module'
+import { routing } from './app.routing.module';
+import { HttpModule } from '@angular/http';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { routing } from './app.routing.module'
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     routing
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

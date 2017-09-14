@@ -99,6 +99,78 @@ nav li:hover {
     background-color: #313131;
     width: 100%;
     height: 120px;
+    text-align: center;
+}
+
+.addabout {
+    margin-top: 0;
+    padding: 20px 0;
+}
+
+.icon {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.icon-background {
+    margin-top: -35px;
+    width: 25%;
+    float: left;
+}
+
+.icon-background p {
+    color: #ccc;
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+
+.icon-background p:hover {
+    color: #51bb95;
+}
+
+.icon-unit {
+    cursor: pointer;
+    background-color: #51bb95;
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+.icon-unit img {
+    margin: 18px 0;
+}
+
+.aboutinfo {
+    width: 70%;
+    margin: 0 auto;
+    color: #ccc;
+}
+
+.aboutinfo ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style: none;
+    font-size: 14px;
+}
+
+.aboutinfo li {
+    margin: 5px 0;
+}
+
+.about-left {
+    float: left;
+    text-align: left;
+}
+
+.about-right {
+    float: right;
+    text-align: left;
+}
+
+.about-left p,
+.about-right p {
+    margin: 0;
 }
 
 @media screen and (max-width: 900px) {
@@ -122,7 +194,17 @@ nav li:hover {
         display: block;
     }
 
-    .container {
+    .container,
+    .icon {
         width: 95%;
+    }
+
+    .about-right {
+        margin-top: 20px;
+        float: left;
+    }
+
+    .addabout {
+        height: 280px;
     }
 }

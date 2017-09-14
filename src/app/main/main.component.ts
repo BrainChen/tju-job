@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
     selector: 'app-main',
@@ -9,6 +10,10 @@ export class MainComponent implements OnInit {
 
     innerHeight: Number = window.screen.availHeight;
     innerWidth: Number = window.screen.availWidth;
+    mainDatas: Object;
+    publicObj: Object;
+    recruitmentObj: Object;
+
 
     mainData: Object = {
         'status': '0/1',
@@ -100,9 +105,29 @@ export class MainComponent implements OnInit {
     　　}
     }
 
-    constructor() { }
+    constructor(private dataService: DataService) { }
 
     ngOnInit() {
+        const self = this;
+        // this.dataService.fetchData().subscribe(function(data) {
+        //     self.mainDatas = data;
+        // })
+    }
+
+    getpublic(): void {
+        this.publicObj = this.mainDatas;
+    }
+
+    getwork(): void {
+        this.publicObj = this.mainDatas;
+    }
+
+    getrecruitment(): void {
+        this.recruitmentObj = this.mainDatas;
+    }
+
+    getrecruitmentinfo(): void {
+        this.recruitmentObj = this.mainDatas;
     }
 
 }
