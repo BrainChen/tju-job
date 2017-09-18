@@ -117,14 +117,52 @@ export class PublicComponent implements OnInit {
         ]
     }
 
+    currentPage: any = 1;
+    middlePage: any = 3;
+    pages: Array<number> = [this.currentPage, this.currentPage + 1, this.currentPage + 2, this.currentPage + 3, this.currentPage + 4];
+
     constructor(private dataService: DataService) {
-        const self = this;
-        this.dataService.fetchData('http://172.23.56.235:4567/api/notice/index/1').subscribe(function(data) {
-            this.publicData = data;
-        })
+        this.refreshContent(1);
     }
 
     ngOnInit() {
-    }   
+    }
+
+    onSelect(i): void {
+        this.currentPage = i;
+        if (i < this.publicData.all_page - 3 && i > 2) {
+            this.middlePage = i;
+        }
+        if (i === 2) {
+            this.middlePage = 3;
+        }
+        if (i === this.publicData.all_page - 1) {
+            this.middlePage = this.publicData.all_page - 2;
+        }
+        this.pages = [this.middlePage - 2, this.middlePage - 1, this.middlePage, this.middlePage + 1, this.middlePage + 2];
+        this.refreshContent(this.currentPage);
+    }
+
+    frontPage(): void {
+        if (this.currentPage > 1) {
+            this.currentPage--;
+            this.onSelect(this.currentPage);
+        }
+    }
+
+    nextPage(): void {
+        if (this.currentPage < this.publicData.all_page) {
+            this.currentPage++;
+            this.onSelect(this.currentPage);
+        }
+    }
+
+    refreshContent(page): void {
+        const self = this;
+        this.dataService.fetchData('http://172.26.108.111:4567/api/notice/index/' + page).subscribe(function(data) {
+            self.publicData = data;
+            console.log(data);
+        })
+    }
 
 }

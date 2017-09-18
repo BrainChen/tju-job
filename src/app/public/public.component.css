@@ -56,6 +56,26 @@ table {
     text-align: center;
 }
 
+.pages {
+    color: #666;
+    padding: 3px 6px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pages:hover {
+    color: black;
+}
+
+.change-page {
+    cursor: pointer;
+}
+
+.change-page:hover {
+    color: black;
+}
+
 @media screen and (max-width: 900px) {
     .public-box {
         display: block;

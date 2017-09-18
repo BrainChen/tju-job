@@ -1,0 +1,56 @@
+.work-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.work-left {
+    width: 20%;
+    margin-right: 10%;
+}
+
+.work-right {
+    width: 70%;
+}
+
+.workinfo {
+    padding: 20px 20px 0 20px;
+    width: 100%;
+    border: 1px solid #51bb95;
+    border-right: 15px solid #51bb95;
+    border-bottom: 15px solid #51bb95;
+}
+
+.workinfo p {
+    font-size: 20px;
+    margin: 10px 0;
+    padding-left: 10px;
+    border-left: 5px solid #3dbff0;
+}
+
+@media screen and (max-width: 900px) {
+    .work-box {
+        display: block;
+    }
+
+    .workinfo {
+        padding: 0;
+    }
+
+    .work-left,
+    .work-right {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .workinfo p {
+        font-size: 30px;
+    }
+
+    table {
+        color: #444;
+        font-size: 20px;
+        line-height: 40px;
+    }
+}

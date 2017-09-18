@@ -14,19 +14,21 @@
 						<td class="public-click">浏览量</td>
 					</tr>
 					<tr *ngFor="let item of publicData.data_important">
-						<td style="color: red;"><span class="public-title"><sup>[置顶]</sup>{{item.title}}</span></td>
+						<td style="color: red;"><span class="public-title" title="{{item.title}}"><sup>[置顶]</sup>{{item.title | shorter}}</span></td>
 						<td class="public-time">{{item.date}}</td>
 						<td class="public-click">{{item.click}}</td>
 					</tr>
 					<tr *ngFor="let item of publicData.data_notice">
-						<td><span class="public-title">{{item.title}}</span></td>
+						<td><span class="public-title" title="{{item.title}}">{{item.title | shorter}}</span></td>
 						<td class="public-time">{{item.date}}</td>
 						<td class="public-click">{{item.click}}</td>
 					</tr>
 				</table>
 				<div class="public-page">
-					<span>上一页</span>
-					<span>下一页</span>
+					<span class="change-page" (click)="frontPage()">上一页</span>
+					<span class="pages" *ngFor="let i of pages" (click)="onSelect(i)" [ngStyle]="{'background-color': i === currentPage?'#51bb95':'white'}">{{i}}</span>
+					<span class="change-page" (click)="nextPage()">下一页</span>
+					<span style="padding-left: 30px;">共 {{publicData.all_page}} 页</span>
 				</div>
 			</div>
 		</div>

@@ -13,7 +13,7 @@ export class MainComponent implements OnInit {
 
     mainDatas: MainDatas = {
     data_banner: {
-    image: '/upload/banner/17-09-13-01-43-18_1505310198iZz8T6.jpg'
+    image: ''
     },
     data_notice: [
     {
@@ -149,11 +149,11 @@ export class MainComponent implements OnInit {
     data_partner: [
     {
     url: 'http://www.tj.lss.gov.cn',
-    image: '/upload/partner17-03-22-10-02-52_1490148172Iysqfw.GIF'
+    image: ''
     },
     {
     url: 'http://www.moe.edu.cn/',
-    image: '/upload/partner17-03-22-10-02-15_14901481357oY0Jw.GIF'
+    image: ''
     }
     ]
     };
@@ -170,8 +170,9 @@ export class MainComponent implements OnInit {
     constructor(private dataService: DataService) {
         this.dataService.showAbout = true;
         const self = this;
-        this.dataService.fetchData('http://172.23.56.235:4567/api/index').subscribe(function(data) {
+        this.dataService.fetchData('http://172.26.108.111:4567/api/index').subscribe(function(data) {
             self.mainDatas = data;
+            console.log(data);
         })
     }
 

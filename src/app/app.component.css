@@ -55,6 +55,10 @@ footer p {
     font-size: 12px;
 }
 
+.active {
+    color: #51bb95;
+}
+
 .nav-item {
     width: 75%;
     height: 100%;

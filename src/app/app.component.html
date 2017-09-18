@@ -1,12 +1,12 @@
 <nav>
     <div class="nav-item">
         <ul>
-            <li (click)="toggleShow(true)" routerLink="/main"><a>首页</a></li>
-            <li (click)="toggleShow(false)" routerLink="/public"><a>公告信息</a></li>
-            <li (click)="toggleShow(false)" routerLink="/work"><a>工作动态</a></li>
-            <li (click)="toggleShow(false)" routerLink="/recruitment"><a>招聘信息</a></li>
-            <li (click)="toggleShow(false)" routerLink="/policy"><a>就业政策</a></li>
-            <li (click)="toggleShow(false)" routerLink="/guidance"><a>就业指导</a></li>
+            <li (click)="toggleShow(true)" routerLink="/main" routerLinkActive="active"><a>首页</a></li>
+            <li (click)="toggleShow(false)" routerLink="/public" routerLinkActive="active"><a>公告信息</a></li>
+            <li (click)="toggleShow(false)" routerLink="/work" routerLinkActive="active"><a>工作动态</a></li>
+            <li (click)="toggleShow(false)" routerLink="/recruitment" routerLinkActive="active"><a>招聘信息</a></li>
+            <li (click)="toggleShow(false)" routerLink="/policy" routerLinkActive="active"><a>就业政策</a></li>
+            <li (click)="toggleShow(false)" routerLink="/guidance" routerLinkActive="active"><a>就业指导</a></li>
         </ul>
     </div>
 </nav>
@@ -23,12 +23,12 @@
         <img [ngClass]="around" src="../assets/arrow_down.png" alt="pull to get the navigation">
     </div>
     <ul (click)="toggleArrow()" [ngClass]="downmenu">
-        <li (click)="toggleShow(true)" routerLink="/main"><a>首页</a></li>
-        <li (click)="toggleShow(false)" routerLink="/public"><a>公告信息</a></li>
-        <li (click)="toggleShow(false)" routerLink="/work"><a>工作动态</a></li>
-        <li (click)="toggleShow(false)" routerLink="/recruitment"><a>招聘信息</a></li>
-        <li (click)="toggleShow(false)" routerLink="/policy"><a>就业政策</a></li>
-        <li (click)="toggleShow(false)" routerLink="/guidance"><a>就业指导</a></li>
+        <li (click)="toggleShow(true)" routerLink="/main" routerLinkActive="active"><a>首页</a></li>
+        <li (click)="toggleShow(false)" routerLink="/public" routerLinkActive="active"><a>公告信息</a></li>
+        <li (click)="toggleShow(false)" routerLink="/work" routerLinkActive="active"><a>工作动态</a></li>
+        <li (click)="toggleShow(false)" routerLink="/recruitment" routerLinkActive="active"><a>招聘信息</a></li>
+        <li (click)="toggleShow(false)" routerLink="/policy" routerLinkActive="active"><a>就业政策</a></li>
+        <li (click)="toggleShow(false)" routerLink="/guidance" routerLinkActive="active"><a>就业指导</a></li>
     </ul>
 </div>
 

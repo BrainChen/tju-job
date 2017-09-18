@@ -16,6 +16,8 @@ import { DataService } from './data.service';
 import { CalendarComponent } from './plugins/calendar/calendar.component';
 import { WorktimeComponent } from './plugins/worktime/worktime.component';
 import { RelativelinkComponent } from './plugins/relativelink/relativelink.component';
+import { NavigateComponent } from './plugins/navigate/navigate.component';
+import { ShorterPipe } from './shorter.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { RelativelinkComponent } from './plugins/relativelink/relativelink.compo
     GuidanceComponent,
     CalendarComponent,
     WorktimeComponent,
-    RelativelinkComponent
+    RelativelinkComponent,
+    NavigateComponent,
+    ShorterPipe
   ],
   imports: [
     BrowserModule,
