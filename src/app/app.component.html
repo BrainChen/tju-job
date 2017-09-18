@@ -1,12 +1,12 @@
 <nav>
     <div class="nav-item">
         <ul>
-            <li (click)="this.showAbout = true" routerLink="/main"><a>首页</a></li>
-            <li (click)="this.showAbout = false" routerLink="/public"><a>公告信息</a></li>
-            <li (click)="this.showAbout = false" routerLink="/work"><a>工作动态</a></li>
-            <li (click)="this.showAbout = false" routerLink="/recruitment"><a>招聘信息</a></li>
-            <li (click)="this.showAbout = false" routerLink="/policy"><a>就业政策</a></li>
-            <li (click)="this.showAbout = false" routerLink="/guidance"><a>就业指导</a></li>
+            <li (click)="toggleShow(true)" routerLink="/main"><a>首页</a></li>
+            <li (click)="toggleShow(false)" routerLink="/public"><a>公告信息</a></li>
+            <li (click)="toggleShow(false)" routerLink="/work"><a>工作动态</a></li>
+            <li (click)="toggleShow(false)" routerLink="/recruitment"><a>招聘信息</a></li>
+            <li (click)="toggleShow(false)" routerLink="/policy"><a>就业政策</a></li>
+            <li (click)="toggleShow(false)" routerLink="/guidance"><a>就业指导</a></li>
         </ul>
     </div>
 </nav>
@@ -23,12 +23,12 @@
         <img [ngClass]="around" src="../assets/arrow_down.png" alt="pull to get the navigation">
     </div>
     <ul (click)="toggleArrow()" [ngClass]="downmenu">
-        <li (click)="this.showAbout = true" routerLink="/main"><a>首页</a></li>
-        <li (click)="this.showAbout = false" routerLink="/public"><a>公告信息</a></li>
-        <li (click)="this.showAbout = false" routerLink="/work"><a>工作动态</a></li>
-        <li (click)="this.showAbout = false" routerLink="/recruitment"><a>招聘信息</a></li>
-        <li (click)="this.showAbout = false" routerLink="/policy"><a>就业政策</a></li>
-        <li (click)="this.showAbout = false" routerLink="/guidance"><a>就业指导</a></li>
+        <li (click)="toggleShow(true)" routerLink="/main"><a>首页</a></li>
+        <li (click)="toggleShow(false)" routerLink="/public"><a>公告信息</a></li>
+        <li (click)="toggleShow(false)" routerLink="/work"><a>工作动态</a></li>
+        <li (click)="toggleShow(false)" routerLink="/recruitment"><a>招聘信息</a></li>
+        <li (click)="toggleShow(false)" routerLink="/policy"><a>就业政策</a></li>
+        <li (click)="toggleShow(false)" routerLink="/guidance"><a>就业指导</a></li>
     </ul>
 </div>
 
@@ -36,7 +36,7 @@
     <router-outlet></router-outlet>
 </div>
 
-<div *ngIf="showAbout" class="about">
+<div *ngIf="dataService.showAbout" class="about">
     <div class="icon">
         <div class="icon-background">
             <div class="icon-unit">
@@ -68,7 +68,7 @@
     </div>
 </div>
 
-<div *ngIf="showAbout" class="about addabout">
+<div *ngIf="dataService.showAbout" class="about addabout">
     <div class="aboutinfo">
         <div class="about-left">
             <p>办公时间  <sub>（节假日除外）</sub></p>
@@ -89,3 +89,10 @@
         </div>
     </div>
 </div>
+
+<footer>
+    <p>通讯地址：天津大学就业指导中心   邮编：300072</p>
+    <p>办公地点：大学生活动中心一层108、106室   传真：022-27401054</p>
+    <p>联系电话：卫津路校区 022-83613600   北洋园校区 022-27401083转8000或8001</p>
+    <p>招聘邮箱：job@tju.edu.cn   日常咨询邮箱：jyzx@tju.edu.cn</p>
+</footer>

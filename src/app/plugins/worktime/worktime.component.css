@@ -1,0 +1,31 @@
+ul {
+    margin-top: 0;
+    padding-left: 20px;
+    line-height: 25px;
+}
+
+li {
+    list-style: none;
+    font-size: 14px;
+    color: #444;
+}
+
+.worktime {
+    margin-bottom: 40px;
+    padding: 0 20px;
+    width: 100%;
+    border: 1px solid #51bb95;
+    border-right: 15px solid #51bb95;
+}
+
+.worktime p {
+    margin-bottom: 0;
+    padding-left: 10px;
+    border-left: 5px solid #3dbff0;
+}
+
+@media screen and (max-width: 900px) {
+    .worktime {
+        padding: 0;
+    }
+}

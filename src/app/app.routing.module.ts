@@ -1,8 +1,12 @@
-import { MainComponent } from './main/main.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
+import { MainComponent } from './main/main.component';
 import { GuidanceComponent } from './guidance/guidance.component';
+import { PublicComponent } from './public/public.component';
+import { PolicyComponent } from './policy/policy.component';
+import { RecruitmentComponent } from './recruitment/recruitment.component';
+import { WorkComponent } from './work/work.component';
 
 const appRoutes: Routes = [
     {
@@ -16,25 +20,23 @@ const appRoutes: Routes = [
     },
     {
         path: 'public',
-        loadChildren: 'app/public/public.module#PublicModule'
+        component: PublicComponent
     },
     {
         path: 'work',
-        loadChildren: 'app/work/work.module#WorkModule'
+        component: WorkComponent
     },
     {
         path: 'recruitment',
-        loadChildren: 'app/recruitment/recruitment.module#RecruitmentModule'
+        component: RecruitmentComponent
     },
     {
         path: 'policy',
-        loadChildren: 'app/policy/policy.module#PolicyModule'
+        component: PolicyComponent
     },
-    // want to know why this component cannot be packed as a lazy component
     {
         path: 'guidance',
         component: GuidanceComponent
-        //loadChildren: 'app/guidance/guidance.module#GuidanceModule'
     }
 ]
 

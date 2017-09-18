@@ -37,6 +37,24 @@ nav li:hover {
     color: #51bb95;
 }
 
+app-calendar {
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0 40px 0;
+    background-color: #2c2d2f;
+}
+
+footer p {
+    margin: 5px 0;
+    padding: 0 10px;
+    color: #ccc;
+    font-size: 12px;
+}
+
 .nav-item {
     width: 75%;
     height: 100%;
@@ -92,6 +110,7 @@ nav li:hover {
     width: 75%;
     margin: 0 auto;
     margin-top: 15px;
+    margin-bottom: 50px;
 }
 
 .about {
@@ -206,5 +225,11 @@ nav li:hover {
 
     .addabout {
         height: 280px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .aboutinfo {
+        width: 50%;
     }
 }

@@ -1,3 +1,7 @@
+ul {
+    padding: 0 20px;
+}
+
 .big-image {
     width: 100%;
 }
@@ -18,7 +22,7 @@
 .box-left p {
     padding: 0 10px;
     margin-left: 10px;
-    border-left: 3px solid #51bb95;
+    border-left: 5px solid #3dbff0;
     font-size: 20px;
 }
 
@@ -28,11 +32,18 @@
 }
 
 .box-left p span {
-    color: #888;
-    font-size: 14px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.5s linear;
+}
+
+.box-left p span:hover {
+    color :#3dbff0;
 }
 
 .box-left li {
+    display: list-item;
+    padding-bottom: 5px;
     list-style: square inside url('../../assets/next.png');
 }
 
@@ -43,7 +54,7 @@
 }
 
 .box-left li a:hover {
-    color: #51bb95;
+    color: #3dbff0;
 }
 
 .li-time {
@@ -97,5 +108,9 @@
 @media screen and (max-width: 500px) {
     .li-time {
         display: none;
+    }
+
+    .box-left li a {
+        font-size: 14px;
     }
 }

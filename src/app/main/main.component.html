@@ -1,34 +1,34 @@
-<img class="big-image" src={{mainData.data.image}} alt="big image">
+<img class="big-image" src={{mainDatas.data_banner.image}} alt="big image">
 
 <div class="row-box">
     <div class="box-left">
-        <p><a (click)="getpublic()">公告信息</a>&nbsp;&nbsp;&nbsp;&nbsp;<a (click)="getwork()"><span>工作动态</span></a></p>
-        <ul *ngFor="let item of mainData.data.public">
+        <p><a [ngStyle]="{'color':isone?'#3dbff0':'black'}" (click)="getpublic()"><span>公告信息</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!isone?'#3dbff0':'black'}" (click)="getwork()"><span>工作动态</span></a></p>
+        <ul *ngFor="let item of publicObj">
             <li>
                 <a href={{item.link}}>{{item.title}}</a>
-                <span class="li-time">{{item.time}}</span>
+                <span class="li-time">{{item.date}}</span>
             </li>
         </ul>
     </div>
 
     <div class="box-right">
-        <p>招聘日历</p>
+        <app-calendar></app-calendar>
     </div>
 </div>
 
 <div class="row-box">
     <div class="box-left">
-        <p><a (click)="getrecruitment()">招聘会</a>&nbsp;&nbsp;&nbsp;&nbsp;<a (click)="getrecruitmentinfo()"><span>招聘简章</span></a></p>
-        <ul *ngFor="let item of mainData.data.recruitment">
+        <p><a [ngStyle]="{'color':istwo?'#3dbff0':'black'}" (click)="getrecruitment()"><span>招聘会</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!istwo?'#3dbff0':'black'}" (click)="getrecruitmentinfo()"><span>招聘简章</span></a></p>
+        <ul *ngFor="let item of recruitmentObj">
             <li>
                 <a href={{item.link}}>{{item.title}}</a>
-                <span class="li-time">{{item.time}}</span>
+                <span class="li-time">{{item.date}}</span>
             </li>
         </ul>
     </div>
 
     <div class="advertisement">
-        <a href={{mainData.data.advertisement[0].link}} target="_blank"><img src={{mainData.data.advertisement[0].src}} alt="advertisement"></a>
-        <a href={{mainData.data.advertisement[1].link}} target="_blank"><img src={{mainData.data.advertisement[1].src}} alt="advertisement"></a>
+        <a href={{mainDatas.data_partner[0].url}} target="_blank"><img src={{mainDatas.data_partner[0].image}} alt="advertisement"></a>
+        <a href={{mainDatas.data_partner[1].url}} target="_blank"><img src={{mainDatas.data_partner[1].image}} alt="advertisement"></a>
     </div>
 </div>

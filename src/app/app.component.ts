@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common'
+import { Location } from '@angular/common';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,6 @@ import { Location } from '@angular/common'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    showAbout: Boolean = true;
 
     yesaround: Object = {'around': true};
     noaround: Object = {'around': false};
@@ -30,4 +30,10 @@ export class AppComponent {
             this.downmenu = this.yesdownmenu;
         }
     }
+
+    toggleShow(bool): void {
+        this.dataService.toggleShow(bool);
+    }
+
+    constructor(private dataService: DataService) { }
 }
