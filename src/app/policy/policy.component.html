@@ -1,3 +1,30 @@
-<p>
-  policy works!
-</p>
+<div [@flyIn]="'active'" class="policy-box">
+		<div class="policy-left">
+			<app-calendar></app-calendar>
+			<app-worktime></app-worktime>
+			<app-relativelink></app-relativelink>
+		</div>
+		<div class="policy-right">
+			<div class="policyinfo">
+				<p>就业政策</p>
+				<table>
+					<tr>
+						<td></td>
+						<td class="policy-time">发布时间</td>
+						<td class="policy-click">浏览量</td>
+					</tr>
+					<tr *ngFor="let item of policyData.data_guide">
+						<td><span class="policy-title" title="{{item.title}}">{{item.title | shorter}}</span></td>
+						<td class="policy-time">{{item.date}}</td>
+						<td class="policy-click">{{item.click}}</td>
+					</tr>
+				</table>
+				<div class="policy-page">
+					<span class="change-page" (click)="frontPage()">上一页</span>
+					<span class="pages" *ngFor="let i of pages" (click)="onSelect(i)" [ngStyle]="{'background-color': i === currentPage?'#51bb95':'white'}">{{i}}</span>
+					<span class="change-page" (click)="nextPage()">下一页</span>
+					<span style="padding-left: 30px;">共 {{policyData.all_page}} 页</span>
+				</div>
+			</div>
+		</div>
+</div>

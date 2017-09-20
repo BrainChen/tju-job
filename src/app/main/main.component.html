@@ -1,34 +1,36 @@
-<img class="big-image" src={{mainDatas.data_banner.image}} alt="big image">
+<div [@flyIn]="'active'">
+    <img class="big-image" src={{mainDatas.data_banner.image}} alt="big image">
 
-<div class="row-box">
-    <div class="box-left">
-        <p><a [ngStyle]="{'color':isone?'#3dbff0':'black'}" (click)="getpublic()"><span>公告信息</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!isone?'#3dbff0':'black'}" (click)="getwork()"><span>工作动态</span></a></p>
-        <ul *ngFor="let item of publicObj">
-            <li>
-                <a href={{item.link}}>{{item.title}}</a>
-                <span class="li-time">{{item.date}}</span>
-            </li>
-        </ul>
+    <div class="row-box">
+        <div class="box-left">
+            <p><a [ngStyle]="{'color':isone?'#3dbff0':'black'}" (click)="getpublic()"><span>公告信息</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!isone?'#3dbff0':'black'}" (click)="getwork()"><span>工作动态</span></a></p>
+            <ul *ngFor="let item of publicObj">
+                <li [@flyIn]="'active'">
+                    <a href={{item.link}}>{{item.title}}</a>
+                    <span class="li-time">{{item.date}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="box-right">
+            <app-calendar></app-calendar>
+        </div>
     </div>
 
-    <div class="box-right">
-        <app-calendar></app-calendar>
-    </div>
-</div>
+    <div class="row-box">
+        <div class="box-left">
+            <p><a [ngStyle]="{'color':istwo?'#3dbff0':'black'}" (click)="getrecruitment()"><span>招聘会</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!istwo?'#3dbff0':'black'}" (click)="getrecruitmentinfo()"><span>招聘简章</span></a></p>
+            <ul *ngFor="let item of recruitmentObj">
+                <li [@flyIn]="'active'">
+                    <a href={{item.link}}>{{item.title}}</a>
+                    <span class="li-time">{{item.date}}</span>
+                </li>
+            </ul>
+        </div>
 
-<div class="row-box">
-    <div class="box-left">
-        <p><a [ngStyle]="{'color':istwo?'#3dbff0':'black'}" (click)="getrecruitment()"><span>招聘会</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!istwo?'#3dbff0':'black'}" (click)="getrecruitmentinfo()"><span>招聘简章</span></a></p>
-        <ul *ngFor="let item of recruitmentObj">
-            <li>
-                <a href={{item.link}}>{{item.title}}</a>
-                <span class="li-time">{{item.date}}</span>
-            </li>
-        </ul>
-    </div>
-
-    <div class="advertisement">
-        <a href={{mainDatas.data_partner[0].url}} target="_blank"><img src={{mainDatas.data_partner[0].image}} alt="advertisement"></a>
-        <a href={{mainDatas.data_partner[1].url}} target="_blank"><img src={{mainDatas.data_partner[1].image}} alt="advertisement"></a>
+        <div class="advertisement">
+            <a href={{mainDatas.data_partner[0].url}} target="_blank"><img src={{mainDatas.data_partner[0].image}} alt="advertisement"></a>
+            <a href={{mainDatas.data_partner[1].url}} target="_blank"><img src={{mainDatas.data_partner[1].image}} alt="advertisement"></a>
+        </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="work-box">
+<div [@flyIn]="'active'" class="work-box">
     <div class="work-left">
         <app-calendar></app-calendar>
         <app-worktime></app-worktime>
@@ -7,8 +7,37 @@
     <div class="work-right">
         <div class="workinfo">
             <p>工作动态</p>
-            <div class="imageinfo">
-                
+            <div class="head">
+                <div class="head-left">
+                    <img src="../../assets/hero.jpg" alt="head-image">
+                </div>
+                <div class="head-right">
+                    <ul>
+                        <li *ngFor="let item of workData.data_important"><a>{{item.title}}</a><span>{{item.date}}</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content">
+                <table>
+					<tr>
+						<td></td>
+						<td class="work-date">发布时间</td>
+						<td class="work-click">浏览量</td>
+					</tr>
+                    <tr *ngFor="let item of workData.data_guide">
+                        <td><span class="work-title" title="{{item.title}}">{{item.title | shorter}}</span></td>
+                        <td class="work-date">{{item.date}}</td>
+                        <td class="work-click">{{item.click}}</td>
+                    </tr>
+                </table>
+
+                <div class="work-page">
+					<span class="change-page" (click)="frontPage()">上一页</span>
+					<span class="pages" *ngFor="let i of pages" (click)="onSelect(i)" [ngStyle]="{'background-color': i === currentPage?'#51bb95':'white'}">{{i}}</span>
+					<span class="change-page" (click)="nextPage()">下一页</span>
+					<span style="padding-left: 30px;">共 {{workData.all_page}} 页</span>
+				</div>
             </div>
         </div>
     </div>

@@ -2,10 +2,14 @@ import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { DataService } from './data.service';
 
+import { flyIn } from './animate/fly-in';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+
+  animations: [flyIn]
 })
 export class AppComponent {
 
@@ -32,6 +36,7 @@ export class AppComponent {
     }
 
     toggleShow(bool): void {
+        scroll(0, 0);
         this.dataService.toggleShow(bool);
     }
 

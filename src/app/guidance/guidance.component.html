@@ -1,3 +1,30 @@
-<p>
-  guidance works!
-</p>
+<div [@flyIn]="'active'" class="guidance-box">
+		<div class="guidance-left">
+			<app-calendar></app-calendar>
+			<app-worktime></app-worktime>
+			<app-relativelink></app-relativelink>
+		</div>
+		<div class="guidance-right">
+			<div class="guidanceinfo">
+				<p>就业指导</p>
+				<table>
+					<tr>
+						<td></td>
+						<td class="guidance-time">发布时间</td>
+						<td class="guidance-click">浏览量</td>
+					</tr>
+					<tr *ngFor="let item of guidanceData.data_guide">
+						<td><span class="guidance-title" title="{{item.title}}">{{item.title | shorter}}</span></td>
+						<td class="guidance-time">{{item.date}}</td>
+						<td class="guidance-click">{{item.click}}</td>
+					</tr>
+				</table>
+				<div class="guidance-page">
+					<span class="change-page" (click)="frontPage()">上一页</span>
+					<span class="pages" *ngFor="let i of pages" (click)="onSelect(i)" [ngStyle]="{'background-color': i === currentPage?'#51bb95':'white'}">{{i}}</span>
+					<span class="change-page" (click)="nextPage()">下一页</span>
+					<span style="padding-left: 30px;">共 {{guidanceData.all_page}} 页</span>
+				</div>
+			</div>
+		</div>
+</div>

@@ -8,6 +8,16 @@ import { PolicyComponent } from './policy/policy.component';
 import { RecruitmentComponent } from './recruitment/recruitment.component';
 import { WorkComponent } from './work/work.component';
 
+import { BriefComponent } from './recruitment/brief/brief.component';
+import { MeetingComponent } from './recruitment/meeting/meeting.component';
+import { InternComponent } from './recruitment/intern/intern.component';
+import { CivilComponent } from './recruitment/civil/civil.component';
+import { VillageComponent } from './recruitment/village/village.component';
+import { AdmissionComponent } from './recruitment/admission/admission.component';
+
+import { DownloadComponent } from './download/download.component';
+import { ServiceComponent } from './service/service.component';
+
 const appRoutes: Routes = [
     {
         path: '',
@@ -28,7 +38,33 @@ const appRoutes: Routes = [
     },
     {
         path: 'recruitment',
-        component: RecruitmentComponent
+        component: RecruitmentComponent,
+        children: [
+            {
+                path: 'brief',
+                component: BriefComponent
+            },
+            {
+                path: 'meeting',
+                component: MeetingComponent
+            },
+            {
+                path: 'intern',
+                component: InternComponent
+            },
+            {
+                path: 'civil',
+                component: CivilComponent
+            },
+            {
+                path: 'village',
+                component: VillageComponent
+            },
+            {
+                path: 'admission',
+                component: AdmissionComponent
+            },
+        ]
     },
     {
         path: 'policy',
@@ -37,6 +73,14 @@ const appRoutes: Routes = [
     {
         path: 'guidance',
         component: GuidanceComponent
+    },
+    {
+        path: 'download',
+        component: DownloadComponent
+    },
+    {
+        path: 'service',
+        component: ServiceComponent
     }
 ]
 

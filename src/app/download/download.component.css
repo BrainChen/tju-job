@@ -5,36 +5,46 @@ table {
     padding-left: 10px;
 }
 
-.guidance-box {
+a {
+    text-decoration: none;
+    color: black;
+    transition: all 0.5s linear;
+}
+
+a:hover {
+    color: #3dbff0;
+}
+
+.download-box {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
 }
 
-.guidance-left {
+.download-left {
     width: 20%;
     margin-right: 10%;
 }
 
-.guidance-right {
+.download-right {
     width: 70%;
 }
 
-.guidance-title {
+.download-title {
     cursor: pointer;
     transition: all 0.5s linear;
 }
 
-.guidance-title:hover {
+.download-title:hover {
     color: #3dbff0;
 }
 
-.guidance-time,
-.guidance-click {
+.download-time,
+.download-click {
     text-align: center;
 }
 
-.guidanceinfo {
+.downloadinfo {
     padding: 20px 20px 0 20px;
     width: 100%;
     border: 1px solid #51bb95;
@@ -42,14 +52,14 @@ table {
     border-bottom: 15px solid #51bb95;
 }
 
-.guidanceinfo p {
+.downloadinfo p {
     font-size: 20px;
     margin: 10px 0;
     padding-left: 10px;
     border-left: 5px solid #3dbff0;
 }
 
-.guidance-page {
+.download-page {
     font-size: 14px;
     color: #959595;
     padding: 0 0 20px 0;
@@ -77,29 +87,29 @@ table {
 }
 
 @media screen and (max-width: 900px) {
-    .guidance-box {
+    .download-box {
         display: block;
     }
 
-    .guidanceinfo {
+    .downloadinfo {
         padding: 0;
     }
 
-    .guidance-left,
-    .guidance-right {
+    .download-left,
+    .download-right {
         width: 100%;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .guidance-time,
-    .guidance-click {
+    .download-time,
+    .download-click {
         display: none;
     }
 }
 
 @media screen and (min-width: 1400px) {
-    .guidanceinfo p {
+    .downloadinfo p {
         font-size: 30px;
     }
 

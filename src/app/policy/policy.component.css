@@ -1,0 +1,111 @@
+table {
+    width: 100%;
+    margin-bottom: 50px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+.policy-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.policy-left {
+    width: 20%;
+    margin-right: 10%;
+}
+
+.policy-right {
+    width: 70%;
+}
+
+.policy-title {
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+
+.policy-title:hover {
+    color: #3dbff0;
+}
+
+.policy-time,
+.policy-click {
+    text-align: center;
+}
+
+.policyinfo {
+    padding: 20px 20px 0 20px;
+    width: 100%;
+    border: 1px solid #51bb95;
+    border-right: 15px solid #51bb95;
+    border-bottom: 15px solid #51bb95;
+}
+
+.policyinfo p {
+    font-size: 20px;
+    margin: 10px 0;
+    padding-left: 10px;
+    border-left: 5px solid #3dbff0;
+}
+
+.policy-page {
+    font-size: 14px;
+    color: #959595;
+    padding: 0 0 20px 0;
+    text-align: center;
+}
+
+.pages {
+    color: #666;
+    padding: 3px 6px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pages:hover {
+    color: black;
+}
+
+.change-page {
+    cursor: pointer;
+}
+
+.change-page:hover {
+    color: black;
+}
+
+@media screen and (max-width: 900px) {
+    .policy-box {
+        display: block;
+    }
+
+    .policyinfo {
+        padding: 0;
+    }
+
+    .policy-left,
+    .policy-right {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .policy-time,
+    .policy-click {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .policyinfo p {
+        font-size: 30px;
+    }
+
+    table {
+        color: #444;
+        font-size: 20px;
+        line-height: 40px;
+    }
+}

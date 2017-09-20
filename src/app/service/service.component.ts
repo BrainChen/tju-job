@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { flyIn } from '../animate/fly-in';
 
 @Component({
-  selector: 'app-recruitment',
-  templateUrl: './recruitment.component.html',
-  styleUrls: ['./recruitment.component.css'],
+  selector: 'app-service',
+  templateUrl: './service.component.html',
+  styleUrls: ['./service.component.css'],
 
   animations: [flyIn]
 })
-export class RecruitmentComponent implements OnInit {
+export class ServiceComponent implements OnInit {
 
   constructor() { }
 

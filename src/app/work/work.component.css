@@ -1,3 +1,39 @@
+img {
+    width: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+li span {
+    float: right;
+}
+
+li a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    transition: all 0.5s linear;
+}
+
+li a:hover {
+    color: #3dbff0;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 50px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
 .work-box {
     display: flex;
     flex-wrap: wrap;
@@ -23,12 +59,69 @@
 
 .workinfo p {
     font-size: 20px;
-    margin: 10px 0;
+    margin: 10px 0 20px 0;
     padding-left: 10px;
     border-left: 5px solid #3dbff0;
 }
 
+.head {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.head-left,
+.head-right {
+    margin: 0 auto;
+    width: 45%;
+}
+
+.work-title {
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+
+.work-title:hover {
+    color: #3dbff0;
+}
+
+.work-time,
+.work-click {
+    text-align: center;
+}
+
+.work-page {
+    font-size: 14px;
+    color: #959595;
+    padding: 0 0 20px 0;
+    text-align: center;
+}
+
+.pages {
+    color: #666;
+    padding: 3px 6px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pages:hover {
+    color: black;
+}
+
+.change-page {
+    cursor: pointer;
+}
+
+.change-page:hover {
+    color: black;
+}
+
 @media screen and (max-width: 900px) {
+    ul {
+        padding: 0;
+    }
+    
     .work-box {
         display: block;
     }
@@ -37,9 +130,27 @@
         padding: 0;
     }
 
+    .head {
+        display: block;
+    }
+
+    .head-left {
+        margin-bottom: 20px;
+    }
+
+    .head-left,
+    .head-right {
+        width: 95%;
+    }
+
     .work-left,
     .work-right {
         width: 100%;
+    }
+
+    .work-time,
+    .work-click {
+        display: none;
     }
 }
 

@@ -1,19 +1,22 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
+import { flyIn } from '../animate/fly-in';
 
 import { MainDatas } from './mainData';
 
 @Component({
     selector: 'app-main',
     templateUrl: './main.component.html',
-    styleUrls: ['./main.component.css']
+    styleUrls: ['./main.component.css'],
+
+    animations: [flyIn]
 })
 
 export class MainComponent implements OnInit {
 
     mainDatas: MainDatas = {
     data_banner: {
-    image: ''
+    image: '../../assets/big.png'
     },
     data_notice: [
     {
@@ -148,11 +151,11 @@ export class MainComponent implements OnInit {
     },
     data_partner: [
     {
-    url: 'http://www.tj.lss.gov.cn',
+    url: '../../assets/advertisement1.png',
     image: ''
     },
     {
-    url: 'http://www.moe.edu.cn/',
+    url: '../../assets/advertisement2.png',
     image: ''
     }
     ]
@@ -170,7 +173,7 @@ export class MainComponent implements OnInit {
     constructor(private dataService: DataService) {
         this.dataService.showAbout = true;
         const self = this;
-        this.dataService.fetchData('http://172.26.108.111:4567/api/index').subscribe(function(data) {
+        this.dataService.fetchData('http://172.26.169.32:4567/api/index').subscribe(function(data) {
             self.mainDatas = data;
             console.log(data);
         })

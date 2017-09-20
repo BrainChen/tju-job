@@ -1,3 +1,30 @@
-<p>
-  recruitment works!
-</p>
+<div [@flyIn]="'active'" class="recruitment-box">
+	<div class="recruitment-left">
+		<div class="navigate">
+			<p>栏目导航</p>
+			<table>
+				<tr>
+					<td><a routerLink="brief">招聘简章</a></td>
+					<td><a routerLink="meeting">招聘会</a></td>
+				</tr>
+				<tr>
+					<td><a routerLink="intern">实习生专栏</a></td>
+					<td><a routerLink="civil">公务员专栏</a></td>
+				</tr>
+				<tr>
+					<td><a routerLink="village">村官基层专栏</a></td>
+					<td><a routerLink="admission">录取通知</a></td>
+				</tr>
+			</table>
+		</div>
+		<app-calendar></app-calendar>
+		<app-worktime></app-worktime>
+		<app-relativelink></app-relativelink>
+	</div>
+
+	<div class="recruitment-right">
+		<div class="recruitmentinfo">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</div>

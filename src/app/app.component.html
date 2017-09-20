@@ -40,30 +40,30 @@
     <div class="icon">
         <div class="icon-background">
             <div class="icon-unit">
-                <img src="../assets/page.png" alt="policy">
+                <img (click)="toggleShow(false)" routerLink="/policy" src="../assets/page.png" alt="policy">
             </div>
-            <p>就业政策</p>
+            <p (click)="toggleShow(false)" routerLink="/policy">就业政策</p>
         </div>
 
         <div class="icon-background">
             <div class="icon-unit">
-                <img src="../assets/compass.png" alt="guidance">
+                <img (click)="toggleShow(false)" routerLink="/guidance" src="../assets/compass.png" alt="guidance">
             </div>
-            <p>就业指导</p>
+            <p (click)="toggleShow(false)" routerLink="/guidance">就业指导</p>
         </div>
 
         <div class="icon-background">
             <div class="icon-unit">
-                <img src="../assets/download.png" alt="download">
+                <img (click)="toggleShow(false)" routerLink="/download" src="../assets/download.png" alt="download">
             </div>
-            <p>下载专区</p>
+            <p (click)="toggleShow(false)" routerLink="/download">下载专区</p>
         </div>
 
         <div class="icon-background">
             <div class="icon-unit">
-                <img src="../assets/i.png" alt="service">
+                <img (click)="toggleShow(false)" routerLink="/service" src="../assets/i.png" alt="service">
             </div>
-            <p>单位服务</p>
+            <p (click)="toggleShow(false)" routerLink="/service">单位服务</p>
         </div>
     </div>
 </div>
@@ -74,7 +74,7 @@
             <p>办公时间  <sub>（节假日除外）</sub></p>
             <ul>
                 <li>上午 8:30-12:00</li>
-                <li>下午 13:00-16.30</li>
+                <li>下午 13:00-16:30</li>
                 <li>周五16:30以后为中心内部学习时间，不办理就业手续</li>
                 <li>每周二、四上午:办理往届生就业手续以及违约、改派手续</li>
             </ul>
@@ -92,7 +92,8 @@
 
 <footer>
     <p>通讯地址：天津大学就业指导中心   邮编：300072</p>
-    <p>办公地点：大学生活动中心一层108、106室   传真：022-27401054</p>
-    <p>联系电话：卫津路校区 022-83613600   北洋园校区 022-27401083转8000或8001</p>
-    <p>招聘邮箱：job@tju.edu.cn   日常咨询邮箱：jyzx@tju.edu.cn</p>
+    <p>卫津路校区：大学生活动中心一层108、106室  北洋园校区：大学生活动中心一层C107、C109室</p>
+    <p>传真：022-27401054</p>
+    <p>联系电话：卫津路校区 022-83613600   北洋园校区 022-27401081转8000或8001</p>
+    <p>招聘邮箱：job@tju.edu.cn</p>
 </footer>

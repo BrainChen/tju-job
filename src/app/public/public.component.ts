@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 
 import { PublicData } from './publicData';
+import { flyIn } from '../animate/fly-in';
 
 @Component({
   selector: 'app-public',
   templateUrl: './public.component.html',
-  styleUrls: ['./public.component.css']
+  styleUrls: ['./public.component.css'],
+
+  animations: [flyIn]
 })
 export class PublicComponent implements OnInit {
 
     publicData: PublicData = {
-        all_page: 58,
+        all_page: 87,
         page: '1',
         data_important: [
         {
@@ -99,23 +102,9 @@ export class PublicComponent implements OnInit {
         click: 881,
         date: '2017-05-08',
         important: '0'
-        },
-        {
-        id: 1118,
-        title: '职业发展咨询室5月份的预约开始啦！',
-        click: 977,
-        date: '2017-05-05',
-        important: '0'
-        },
-        {
-        id: 1117,
-        title: '【5.5朋辈经验分享会】之化工学院专场',
-        click: 1011,
-        date: '2017-05-05',
-        important: '0'
         }
         ]
-    }
+    };
 
     currentPage: any = 1;
     middlePage: any = 3;
@@ -130,7 +119,7 @@ export class PublicComponent implements OnInit {
 
     onSelect(i): void {
         this.currentPage = i;
-        if (i < this.publicData.all_page - 3 && i > 2) {
+        if (i < this.publicData.all_page - 1 && i > 2) {
             this.middlePage = i;
         }
         if (i === 2) {
@@ -159,7 +148,7 @@ export class PublicComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.26.108.111:4567/api/notice/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.26.169.32:4567/api/notice/index/' + page).subscribe(function(data) {
             self.publicData = data;
             console.log(data);
         })
