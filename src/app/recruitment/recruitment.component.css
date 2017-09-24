@@ -5,16 +5,38 @@
     font-size: 14px;
 }
 
-a {
+table a {
     text-decoration: none;
     color: #666;
     cursor: pointer;
     transition: all 0.5s linear;
 }
 
-a:hover {
+table a:hover {
     color: #51bb95;
 }
+
+input {
+    width: 250px;
+    height: 20px;
+    font-size: 16px;
+    padding: 10px 30px;
+    outline: none;
+    border: 1px solid #959595;
+    background-color: #e5e5e5;
+}
+
+button {
+    margin-left: 40px;
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+    background-color: #b5b5b5;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
 
 ul {
     margin-top: 0;
@@ -38,12 +60,42 @@ li {
 
 .navigate p {
     padding-left: 10px;
-    border-left: 5px solid #3dbff0;
+    border-left: 5px solid #51bb95;
 }
+
+.brief-content {
+    margin-bottom: 40px;
+}
+
+.brief-content p {
+    letter-spacing: 1px;
+    font-size: 20px;
+    margin: 10px 0;
+    padding-left: 10px;
+    border-left: 5px solid #51bb95;
+}
+
+.search-box {
+    width: 100%;
+    text-align: center;
+}
+
 
 @media screen and (max-width: 900px) {
     .navigate {
-        padding: 0;
+        box-sizing: border-box;
+    }
+
+    input {
+        font-size: 14px;
+        width: 150px;
+        height: 10px;
+    }
+
+    button {
+        width: 60px;
+        height: 30px;
+        margin-left: 0;
     }
 }
 
@@ -80,7 +132,7 @@ li {
 }
 
 .recruitment-title:hover {
-    color: #3dbff0;
+    color: #51bb95;
 }
 
 .recruitment-time,
@@ -89,6 +141,7 @@ li {
 }
 
 .recruitmentinfo {
+    margin-bottom: 40px;
     padding: 20px 20px 0 20px;
     width: 100%;
     border: 1px solid #51bb95;
@@ -100,7 +153,7 @@ li {
     font-size: 20px;
     margin: 10px 0;
     padding-left: 10px;
-    border-left: 5px solid #3dbff0;
+    border-left: 5px solid #51bb95;
 }
 
 .recruitment-page {
@@ -136,7 +189,7 @@ li {
     }
 
     .recruitmentinfo {
-        padding: 0;
+        box-sizing: border-box;
     }
 
     .recruitment-left,
@@ -162,4 +215,8 @@ li {
         font-size: 18px;
         line-height: 40px;
     }
+}
+
+.active {
+    color: #51bb95 !important;
 }

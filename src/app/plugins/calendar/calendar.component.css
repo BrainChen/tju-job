@@ -1,0 +1,50 @@
+table {
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    font-size: 14px;
+}
+
+td { 
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calendar {
+    margin-bottom: 40px;
+    padding: 0 20px;
+    width: 100%;
+    border: 1px solid #51bb95;
+    border-right: 15px solid #51bb95;
+}
+
+.calendar p {
+    margin-bottom: 0;
+    padding-left: 10px;
+    border-left: 5px solid #51bb95;
+}
+
+.info {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.example1 {
+    border-radius: 5px;
+    padding: 0 10px;
+    background-color: #51bb95;
+}
+
+.example2 {
+    border-radius: 5px;
+    padding: 0 10px;
+    border: 1px solid #51bb95;
+}
+
+@media screen and (max-width: 900px) {
+    .calendar {
+        box-sizing: border-box;
+    }
+}

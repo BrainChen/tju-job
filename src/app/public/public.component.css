@@ -26,7 +26,7 @@ table {
 }
 
 .public-title:hover {
-    color: #3dbff0;
+    color: #51bb95;
 }
 
 .public-time,
@@ -46,7 +46,7 @@ table {
     font-size: 20px;
     margin: 10px 0;
     padding-left: 10px;
-    border-left: 5px solid #3dbff0;
+    border-left: 5px solid #51bb95;
 }
 
 .public-page {
@@ -82,7 +82,7 @@ table {
     }
 
     .publicinfo {
-        padding: 0;
+        box-sizing: border-box;
     }
 
     .public-left,

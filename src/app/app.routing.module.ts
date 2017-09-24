@@ -18,6 +18,9 @@ import { AdmissionComponent } from './recruitment/admission/admission.component'
 import { DownloadComponent } from './download/download.component';
 import { ServiceComponent } from './service/service.component';
 
+import { HoldComponent } from './service/hold/hold.component';
+import { PublishComponent } from './service/publish/publish.component';
+
 const appRoutes: Routes = [
     {
         path: '',
@@ -40,6 +43,11 @@ const appRoutes: Routes = [
         path: 'recruitment',
         component: RecruitmentComponent,
         children: [
+            {
+                path: '',
+                redirectTo: 'brief',
+                pathMatch: 'full'
+            },
             {
                 path: 'brief',
                 component: BriefComponent
@@ -80,7 +88,22 @@ const appRoutes: Routes = [
     },
     {
         path: 'service',
-        component: ServiceComponent
+        component: ServiceComponent,
+        children: [
+            {
+                path: '',
+                redirectTo: 'hold',
+                pathMatch: 'full'
+            },
+            {
+                path: 'hold',
+                component: HoldComponent
+            },
+            {
+                path: 'publish',
+                component: PublishComponent
+            }
+        ]
     }
 ]
 

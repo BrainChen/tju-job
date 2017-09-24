@@ -14,12 +14,12 @@
 						<td class="public-click">浏览量</td>
 					</tr>
 					<tr *ngFor="let item of publicData.data_important">
-						<td style="color: red;"><span class="public-title" title="{{item.title}}"><sup>[置顶]</sup>{{item.title | shorter}}</span></td>
+						<td style="color: #358166;"><span class="public-title" title="{{item.title}}"><img src="../../assets/up1.png">&nbsp;{{item.title | shorter}}</span></td>
 						<td class="public-time">{{item.date}}</td>
 						<td class="public-click">{{item.click}}</td>
 					</tr>
 					<tr *ngFor="let item of publicData.data_notice">
-						<td><span class="public-title" title="{{item.title}}">{{item.title | shorter}}</span></td>
+						<td><span class="public-title" title="{{item.title}}"><img src="../../assets/next.png">&nbsp;{{item.title | shorter}}</span></td>
 						<td class="public-time">{{item.date}}</td>
 						<td class="public-click">{{item.click}}</td>
 					</tr>

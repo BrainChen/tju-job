@@ -13,7 +13,7 @@
                 </div>
                 <div class="head-right">
                     <ul>
-                        <li *ngFor="let item of workData.data_important"><a>{{item.title}}</a><span>{{item.date}}</span></li>
+                        <li *ngFor="let item of workData.data_important"><a><img style="width: 16px;" src="../../assets/up1.png">&nbsp;{{item.title}}</a><span>{{item.date}}</span></li>
                     </ul>
                 </div>
             </div>
@@ -26,7 +26,7 @@
 						<td class="work-click">浏览量</td>
 					</tr>
                     <tr *ngFor="let item of workData.data_guide">
-                        <td><span class="work-title" title="{{item.title}}">{{item.title | shorter}}</span></td>
+                        <td><span class="work-title" title="{{item.title}}"><img style="width: 16px;" src="../../assets/next.png">&nbsp;{{item.title | shorter}}</span></td>
                         <td class="work-date">{{item.date}}</td>
                         <td class="work-click">{{item.click}}</td>
                     </tr>

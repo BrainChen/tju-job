@@ -3,10 +3,10 @@
 
     <div class="row-box">
         <div class="box-left">
-            <p><a [ngStyle]="{'color':isone?'#3dbff0':'black'}" (click)="getpublic()"><span>公告信息</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!isone?'#3dbff0':'black'}" (click)="getwork()"><span>工作动态</span></a></p>
+            <p><a [ngStyle]="{'color':isone?'#51bb95':'black'}" (click)="getpublic()"><span [ngStyle]="{ 'font-size':isone?'20px':'14px'}">公告信息</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!isone?'#51bb95':'black'}" (click)="getwork()"><span>工作动态</span></a></p>
             <ul *ngFor="let item of publicObj">
                 <li [@flyIn]="'active'">
-                    <a href={{item.link}}>{{item.title}}</a>
+                    <a href={{item.link}} title="{{item.title}}">{{item.title | shorter}}</a>
                     <span class="li-time">{{item.date}}</span>
                 </li>
             </ul>
@@ -19,10 +19,10 @@
 
     <div class="row-box">
         <div class="box-left">
-            <p><a [ngStyle]="{'color':istwo?'#3dbff0':'black'}" (click)="getrecruitment()"><span>招聘会</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!istwo?'#3dbff0':'black'}" (click)="getrecruitmentinfo()"><span>招聘简章</span></a></p>
+            <p><a [ngStyle]="{'color':istwo?'#51bb95':'black'}" (click)="getrecruitment()"><span [ngStyle]="{ 'font-size':istwo?'20px':'14px'}">招聘会</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!istwo?'#51bb95':'black'}" (click)="getrecruitmentinfo()"><span>招聘简章</span></a></p>
             <ul *ngFor="let item of recruitmentObj">
                 <li [@flyIn]="'active'">
-                    <a href={{item.link}}>{{item.title}}</a>
+                    <a href={{item.link}} title="{{item.title}}">{{item.title | shorter}}</a>
                     <span class="li-time">{{item.date}}</span>
                 </li>
             </ul>

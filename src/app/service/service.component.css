@@ -1,4 +1,5 @@
 a {
+    text-decoration: none;
     color: #444;
     cursor: pointer;
     transition: all 0.5s linear;
@@ -12,6 +13,7 @@ a:hover {
     font-size: 14px;
     text-align: center;
     width: 100%;
+    margin-bottom: 40px;
     padding: 0 20px;
     border: 1px solid #51bb95;
     border-right: 15px solid #51bb95;
@@ -41,6 +43,8 @@ a:hover {
 }
 
 .service-info {
+    box-sizing: border-box;
+    padding: 0 20px;
     width: 100%;
     min-height: 800px;
     border: 1px solid #51bb95;
@@ -48,9 +52,13 @@ a:hover {
     border-bottom: 15px solid #51bb95;
 }
 
+.active {
+    color: #51bb95;
+}
+
 @media screen and (max-width: 900px) {
     .navigation {
-        padding: 0;
+        box-sizing: border-box;
     }
 
     .service-box {

@@ -140,7 +140,7 @@ export class GuidanceComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.193.26:4567/api/guide/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.98.96:4567/api/guide/index/' + page).subscribe(function(data) {
             self.guidanceData = data;
             console.log(data);
         })

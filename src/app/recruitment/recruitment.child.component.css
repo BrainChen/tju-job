@@ -5,36 +5,55 @@ table {
     padding-left: 10px;
 }
 
-.policy-box {
+.bread {
+    margin-top: 0;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.child-content {
+    min-height: 600px;
+}
+
+.child-content p {
+    letter-spacing: 1px;
+    font-size: 20px;
+    margin: 10px 0;
+    padding-left: 10px;
+    border-left: 5px solid #51bb95;
+}
+
+.child-box {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
 }
 
-.policy-left {
+.child-left {
     width: 20%;
     margin-right: 10%;
 }
 
-.policy-right {
+.child-right {
     width: 70%;
 }
 
-.policy-title {
+.child-title {
     cursor: pointer;
     transition: all 0.5s linear;
 }
 
-.policy-title:hover {
+.child-title:hover {
     color: #51bb95;
 }
 
-.policy-time,
-.policy-click {
+.child-time,
+.child-click {
     text-align: center;
 }
 
-.policyinfo {
+.childinfo {
     padding: 20px 20px 0 20px;
     width: 100%;
     border: 1px solid #51bb95;
@@ -42,14 +61,14 @@ table {
     border-bottom: 15px solid #51bb95;
 }
 
-.policyinfo p {
+.childinfo p {
     font-size: 20px;
     margin: 10px 0;
     padding-left: 10px;
     border-left: 5px solid #51bb95;
 }
 
-.policy-page {
+.child-page {
     font-size: 14px;
     color: #959595;
     padding: 0 0 20px 0;
@@ -77,29 +96,29 @@ table {
 }
 
 @media screen and (max-width: 900px) {
-    .policy-box {
+    .child-box {
         display: block;
     }
 
-    .policyinfo {
+    .childinfo {
         box-sizing: border-box;
     }
 
-    .policy-left,
-    .policy-right {
+    .child-left,
+    .child-right {
         width: 100%;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .policy-time,
-    .policy-click {
+    .child-time,
+    .child-click {
         display: none;
     }
 }
 
 @media screen and (min-width: 1400px) {
-    .policyinfo p {
+    .childinfo p {
         font-size: 30px;
     }
 

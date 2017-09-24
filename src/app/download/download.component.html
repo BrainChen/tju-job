@@ -11,10 +11,10 @@
 					<tr>
 						<td></td>
 						<td class="download-time">发布时间</td>
-						<td class="download-click">浏览量</td>
+						<td class="download-click">下载量</td>
 					</tr>
 					<tr *ngFor="let item of downloadData.data_download">
-						<td><span class="download-title" title="{{item.title}}"><a href="{{item.file}}">{{item.title | shorter}}</a></span></td>
+						<td><span class="download-title" title="{{item.title}}"><a href="{{item.file}}"><img src="../../assets/next.png">&nbsp;{{item.title | shorter}}</a></span></td>
 						<td class="download-time">{{item.date}}</td>
 						<td class="download-click">{{item.click}}</td>
 					</tr>

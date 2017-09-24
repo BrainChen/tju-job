@@ -4,16 +4,16 @@
 			<p>栏目导航</p>
 			<table>
 				<tr>
-					<td><a routerLink="brief">招聘简章</a></td>
-					<td><a routerLink="meeting">招聘会</a></td>
+					<td><a routerLink="brief" routerLinkActive="active">招聘简章</a></td>
+					<td><a routerLink="meeting" routerLinkActive="active">招聘会</a></td>
 				</tr>
 				<tr>
-					<td><a routerLink="intern">实习生专栏</a></td>
-					<td><a routerLink="civil">公务员专栏</a></td>
+					<td><a routerLink="intern" routerLinkActive="active">实习生专栏</a></td>
+					<td><a routerLink="civil" routerLinkActive="active">公务员专栏</a></td>
 				</tr>
 				<tr>
-					<td><a routerLink="village">村官基层专栏</a></td>
-					<td><a routerLink="admission">录取通知</a></td>
+					<td><a routerLink="village" routerLinkActive="active">村官基层专栏</a></td>
+					<td><a routerLink="admission" routerLinkActive="active">录取通知</a></td>
 				</tr>
 			</table>
 		</div>
@@ -23,6 +23,15 @@
 	</div>
 
 	<div class="recruitment-right">
+		<div class="recruitmentinfo">
+			<div [@flyIn]="'active'" class="brief-content">
+				<p>职位搜索</p>
+				<div class="search-box">
+					<input [(ngModel)]="keyword" placeholder="输入招聘单位名称查询">
+					<button>查 询</button>
+				</div>
+			</div>
+		</div>
 		<div class="recruitmentinfo">
 			<router-outlet></router-outlet>
 		</div>

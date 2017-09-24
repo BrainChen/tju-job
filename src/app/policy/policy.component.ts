@@ -147,7 +147,7 @@ export class PolicyComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.26.169.32:4567/api/policy/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.98.96:4567/api/policy/index/' + page).subscribe(function(data) {
             self.policyData = data;
             console.log(data);
         })

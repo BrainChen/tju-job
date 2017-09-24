@@ -24,7 +24,7 @@ li a {
 }
 
 li a:hover {
-    color: #3dbff0;
+    color: #51bb95;
 }
 
 table {
@@ -61,7 +61,7 @@ table {
     font-size: 20px;
     margin: 10px 0 20px 0;
     padding-left: 10px;
-    border-left: 5px solid #3dbff0;
+    border-left: 5px solid #51bb95;
 }
 
 .head {
@@ -82,7 +82,7 @@ table {
 }
 
 .work-title:hover {
-    color: #3dbff0;
+    color: #51bb95;
 }
 
 .work-time,

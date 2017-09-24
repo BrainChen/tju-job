@@ -21,11 +21,11 @@ li {
 .worktime p {
     margin-bottom: 0;
     padding-left: 10px;
-    border-left: 5px solid #3dbff0;
+    border-left: 5px solid #51bb95;
 }
 
 @media screen and (max-width: 900px) {
     .worktime {
-        padding: 0;
+        box-sizing: border-box;
     }
 }

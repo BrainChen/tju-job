@@ -22,7 +22,7 @@ ul {
 .box-left p {
     padding: 0 10px;
     margin-left: 10px;
-    border-left: 5px solid #3dbff0;
+    border-left: 5px solid #51bb95;
     font-size: 20px;
 }
 
@@ -38,7 +38,7 @@ ul {
 }
 
 .box-left p span:hover {
-    color :#3dbff0;
+    color :#51bb95;
 }
 
 .box-left li {
@@ -54,7 +54,7 @@ ul {
 }
 
 .box-left li a:hover {
-    color: #3dbff0;
+    color: #51bb95;
 }
 
 .li-time {
@@ -65,14 +65,13 @@ ul {
 .box-right {
     float: right;
     width: 25%;
+    margin-right: 40px;
     padding: 0 20px;
-    border: 1px solid #51bb95;
-    border-bottom: 15px solid #51bb95;
 }
 
 .advertisement {
     float: right;
-    width: 25%;
+    width: 28%;
     padding: 0 20px;
 }
 
@@ -94,7 +93,10 @@ ul {
     }
 
     .box-right {
-        display: none;
+        width: 100%;
+        margin-top: 20px;
+        padding: 9px;
+        float: inherit;
     }
 
     .advertisement {

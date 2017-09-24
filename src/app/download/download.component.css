@@ -12,7 +12,7 @@ a {
 }
 
 a:hover {
-    color: #3dbff0;
+    color: #51bb95;
 }
 
 .download-box {
@@ -36,7 +36,7 @@ a:hover {
 }
 
 .download-title:hover {
-    color: #3dbff0;
+    color: #51bb95;
 }
 
 .download-time,
@@ -56,7 +56,7 @@ a:hover {
     font-size: 20px;
     margin: 10px 0;
     padding-left: 10px;
-    border-left: 5px solid #3dbff0;
+    border-left: 5px solid #51bb95;
 }
 
 .download-page {
@@ -92,7 +92,7 @@ a:hover {
     }
 
     .downloadinfo {
-        padding: 0;
+         box-sizing: border-box;
     }
 
     .download-left,

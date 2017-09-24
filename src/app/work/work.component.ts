@@ -119,7 +119,9 @@ export class WorkComponent implements OnInit {
     pages: Array<number> = [this.currentPage, this.currentPage + 1, this.currentPage + 2, this.currentPage + 3, this.currentPage + 4];
 
 
-    constructor(private dataService: DataService) { }
+    constructor(private dataService: DataService) { 
+        this.refreshContent(1);
+    }
 
     ngOnInit() {
     }
@@ -155,7 +157,7 @@ export class WorkComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.26.169.32:4567/api/dynamic/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.98.96:4567/api/dynamic/index/' + page).subscribe(function(data) {
             self.workData = data;
             console.log(data);
         })
