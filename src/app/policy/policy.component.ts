@@ -107,7 +107,8 @@ export class PolicyComponent implements OnInit {
 
     currentPage: any = 1;
     middlePage: any = 3;
-    pages: Array<number> = [this.currentPage, this.currentPage + 1, this.currentPage + 2, this.currentPage + 3, this.currentPage + 4];
+    pages: Array<number> =  [];
+
 
     constructor(private dataService: DataService) {
         this.refreshContent(1);
@@ -118,16 +119,18 @@ export class PolicyComponent implements OnInit {
 
     onSelect(i): void {
         this.currentPage = i;
-        if (i < this.policyData.all_page - 1 && i > 2) {
-            this.middlePage = i;
+        if (this.policyData.all_page > 5) {
+            if (i < this.policyData.all_page - 1 && i > 2) {
+                this.middlePage = i;
+            }
+            if (i === 2) {
+                this.middlePage = 3;
+            }
+            if (i === this.policyData.all_page - 1) {
+                this.middlePage = this.policyData.all_page - 2;
+            }
+            this.pages = [this.middlePage - 2, this.middlePage - 1, this.middlePage, this.middlePage + 1, this.middlePage + 2];
         }
-        if (i === 2) {
-            this.middlePage = 3;
-        }
-        if (i === this.policyData.all_page - 1) {
-            this.middlePage = this.policyData.all_page - 2;
-        }
-        this.pages = [this.middlePage - 2, this.middlePage - 1, this.middlePage, this.middlePage + 1, this.middlePage + 2];
         this.refreshContent(this.currentPage);
     }
 
@@ -147,8 +150,23 @@ export class PolicyComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.98.96:4567/api/policy/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.238.215:4567/api/policy/index/' + page).subscribe(function(data) {
             self.policyData = data;
+            if (self.policyData.all_page <= 5) {
+                self.pages = [];
+                for (let j = 1; j <= self.policyData.all_page; j++) {
+                    self.pages.push(j);
+                }
+            } else {
+                if (self.currentPage <= 2) {
+                   self.pages = [1, 2, 3, 4, 5];
+                 } else if (self.currentPage >= self.policyData.all_page - 1) {
+                   self.pages = [self.policyData.all_page - 4, self.policyData.all_page - 3, self.policyData.all_page - 2,
+                   self.policyData.all_page - 1, self.policyData.all_page];
+                 } else {
+                   self.pages = [self.currentPage - 2, self.currentPage - 1, self.currentPage, self.currentPage + 1, self.currentPage + 2];
+                 }
+            }
             console.log(data);
         })
     }

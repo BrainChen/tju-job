@@ -41,8 +41,8 @@ table {
 }
 
 .work-left {
-    width: 20%;
-    margin-right: 10%;
+    width: 25%;
+    margin-right: 5%;
 }
 
 .work-right {
@@ -50,6 +50,7 @@ table {
 }
 
 .workinfo {
+    box-sizing: border-box;
     padding: 20px 20px 0 20px;
     width: 100%;
     border: 1px solid #51bb95;
@@ -74,6 +75,11 @@ table {
 .head-right {
     margin: 0 auto;
     width: 45%;
+}
+
+.work-date,
+.word-click {
+    text-align: center;
 }
 
 .work-title {
@@ -127,7 +133,7 @@ table {
     }
 
     .workinfo {
-        padding: 0;
+        box-sizing: border-box;
     }
 
     .head {

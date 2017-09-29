@@ -20,95 +20,95 @@ export class WorkComponent implements OnInit {
         data_important: [
         {
         id: 224,
-        title: '【逐梦起航】情系桑梓 守心如初——专访2017届毕业生阿卜杜热扎克&amp;#8226;麦提纳斯尔',
-        click: 25,
-        date: '2017-05-15',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 223,
-        title: '【青春基层】以梦为马，砥砺前行——专访2014届毕业生秦煜博',
-        click: 21,
-        date: '2017-05-15',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 222,
-        title: '【逐梦起航】笃志好学，前程自来—专访2017届毕业生祖里皮卡尔·买买提',
-        click: 24,
-        date: '2017-05-15',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         }
         ],
         data_guide: [
         {
         id: 224,
-        title: '【逐梦起航】情系桑梓 守心如初——专访2017届毕业生阿卜杜热扎克&amp;#8226;麦提纳斯尔',
-        click: 25,
-        date: '2017-05-15',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 223,
-        title: '【青春基层】以梦为马，砥砺前行——专访2014届毕业生秦煜博',
-        click: 21,
-        date: '2017-05-15',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 222,
-        title: '【逐梦起航】笃志好学，前程自来—专访2017届毕业生祖里皮卡尔·买买提',
-        click: 24,
-        date: '2017-05-15',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 221,
-        title: '简历大讲堂（第六期）成功举办',
-        click: 24,
-        date: '2017-05-15',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 220,
-        title: '简历大讲堂（第五期）成功举办',
-        click: 18,
-        date: '2017-05-15',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 218,
-        title: '【精彩回顾】“学而思”首届天津大学演讲挑战赛决赛圆满举行',
-        click: 141,
-        date: '2017-05-08',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 217,
-        title: '【生涯体验周·感想集之3】志愿者们，感恩有你（教育学院、微电子学院、材料科学与工程学院的四位志愿者的视频分享）',
-        click: 111,
-        date: '2017-05-08',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 216,
-        title: '【生涯体验周·感想集之2】志愿者们，感恩有你（机械、文、马克思的三位志愿者的视频分享）',
-        click: 142,
-        date: '2017-05-08',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 215,
-        title: '【校友话职场】新青年论坛：既然选择了基层之“不忘初心，立志前行”',
-        click: 106,
-        date: '2017-05-08',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 214,
-        title: '【生涯体验周·感想集】暖帅、酷帅、萌帅，为你讲述他们眼中的生涯体验周',
-        click: 712,
-        date: '2017-05-02',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         }
         ]
@@ -116,10 +116,10 @@ export class WorkComponent implements OnInit {
 
     currentPage: any = 1;
     middlePage: any = 3;
-    pages: Array<number> = [this.currentPage, this.currentPage + 1, this.currentPage + 2, this.currentPage + 3, this.currentPage + 4];
+    pages: Array<number> = [];
 
 
-    constructor(private dataService: DataService) { 
+    constructor(private dataService: DataService) {
         this.refreshContent(1);
     }
 
@@ -157,8 +157,22 @@ export class WorkComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.98.96:4567/api/dynamic/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.238.215:4567/api/dynamic/index/' + page).subscribe(function(data) {
             self.workData = data;
+            if (self.workData.all_page <= 5) {
+                self.pages = [];
+                for (let j = 1; j <= self.workData.all_page; j++) {
+                    self.pages.push(j);
+                }
+            } else {
+                if (self.currentPage <= 2) {
+                   self.pages = [1, 2, 3, 4, 5];
+                 } else if (self.currentPage >= self.workData.all_page - 1) {
+                   self.pages = [self.workData.all_page - 4, self.workData.all_page - 3, self.workData.all_page - 2,
+                   self.workData.all_page - 1, self.workData.all_page];
+                 } else {
+                   self.pages = [self.currentPage - 2, self.currentPage - 1, self.currentPage, self.currentPage + 1, self.currentPage + 2];
+                 }            }
             console.log(data);
         })
     }

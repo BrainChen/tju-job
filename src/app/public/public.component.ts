@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { ActivatedRoute } from '@angular/router';
 
 import { PublicData } from './publicData';
 import { flyIn } from '../animate/fly-in';
@@ -106,12 +107,24 @@ export class PublicComponent implements OnInit {
         ]
     };
 
+    detail: Boolean =  true;
+    content: any;
     currentPage: any = 1;
     middlePage: any = 3;
     pages: Array<number> = [this.currentPage, this.currentPage + 1, this.currentPage + 2, this.currentPage + 3, this.currentPage + 4];
 
-    constructor(private dataService: DataService) {
-        this.refreshContent(1);
+    constructor(private route: ActivatedRoute, private dataService: DataService) {
+        const self = this;
+        if (route.snapshot.params['id'] !== undefined) {
+            this.detail = false;
+            this.dataService.fetchData('http://172.23.238.215:4567/api/detail/1/' + route.snapshot.params['id']).subscribe(function(data) {
+                self.content = data;
+                console.log(data);
+            })
+        } else {
+            this.detail = true;
+            this.refreshContent(1);
+        }
     }
 
     ngOnInit() {
@@ -148,7 +161,7 @@ export class PublicComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.98.96:4567/api/notice/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.238.215:4567/api/notice/index/' + page).subscribe(function(data) {
             self.publicData = data;
             console.log(data);
         })

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
-import { flyIn } from '../../animate/fly-in';
+import { DataService } from '../../../data.service';
+import { flyIn } from '../../../animate/fly-in';
 
-import { BriefData } from './briefData';
+import { BriefData } from '../../brief/briefData';
 
 @Component({
-  selector: 'app-brief',
-  templateUrl: './brief.component.html',
-  styleUrls: ['../recruitment.child.component.css'],
+  selector: 'app-internbrief',
+  templateUrl: './internbrief.component.html',
+  styleUrls: ['../../recruitment.child.component.css'],
 
   animations: [flyIn]
 })
-export class BriefComponent implements OnInit {
+export class InternbriefComponent implements OnInit {
 
-  briefData: BriefData = {
+  internbriefData: BriefData = {
     page: '1',
     total_page: 2333,
     important: [
@@ -105,7 +105,6 @@ export class BriefComponent implements OnInit {
     }
     ]
     }
-
     currentPage: any = 1;
     middlePage: any = 3;
     pages: Array<number> =  [];
@@ -120,15 +119,15 @@ export class BriefComponent implements OnInit {
 
     onSelect(i): void {
         this.currentPage = i;
-        if (this.briefData.total_page > 5) {
-            if (i < this.briefData.total_page - 1 && i > 2) {
+        if (this.internbriefData.total_page > 5) {
+            if (i < this.internbriefData.total_page - 1 && i > 2) {
                 this.middlePage = i;
             }
             if (i === 2) {
                 this.middlePage = 3;
             }
-            if (i === this.briefData.total_page - 1) {
-                this.middlePage = this.briefData.total_page - 2;
+            if (i === this.internbriefData.total_page - 1) {
+                this.middlePage = this.internbriefData.total_page - 2;
             }
             this.pages = [this.middlePage - 2, this.middlePage - 1, this.middlePage, this.middlePage + 1, this.middlePage + 2];
         }
@@ -143,7 +142,7 @@ export class BriefComponent implements OnInit {
     }
 
     nextPage(): void {
-        if (this.currentPage < this.briefData.total_page) {
+        if (this.currentPage < this.internbriefData.total_page) {
             this.currentPage++;
             this.onSelect(this.currentPage);
         }
@@ -151,19 +150,20 @@ export class BriefComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.238.215:4567/api/recruit/index/1/' + page).subscribe(function(data) {
-            self.briefData = data;
-            if (self.briefData.total_page <= 5) {
+        this.dataService.fetchData('http://172.23.238.215:4567/api/shixizp/index/' + page).subscribe(function(data) {
+            self.internbriefData = data;
+            if (self.internbriefData.total_page <= 5) {
                 self.pages = [];
-                for (let j = 1; j <= self.briefData.total_page; j++) {
+                for (let j = 1; j <= self.internbriefData.total_page; j++) {
                     self.pages.push(j);
                 }
             } else {
                  if (self.currentPage <= 2) {
                    self.pages = [1, 2, 3, 4, 5];
-                 } else if (self.currentPage >= self.briefData.total_page - 1) {
-                   self.pages = [self.briefData.total_page - 4, self.briefData.total_page - 3, self.briefData.total_page - 2,
-                   self.briefData.total_page - 1, self.briefData.total_page];
+                 } else if (self.currentPage >= self.internbriefData.total_page - 1) {
+                   self.pages = [self.internbriefData.total_page - 4,
+                   self.internbriefData.total_page - 3, self.internbriefData.total_page - 2,
+                   self.internbriefData.total_page - 1, self.internbriefData.total_page];
                  } else {
                    self.pages = [self.currentPage - 2, self.currentPage - 1, self.currentPage, self.currentPage + 1, self.currentPage + 2];
                  }

@@ -1,23 +1,16 @@
-<p class="bread">当前位置&nbsp;：&nbsp;招聘信息&nbsp;>>&nbsp;录取通知</p>
+<p class="bread">当前位置&nbsp;：&nbsp;招聘信息&nbsp;>>&nbsp;实习生专栏&nbsp;>>&nbsp;实习生招聘简章</p>
 
 <div [@flyIn]="'active'" class="child-content">
-    <p>录取通知</p>
+    <p>实习生招聘简章</p>
     <table>
-		<tr>
-			<td></td>
-			<td class="child-time">发布时间</td>
-			<td class="child-click">浏览量</td>
-		</tr>
-		<tr *ngFor="let item of admissionData.info" [@flyIn]="'active'">
+		<tr *ngFor="let item of internbriefData.shixizp" [@flyIn]="'active'">
 			<td><span class="child-title" title="{{item.title}}"><img src="../../assets/next.png">&nbsp;{{item.title | shorter}}</span></td>
-			<td class="child-time">{{item.date}}</td>
-			<td class="child-click">{{item.click}}</td>
 		</tr>
 	</table>
 	<div class="child-page">
 		<span class="change-page" (click)="frontPage()">上一页</span>
 		<span class="pages" *ngFor="let i of pages" (click)="onSelect(i)" [ngStyle]="{'background-color': i === currentPage?'#51bb95':'white'}">{{i}}</span>
 		<span class="change-page" (click)="nextPage()">下一页</span>
-		<span style="padding-left: 30px;">共 {{admissionData.total_page}} 页</span>
+		<span style="padding-left: 30px;">共 {{internbriefData.total_page}} 页</span>
 	</div>
 </div>

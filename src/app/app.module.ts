@@ -26,12 +26,16 @@ import { InternComponent } from './recruitment/intern/intern.component';
 import { CivilComponent } from './recruitment/civil/civil.component';
 import { VillageComponent } from './recruitment/village/village.component';
 import { AdmissionComponent } from './recruitment/admission/admission.component';
+import { ResultComponent } from './recruitment/result/result.component';
 
 import { HoldComponent } from './service/hold/hold.component';
 import { PublishComponent } from './service/publish/publish.component';
 
 import { DownloadComponent } from './download/download.component';
 import { ServiceComponent } from './service/service.component';
+
+import { InternmeetingComponent } from './recruitment/intern/internmeeting/internmeeting.component';
+import { InternbriefComponent } from './recruitment/intern/internbrief/internbrief.component';
 
 
 @NgModule({
@@ -56,7 +60,10 @@ import { ServiceComponent } from './service/service.component';
     DownloadComponent,
     ServiceComponent,
     HoldComponent,
-    PublishComponent
+    PublishComponent,
+    InternmeetingComponent,
+    InternbriefComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

@@ -7,28 +7,33 @@
 		<div class="public-right">
 			<div class="publicinfo">
 				<p>公告信息</p>
-				<table>
-					<tr>
-						<td></td>
-						<td class="public-time">发布时间</td>
-						<td class="public-click">浏览量</td>
-					</tr>
-					<tr *ngFor="let item of publicData.data_important">
-						<td style="color: #358166;"><span class="public-title" title="{{item.title}}"><img src="../../assets/up1.png">&nbsp;{{item.title | shorter}}</span></td>
-						<td class="public-time">{{item.date}}</td>
-						<td class="public-click">{{item.click}}</td>
-					</tr>
-					<tr *ngFor="let item of publicData.data_notice">
-						<td><span class="public-title" title="{{item.title}}"><img src="../../assets/next.png">&nbsp;{{item.title | shorter}}</span></td>
-						<td class="public-time">{{item.date}}</td>
-						<td class="public-click">{{item.click}}</td>
-					</tr>
-				</table>
-				<div class="public-page">
-					<span class="change-page" (click)="frontPage()">上一页</span>
-					<span class="pages" *ngFor="let i of pages" (click)="onSelect(i)" [ngStyle]="{'background-color': i === currentPage?'#51bb95':'white'}">{{i}}</span>
-					<span class="change-page" (click)="nextPage()">下一页</span>
-					<span style="padding-left: 30px;">共 {{publicData.all_page}} 页</span>
+				<div *ngIf="detail">
+					<table>
+						<tr>
+							<td></td>
+							<td class="public-time">发布时间</td>
+							<td class="public-click">浏览量</td>
+						</tr>
+						<tr [@flyIn]="'active'" *ngFor="let item of publicData.data_important">
+							<td style="color: #358166;"><span class="public-title" title="{{item.title}}"><img src="../../assets/up1.png">&nbsp;{{item.title | shorter}}</span></td>
+							<td class="public-time">{{item.date}}</td>
+							<td class="public-click">{{item.click}}</td>
+						</tr>
+						<tr [@flyIn]="'active'" *ngFor="let item of publicData.data_notice">
+							<td><span class="public-title" title="{{item.title}}"><img src="../../assets/next.png">&nbsp;{{item.title | shorter}}</span></td>
+							<td class="public-time">{{item.date}}</td>
+							<td class="public-click">{{item.click}}</td>
+						</tr>
+					</table>
+					<div class="public-page">
+						<span class="change-page" (click)="frontPage()">上一页</span>
+						<span class="pages" *ngFor="let i of pages" (click)="onSelect(i)" [ngStyle]="{'background-color': i === currentPage?'#51bb95':'white'}">{{i}}</span>
+						<span class="change-page" (click)="nextPage()">下一页</span>
+						<span style="padding-left: 30px;">共 {{publicData.all_page}} 页</span>
+					</div>
+				</div>
+				<div *ngIf="!detail">
+					<div [innerHtml]="content.content"></div>
 				</div>
 			</div>
 		</div>

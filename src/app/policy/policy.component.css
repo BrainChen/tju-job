@@ -12,8 +12,8 @@ table {
 }
 
 .policy-left {
-    width: 20%;
-    margin-right: 10%;
+    width: 25%;
+    margin-right: 5%;
 }
 
 .policy-right {
@@ -35,6 +35,7 @@ table {
 }
 
 .policyinfo {
+    box-sizing: border-box;
     padding: 20px 20px 0 20px;
     width: 100%;
     border: 1px solid #51bb95;

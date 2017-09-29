@@ -51,6 +51,7 @@ li {
 }
 
 .navigate {
+    box-sizing: border-box;
     margin-bottom: 40px;
     padding: 0 20px;
     width: 100%;
@@ -118,8 +119,8 @@ li {
 }
 
 .recruitment-left {
-    width: 20%;
-    margin-right: 10%;
+    width: 25%;
+    margin-right: 5%;
 }
 
 .recruitment-right {
@@ -141,6 +142,7 @@ li {
 }
 
 .recruitmentinfo {
+    box-sizing: border-box;
     margin-bottom: 40px;
     padding: 20px 20px 0 20px;
     width: 100%;

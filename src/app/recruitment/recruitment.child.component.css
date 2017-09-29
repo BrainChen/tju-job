@@ -1,3 +1,17 @@
+button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #51bb95;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #358166;
+}
+
 table {
     width: 100%;
     margin-bottom: 50px;
@@ -10,10 +24,6 @@ table {
     color: #888;
     font-size: 14px;
     letter-spacing: 2px;
-}
-
-.child-content {
-    min-height: 600px;
 }
 
 .child-content p {
@@ -54,6 +64,7 @@ table {
 }
 
 .childinfo {
+    box-sizing: border-box;
     padding: 20px 20px 0 20px;
     width: 100%;
     border: 1px solid #51bb95;

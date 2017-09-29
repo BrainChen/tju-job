@@ -22,8 +22,8 @@ a:hover {
 }
 
 .download-left {
-    width: 20%;
-    margin-right: 10%;
+    width: 25%;
+    margin-right: 5%;
 }
 
 .download-right {
@@ -45,6 +45,7 @@ a:hover {
 }
 
 .downloadinfo {
+    box-sizing: border-box;
     padding: 20px 20px 0 20px;
     width: 100%;
     border: 1px solid #51bb95;

@@ -100,7 +100,7 @@ export class GuidanceComponent implements OnInit {
 
     currentPage: any = 1;
     middlePage: any = 3;
-    pages: Array<number> = [this.currentPage, this.currentPage + 1, this.currentPage + 2, this.currentPage + 3, this.currentPage + 4];
+    pages: Array<number> = [];
 
     constructor(private dataService: DataService) {
         this.refreshContent(1);
@@ -111,16 +111,18 @@ export class GuidanceComponent implements OnInit {
 
     onSelect(i): void {
         this.currentPage = i;
-        if (i < this.guidanceData.all_page - 1 && i > 2) {
-            this.middlePage = i;
+        if (this.guidanceData.all_page > 5) {
+            if (i < this.guidanceData.all_page - 1 && i > 2) {
+                this.middlePage = i;
+            }
+            if (i === 2) {
+                this.middlePage = 3;
+            }
+            if (i === this.guidanceData.all_page - 1) {
+                this.middlePage = this.guidanceData.all_page - 2;
+            }
+            this.pages = [this.middlePage - 2, this.middlePage - 1, this.middlePage, this.middlePage + 1, this.middlePage + 2];
         }
-        if (i === 2) {
-            this.middlePage = 3;
-        }
-        if (i === this.guidanceData.all_page - 1) {
-            this.middlePage = this.guidanceData.all_page - 2;
-        }
-        this.pages = [this.middlePage - 2, this.middlePage - 1, this.middlePage, this.middlePage + 1, this.middlePage + 2];
         this.refreshContent(this.currentPage);
     }
 
@@ -140,8 +142,16 @@ export class GuidanceComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.98.96:4567/api/guide/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.238.215:4567/api/guide/index/' + page).subscribe(function(data) {
             self.guidanceData = data;
+            if (self.guidanceData.all_page <= 5) {
+                self.pages = [];
+                for (let j = 1; j <= self.guidanceData.all_page; j++) {
+                    self.pages.push(j);
+                }
+            } else {
+                self.pages = [self.currentPage, self.currentPage + 1, self.currentPage + 2, self.currentPage + 3, self.currentPage + 4];
+            }
             console.log(data);
         })
     }

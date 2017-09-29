@@ -12,6 +12,7 @@ td {
 }
 
 .calendar {
+    box-sizing: border-box;
     margin-bottom: 40px;
     padding: 0 20px;
     width: 100%;

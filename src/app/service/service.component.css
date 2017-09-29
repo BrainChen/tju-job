@@ -10,6 +10,7 @@ a:hover {
 }
 
 .navigation {
+    box-sizing: border-box;
     font-size: 14px;
     text-align: center;
     width: 100%;
@@ -34,8 +35,8 @@ a:hover {
 }
 
 .service-left {
-    width: 20%;
-    margin-right: 10%;
+    width: 25%;
+    margin-right: 5%;
 }
 
 .service-right {

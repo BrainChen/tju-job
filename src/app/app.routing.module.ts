@@ -14,12 +14,16 @@ import { InternComponent } from './recruitment/intern/intern.component';
 import { CivilComponent } from './recruitment/civil/civil.component';
 import { VillageComponent } from './recruitment/village/village.component';
 import { AdmissionComponent } from './recruitment/admission/admission.component';
+import { ResultComponent } from './recruitment/result/result.component';
 
 import { DownloadComponent } from './download/download.component';
 import { ServiceComponent } from './service/service.component';
 
 import { HoldComponent } from './service/hold/hold.component';
 import { PublishComponent } from './service/publish/publish.component';
+
+import { InternmeetingComponent } from './recruitment/intern/internmeeting/internmeeting.component';
+import { InternbriefComponent } from './recruitment/intern/internbrief/internbrief.component';
 
 const appRoutes: Routes = [
     {
@@ -33,6 +37,10 @@ const appRoutes: Routes = [
     },
     {
         path: 'public',
+        component: PublicComponent
+    },
+    {
+        path: 'public/:id',
         component: PublicComponent
     },
     {
@@ -58,7 +66,22 @@ const appRoutes: Routes = [
             },
             {
                 path: 'intern',
-                component: InternComponent
+                component: InternComponent,
+                children: [
+                    {
+                        path: '',
+                        redirectTo: 'internbrief',
+                        pathMatch: 'full'
+                    },
+                    {
+                        path: 'internbrief',
+                        component: InternbriefComponent
+                    },
+                    {
+                        path: 'internmeeting',
+                        component: InternmeetingComponent
+                    }
+                ]
             },
             {
                 path: 'civil',
@@ -72,6 +95,14 @@ const appRoutes: Routes = [
                 path: 'admission',
                 component: AdmissionComponent
             },
+            {
+                path: 'result',
+                component: ResultComponent
+            },
+            {
+                path: 'result/:key',
+                component: ResultComponent
+            }
         ]
     },
     {

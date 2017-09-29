@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { flyIn } from '../animate/fly-in';
 
 @Component({
@@ -10,9 +11,15 @@ import { flyIn } from '../animate/fly-in';
 })
 export class RecruitmentComponent implements OnInit {
 
-  constructor() { }
+  keyword: String;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  search(): void {
+    this.router.navigate(['/recruitment/result', this.keyword]);
   }
 
 }

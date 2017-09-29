@@ -65,14 +65,11 @@ ul {
 .box-right {
     float: right;
     width: 25%;
-    margin-right: 40px;
-    padding: 0 20px;
 }
 
 .advertisement {
     float: right;
-    width: 28%;
-    padding: 0 20px;
+    width: 25%;
 }
 
 .advertisement img {
