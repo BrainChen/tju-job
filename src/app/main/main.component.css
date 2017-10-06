@@ -64,12 +64,12 @@ ul {
 
 .box-right {
     float: right;
-    width: 25%;
+    width: 35%;
 }
 
 .advertisement {
     float: right;
-    width: 25%;
+    width: 35%;
 }
 
 .advertisement img {
@@ -87,6 +87,7 @@ ul {
     .box-left {
         width: 100%;
         padding: 0;
+        box-sizing: border-box;
     }
 
     .box-right {
@@ -94,6 +95,7 @@ ul {
         margin-top: 20px;
         padding: 9px;
         float: inherit;
+        box-sizing: border-box;
     }
 
     .advertisement {

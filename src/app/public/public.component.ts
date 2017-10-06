@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
 
 import { PublicData } from './publicData';
+import { Content } from '../content';
 import { flyIn } from '../animate/fly-in';
 
 @Component({
@@ -13,6 +14,20 @@ import { flyIn } from '../animate/fly-in';
   animations: [flyIn]
 })
 export class PublicComponent implements OnInit {
+
+    content: Content = {
+        id: 1,
+        title: 'loading',
+        content: 'loading',
+        date: '1970-01-01',
+        click: 0,
+        attach1: '',
+        attach2: '',
+        attach3: '',
+        attach1_name: '',
+        attach2_name: '',
+        attach3_name: ''
+    }
 
     publicData: PublicData = {
         all_page: 87,
@@ -108,7 +123,6 @@ export class PublicComponent implements OnInit {
     };
 
     detail: Boolean =  true;
-    content: any;
     currentPage: any = 1;
     middlePage: any = 3;
     pages: Array<number> = [this.currentPage, this.currentPage + 1, this.currentPage + 2, this.currentPage + 3, this.currentPage + 4];
@@ -117,7 +131,7 @@ export class PublicComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.23.238.215:4567/api/detail/1/' + route.snapshot.params['id']).subscribe(function(data) {
+            this.dataService.fetchData('http://172.24.74.145:1024/api/detail/1/' + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
             })
@@ -161,7 +175,7 @@ export class PublicComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.238.215:4567/api/notice/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.24.74.145:1024/api/notice/index/' + page).subscribe(function(data) {
             self.publicData = data;
             console.log(data);
         })

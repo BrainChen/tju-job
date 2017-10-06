@@ -2,4 +2,18 @@
 
 <div [@flyIn]="'active'" class="child-content">
     <p>招聘会</p>
+    <div class="meetingDiv" *ngFor="let item of meetingData.important">
+        <p><img src="../../assets/up1.png">&nbsp;<span class="meeting-title">{{item.title}}</span><span class="meeting-small">{{item.date}}</span></p>
+        <p><span style="font-size: 14px;">地点：{{item.place}}</span><br><span class="meeting-small">举办时间：{{item.held_date}}&nbsp;&nbsp;{{item.held_time}}</span></p>
+    </div>
+    <div [@flyIn]="'active'" class="meetingDiv" *ngFor="let item of meetingData.info">
+        <p><img src="../../assets/next.png">&nbsp;<span class="meeting-title">{{item.title}}</span><span class="meeting-small">{{item.date}}</span></p>
+        <p><span style="font-size: 14px;">地点：{{item.place}}</span><br><span class="meeting-small">举办时间：{{item.held_date}}&nbsp;&nbsp;{{item.held_time}}</span></p>
+    </div>
+    <div [@flyIn]="'active'" class="child-page" style="margin-top: 30px;">
+		<span class="change-page" (click)="frontPage()">上一页</span>
+		<span class="pages" *ngFor="let i of pages" (click)="onSelect(i)" [ngStyle]="{'background-color': i === currentPage?'#51bb95':'white'}">{{i}}</span>
+		<span class="change-page" (click)="nextPage()">下一页</span>
+		<span style="padding-left: 30px;">共 {{meetingData.total_page}} 页</span>
+	</div>
 </div>

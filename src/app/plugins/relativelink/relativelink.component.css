@@ -27,7 +27,6 @@ li {
 
 @media screen and (max-width: 900px) {
     .relativelink {
-        display: none;
         box-sizing: border-box;
     }
 }

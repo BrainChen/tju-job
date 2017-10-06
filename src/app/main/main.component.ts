@@ -173,7 +173,7 @@ export class MainComponent implements OnInit {
     constructor(private dataService: DataService) {
         this.dataService.showAbout = true;
         const self = this;
-        this.dataService.fetchData('http://172.23.238.215:4567/api/index').subscribe(function(data) {
+        this.dataService.fetchData('http://172.24.74.145:1024/api/index').subscribe(function(data) {
             self.mainDatas = data;
             self.getpublic();
             self.getrecruitment();

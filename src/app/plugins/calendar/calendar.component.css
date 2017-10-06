@@ -8,12 +8,12 @@ table {
 
 td { 
     border-radius: 5px;
+    padding: 0.5em 0;
     cursor: pointer;
 }
 
 .calendar {
     box-sizing: border-box;
-    margin-bottom: 40px;
     padding: 0 20px;
     width: 100%;
     border: 1px solid #51bb95;

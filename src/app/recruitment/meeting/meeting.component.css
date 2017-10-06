@@ -1,0 +1,35 @@
+br {
+    display: none;
+}
+
+.meetingDiv {
+    border-bottom: 1px solid #51bb95;
+}
+
+.meetingDiv p {
+    font-size: 18px;
+}
+
+.meeting-title {
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+
+.meeting-title:hover {
+    color: #51bb95;
+}
+
+.meeting-small {
+    float: right;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 900px) {
+    br {
+        display: block;
+    }
+
+    .meetingDiv {
+        padding-bottom: 10px;
+    }
+}

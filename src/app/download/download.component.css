@@ -3,6 +3,7 @@ table {
     margin-bottom: 50px;
     line-height: 30px;
     padding-left: 10px;
+    border-collapse: collapse;
 }
 
 a {
@@ -88,8 +89,8 @@ a:hover {
 }
 
 @media screen and (max-width: 900px) {
-    .download-box {
-        display: block;
+    td {
+        padding: 10px 0;
     }
 
     .downloadinfo {
@@ -99,6 +100,16 @@ a:hover {
     .download-left,
     .download-right {
         width: 100%;
+    }
+
+    .download-left {
+        order: 1;
+        margin-top: 40px;
+        margin-right: 0;
+    }
+
+    .download-right {
+        order: 0;
     }
 }
 

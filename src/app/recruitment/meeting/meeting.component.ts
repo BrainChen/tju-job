@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { flyIn } from '../../animate/fly-in';
+import { DataService } from '../../data.service';
 
 import { MeetingData } from './meetingData';
 
 @Component({
   selector: 'app-meeting',
   templateUrl: './meeting.component.html',
-  styleUrls: ['../recruitment.child.component.css'],
+  styleUrls: ['../recruitment.child.component.css', './meeting.component.css'],
 
   animations: [flyIn]
 })
@@ -15,146 +16,198 @@ export class MeetingComponent implements OnInit {
 
   meetingData: MeetingData = {
     page: '1',
-    total_page: 581,
+    total_page: 2333,
     important: [
     {
     id: 6669,
     important: 1,
-    title: '然而更',
-    held_date: '1998-08-24',
-    held_time: '15:00',
-    place: '是否会发货',
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
     click: 0,
-    date: '2017-09-15'
+    date: '1970-01-01'
     },
     {
-    id: 6668,
+    id: 6669,
     important: 1,
-    title: '按时发多少',
-    held_date: '1998-08-24',
-    held_time: '12:00',
-    place: '正园',
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
     click: 0,
-    date: '2017-09-08'
+    date: '1970-01-01'
     },
     {
-    id: 6667,
+    id: 6669,
     important: 1,
-    title: '航天科工三院暑期实践参观团招募宣讲会',
-    held_date: '2017-06-23',
-    held_time: '14:00',
-    place: '卫津路26教B122',
-    click: 573,
-    date: '2017-06-22'
-    }
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
+    click: 0,
+    date: '1970-01-01'
+    },
     ],
     info: [
     {
     id: 6669,
     important: 1,
-    title: '然而更',
-    held_date: '1998-08-24',
-    held_time: '15:00',
-    place: '是否会发货',
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
     click: 0,
-    date: '2017-09-15'
-    },
-    {
-    id: 6668,
+    date: '1970-01-01'
+    }, {
+    id: 6669,
     important: 1,
-    title: '按时发多少',
-    held_date: '1998-08-24',
-    held_time: '12:00',
-    place: '正园',
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
     click: 0,
-    date: '2017-09-08'
-    },
-    {
-    id: 6666,
-    important: 0,
-    title: '航空工业沈阳飞机设计研究所（601所）2018届毕业生招聘会',
-    held_date: '2017-06-27',
-    held_time: '14:00',
-    place: '卫津路会议楼第八会议室',
-    click: 794,
-    date: '2017-06-22'
-    },
-    {
-    id: 6665,
-    important: 0,
-    title: '【北洋园】神雾科技集团股份有限公司',
-    held_date: '2017-06-21',
-    held_time: '09:30',
-    place: '50楼A121',
-    click: 935,
-    date: '2017-06-16'
-    },
-    {
-    id: 6664,
-    important: 0,
-    title: '【北洋园】中交第四航务工程勘察设计院有限公司宣讲会',
-    held_date: '2017-06-20',
-    held_time: '09:30',
-    place: '43楼A403',
-    click: 1026,
-    date: '2017-06-15'
-    },
-    {
-    id: 6663,
-    important: 0,
-    title: '【北洋园】山东星火国际传媒集团有限公司宣讲会',
-    held_date: '2017-06-09',
-    held_time: '13:30',
-    place: '44楼B105',
-    click: 712,
-    date: '2017-06-08'
-    },
-    {
-    id: 6662,
-    important: 0,
-    title: '【北洋园】天津银隆新能源有限公司面试',
-    held_date: '2017-06-08',
-    held_time: '10:00',
-    place: '大通学生中心C102、C103',
-    click: 1109,
-    date: '2017-06-05'
-    },
-    {
-    id: 6661,
-    important: 0,
-    title: '【卫津路校区】中国国际海运集装箱（集团）股份有限公司宣讲会',
-    held_date: '2017-06-01',
-    held_time: '19:00',
-    place: '24楼301',
-    click: 984,
-    date: '2017-05-31'
-    },
-    {
-    id: 6660,
-    important: 0,
-    title: '【北洋园】天津大学6月2日综合类双选会',
-    held_date: '2017-06-02',
-    held_time: '09:00',
-    place: '体育馆',
-    click: 5688,
-    date: '2017-05-26'
-    },
-    {
-    id: 6659,
-    important: 0,
-    title: '【北洋园】山西诚信化工有限公司2017年度人才引进',
-    held_date: '2017-06-02',
-    held_time: '13:30',
-    place: '44-A103',
-    click: 1037,
-    date: '2017-05-26'
+    date: '1970-01-01'
+    }, {
+    id: 6669,
+    important: 1,
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
+    click: 0,
+    date: '1970-01-01'
+    }, {
+    id: 6669,
+    important: 1,
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
+    click: 0,
+    date: '1970-01-01'
+    }, {
+    id: 6669,
+    important: 1,
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
+    click: 0,
+    date: '1970-01-01'
+    }, {
+    id: 6669,
+    important: 1,
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
+    click: 0,
+    date: '1970-01-01'
+    }, {
+    id: 6669,
+    important: 1,
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
+    click: 0,
+    date: '1970-01-01'
+    }, {
+    id: 6669,
+    important: 1,
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
+    click: 0,
+    date: '1970-01-01'
+    }, {
+    id: 6669,
+    important: 1,
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
+    click: 0,
+    date: '1970-01-01'
+    }, {
+    id: 6669,
+    important: 1,
+    title: 'loading',
+    held_date: '1970-01-01',
+    held_time: '00:00',
+    place: '天津大学',
+    click: 0,
+    date: '1970-01-01'
     }
     ]
     }
 
-  constructor() { }
+    currentPage: any = 1;
+    middlePage: any = 3;
+    pages: Array<number> =  [];
 
-  ngOnInit() {
-  }
+
+    constructor(private dataService: DataService) {
+        this.refreshContent(1);
+    }
+
+    ngOnInit() {
+    }
+
+    onSelect(i): void {
+        this.currentPage = i;
+        if (this.meetingData.total_page > 5) {
+            if (i < this.meetingData.total_page - 1 && i > 2) {
+                this.middlePage = i;
+            }
+            if (i === 2) {
+                this.middlePage = 3;
+            }
+            if (i === this.meetingData.total_page - 1) {
+                this.middlePage = this.meetingData.total_page - 2;
+            }
+            this.pages = [this.middlePage - 2, this.middlePage - 1, this.middlePage, this.middlePage + 1, this.middlePage + 2];
+        }
+        this.refreshContent(this.currentPage);
+    }
+
+    frontPage(): void {
+        if (this.currentPage > 1) {
+            this.currentPage--;
+            this.onSelect(this.currentPage);
+        }
+    }
+
+    nextPage(): void {
+        if (this.currentPage < this.meetingData.total_page) {
+            this.currentPage++;
+            this.onSelect(this.currentPage);
+        }
+    }
+
+    refreshContent(page): void {
+        const self = this;
+        this.dataService.fetchData('http://172.24.74.145:1024/api/recruit/index/2/' + page).subscribe(function(data) {
+            self.meetingData = data;
+            if (self.meetingData.total_page <= 5) {
+                self.pages = [];
+                for (let j = 1; j <= self.meetingData.total_page; j++) {
+                    self.pages.push(j);
+                }
+            } else {
+                 if (self.currentPage <= 2) {
+                   self.pages = [1, 2, 3, 4, 5];
+                 } else if (self.currentPage >= self.meetingData.total_page - 1) {
+                   self.pages = [self.meetingData.total_page - 4, self.meetingData.total_page - 3, self.meetingData.total_page - 2,
+                   self.meetingData.total_page - 1, self.meetingData.total_page];
+                 } else {
+                   self.pages = [self.currentPage - 2, self.currentPage - 1, self.currentPage, self.currentPage + 1, self.currentPage + 2];
+                 }
+            }
+            console.log(data);
+        })
+    }
 
 }

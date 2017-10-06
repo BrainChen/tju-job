@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../data.service';
 import { flyIn } from '../../../animate/fly-in';
 
-import { BriefData } from '../../brief/briefData';
+import { InternbriefData } from './internbriefData';
 
 @Component({
   selector: 'app-internbrief',
@@ -13,26 +13,10 @@ import { BriefData } from '../../brief/briefData';
 })
 export class InternbriefComponent implements OnInit {
 
-  internbriefData: BriefData = {
+  internbriefData: InternbriefData = {
     page: '1',
     total_page: 2333,
-    important: [
-    {
-    id: 48762,
-    important: 1,
-    title: 'loading',
-    click: 0,
-    date: '1970-01-01'
-    },
-    {
-    id: 48761,
-    important: 1,
-    title: 'loading',
-    click: 0,
-    date: '1970-01-01'
-    }
-    ],
-    info: [
+    shixizp: [
     {
     id: 48762,
     important: 1,

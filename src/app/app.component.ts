@@ -40,5 +40,5 @@ export class AppComponent {
         this.dataService.toggleShow(bool);
     }
 
-    constructor(private dataService: DataService) { }
+    constructor(public dataService: DataService) { }
 }

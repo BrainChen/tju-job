@@ -32,6 +32,7 @@ table {
     margin-bottom: 50px;
     line-height: 30px;
     padding-left: 10px;
+    border-collapse: collapse;
 }
 
 .work-box {
@@ -124,12 +125,12 @@ table {
 }
 
 @media screen and (max-width: 900px) {
+    td {
+        padding: 10px 0;
+    }
+
     ul {
         padding: 0;
-    }
-    
-    .work-box {
-        display: block;
     }
 
     .workinfo {
@@ -152,6 +153,16 @@ table {
     .work-left,
     .work-right {
         width: 100%;
+    }
+
+    .work-left {
+        order: 1;
+        margin-top: 40px;
+        margin-right: 0;
+    }
+
+    .work-right {
+        order: 0;
     }
 
     .work-time,

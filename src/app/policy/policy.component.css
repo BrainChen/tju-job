@@ -3,6 +3,7 @@ table {
     margin-bottom: 50px;
     line-height: 30px;
     padding-left: 10px;
+    border-collapse: collapse;
 }
 
 .policy-box {
@@ -78,8 +79,8 @@ table {
 }
 
 @media screen and (max-width: 900px) {
-    .policy-box {
-        display: block;
+    td {
+        padding: 10px 0;
     }
 
     .policyinfo {
@@ -89,6 +90,16 @@ table {
     .policy-left,
     .policy-right {
         width: 100%;
+    }
+
+    .policy-left {
+        order: 1;
+        margin-top: 40px;
+        margin-right: 0;
+    }
+
+    .policy-right {
+        order: 0;
     }
 }
 

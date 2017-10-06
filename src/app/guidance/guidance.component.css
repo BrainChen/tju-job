@@ -3,6 +3,7 @@ table {
     margin-bottom: 50px;
     line-height: 30px;
     padding-left: 10px;
+    border-collapse: collapse;
 }
 
 .guidance-box {
@@ -78,8 +79,8 @@ table {
 }
 
 @media screen and (max-width: 900px) {
-    .guidance-box {
-        display: block;
+    td {
+        padding: 10px 0;
     }
 
     .guidanceinfo {
@@ -89,6 +90,16 @@ table {
     .guidance-left,
     .guidance-right {
         width: 100%;
+    }
+
+    .guidance-left {
+        order: 1;
+        margin-top: 40px;
+        margin-right: 0;
+    }
+
+    .guidance-right {
+        order: 0;
     }
 }
 

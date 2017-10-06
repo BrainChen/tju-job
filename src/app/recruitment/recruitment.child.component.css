@@ -26,7 +26,7 @@ table {
     letter-spacing: 2px;
 }
 
-.child-content p {
+.child-content > p {
     letter-spacing: 1px;
     font-size: 20px;
     margin: 10px 0;
