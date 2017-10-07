@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { flyIn } from '../animate/fly-in';
+import { ActivatedRoute } from '@angular/router';
 
 import { GuidanceData } from './guidanceData';
+import { Content } from '../content';
+import { flyIn } from '../animate/fly-in';
 
 @Component({
   selector: 'app-guidance',
@@ -13,6 +15,20 @@ import { GuidanceData } from './guidanceData';
 })
 export class GuidanceComponent implements OnInit {
 
+    content: Content = {
+        id: 1,
+        title: 'loading',
+        content: 'loading',
+        date: '1970-01-01',
+        click: 0,
+        attach1: '',
+        attach2: '',
+        attach3: '',
+        attach1_name: '',
+        attach2_name: '',
+        attach3_name: ''
+    }
+
     guidanceData: GuidanceData = {
         all_page: 2,
         page: '2',
@@ -20,90 +36,101 @@ export class GuidanceComponent implements OnInit {
         data_guide: [
         {
         id: 14,
-        title: '天津市促进以创业带动就业的若干政策规定',
-        click: 7672,
-        date: '2009-03-14',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 13,
-        title: '天津市促进高校毕业生就业的意见',
-        click: 7789,
-        date: '2009-03-14',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 12,
-        title: '教育部关于当前形势下做好普通高等学校毕业生就业工作的通知',
-        click: 6524,
-        date: '2009-03-14',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 11,
-        title: '国务院办公厅关于加强普通高等学校毕业生就业工作的通知 ',
-        click: 6405,
-        date: '2009-02-23',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 10,
-        title: '国务院关于做好当前经济形势下就业工作的通知',
-        click: 6896,
-        date: '2009-02-23',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 9,
-        title: '人社部出台《高校毕业生就业政策解读》',
-        click: 5165,
-        date: '2009-02-23',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 7,
-        title: '关于办理违约的有关程序说明',
-        click: 11030,
-        date: '2008-10-29',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 6,
-        title: '个人出国申请书',
-        click: 5778,
-        date: '2008-10-13',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 5,
-        title: '关于毕业生户口规定的说明',
-        click: 8674,
-        date: '2008-10-13',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 4,
-        title: '关于毕业生档案的说明',
-        click: 11731,
-        date: '2008-10-13',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         },
         {
         id: 3,
-        title: '学生毕业时需要注意的事项',
-        click: 13880,
-        date: '2008-10-13',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: 0
         }
         ]
     }
 
+    detail: Boolean =  true;
     currentPage: any = 1;
     middlePage: any = 3;
     pages: Array<number> = [];
 
-    constructor(private dataService: DataService) {
-        this.refreshContent(1);
+    constructor(private route: ActivatedRoute, private dataService: DataService) {
+        const self = this;
+        if (route.snapshot.params['id'] !== undefined) {
+            this.detail = false;
+            this.dataService.fetchData('http://172.24.74.145:1024/api/detail/4/' + route.snapshot.params['id']).subscribe(function(data) {
+                self.content = data;
+                console.log(data);
+            })
+        } else {
+            this.detail = true;
+            this.refreshContent(1);
+        }
     }
 
     ngOnInit() {

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
+import { ActivatedRoute } from '@angular/router';
 import { flyIn } from '../../animate/fly-in';
 
 import { BriefData } from './briefData';
+import { Content } from '../../content';
 
 @Component({
   selector: 'app-brief',
@@ -12,6 +14,20 @@ import { BriefData } from './briefData';
   animations: [flyIn]
 })
 export class BriefComponent implements OnInit {
+
+    content: Content = {
+        id: 1,
+        title: 'loading',
+        content: 'loading',
+        date: '1970-01-01',
+        click: 0,
+        attach1: '',
+        attach2: '',
+        attach3: '',
+        attach1_name: '',
+        attach2_name: '',
+        attach3_name: ''
+    }
 
   briefData: BriefData = {
     page: '1',
@@ -106,13 +122,25 @@ export class BriefComponent implements OnInit {
     ]
     }
 
+    detail: Boolean =  true;
     currentPage: any = 1;
     middlePage: any = 3;
     pages: Array<number> =  [];
 
 
-    constructor(private dataService: DataService) {
-        this.refreshContent(1);
+    constructor(private route: ActivatedRoute, private dataService: DataService) {
+        const self = this;
+        if (route.snapshot.params['id'] !== undefined) {
+            this.detail = false;
+            this.dataService.fetchData('http://172.24.74.145:1024/api/recruit/detail/1/'
+            + route.snapshot.params['id']).subscribe(function(data) {
+                self.content = data;
+                console.log(data);
+            })
+        } else {
+            this.detail = true;
+            this.refreshContent(1);
+        }
     }
 
     ngOnInit() {

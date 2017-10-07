@@ -48,6 +48,10 @@ const appRoutes: Routes = [
         component: WorkComponent
     },
     {
+        path: 'work/:id',
+        component: WorkComponent
+    },
+    {
         path: 'recruitment',
         component: RecruitmentComponent,
         children: [
@@ -61,7 +65,15 @@ const appRoutes: Routes = [
                 component: BriefComponent
             },
             {
+                path: 'brief/:id',
+                component: BriefComponent
+            },
+            {
                 path: 'meeting',
+                component: MeetingComponent
+            },
+            {
+                path: 'meeting/:id',
                 component: MeetingComponent
             },
             {
@@ -78,7 +90,15 @@ const appRoutes: Routes = [
                         component: InternbriefComponent
                     },
                     {
+                        path: 'internbrief/:id',
+                        component: InternbriefComponent
+                    },
+                    {
                         path: 'internmeeting',
+                        component: InternmeetingComponent
+                    },
+                    {
+                        path: 'internmeeting/:id',
                         component: InternmeetingComponent
                     }
                 ]
@@ -88,11 +108,23 @@ const appRoutes: Routes = [
                 component: CivilComponent
             },
             {
+                path: 'civil/:id',
+                component: CivilComponent
+            },
+            {
                 path: 'village',
                 component: VillageComponent
             },
             {
+                path: 'village/:id',
+                component: VillageComponent
+            },
+            {
                 path: 'admission',
+                component: AdmissionComponent
+            },
+            {
+                path: 'admission/:id',
                 component: AdmissionComponent
             },
             {
@@ -110,7 +142,15 @@ const appRoutes: Routes = [
         component: PolicyComponent
     },
     {
+        path: 'policy/:id',
+        component: PolicyComponent
+    },
+    {
         path: 'guidance',
+        component: GuidanceComponent
+    },
+    {
+        path: 'guidance/:id',
         component: GuidanceComponent
     },
     {

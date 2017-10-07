@@ -168,7 +168,9 @@ export class MainComponent implements OnInit {
     recruitmentObj: Object = this.mainDatas.data_meeting;
 
     isone: Boolean = true;
+    oneTo: String = '/public';
     istwo: Boolean = true;
+    twoTo: String = '/recruitment/meeting';
 
     constructor(private dataService: DataService) {
         this.dataService.showAbout = true;
@@ -186,6 +188,7 @@ export class MainComponent implements OnInit {
 
     getpublic(): void {
         this.publicObj = this.mainDatas.data_notice;
+        this.oneTo = '/public';
         if (this.isone === false) {
             this.isone = !this.isone;
         }
@@ -193,6 +196,7 @@ export class MainComponent implements OnInit {
 
     getwork(): void {
         this.publicObj = this.mainDatas.data_dynamic;
+        this.oneTo = '/work';
         if (this.isone === true) {
             this.isone = !this.isone;
         }
@@ -200,6 +204,7 @@ export class MainComponent implements OnInit {
 
     getrecruitment(): void {
         this.recruitmentObj = this.mainDatas.data_meeting;
+        this.twoTo = '/recruitment/meeting';
         if (this.istwo === false) {
             this.istwo = !this.istwo;
         }
@@ -207,6 +212,7 @@ export class MainComponent implements OnInit {
 
     getrecruitmentinfo(): void {
         this.recruitmentObj = this.mainDatas.data_info;
+        this.twoTo = '/recruitment/brief';
         if (this.istwo === true) {
             this.istwo = !this.istwo;
         }

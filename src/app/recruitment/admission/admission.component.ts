@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 import { flyIn } from '../../animate/fly-in';
+import { ActivatedRoute } from '@angular/router';
 
 import { AdmissionData } from './admissionData';
+import { Content } from '../../content';
 
 @Component({
   selector: 'app-admission',
@@ -13,110 +15,52 @@ import { AdmissionData } from './admissionData';
 })
 export class AdmissionComponent implements OnInit {
 
+    content: Content = {
+        id: 1,
+        title: 'loading',
+        content: 'loading',
+        date: '1970-01-01',
+        click: 0,
+        attach1: '',
+        attach2: '',
+        attach3: '',
+        attach1_name: '',
+        attach2_name: '',
+        attach3_name: ''
+    }
+
   admissionData: AdmissionData = {
     page: '1',
     total_page: 4,
     info: [
-    {
-    id: 50,
-    title: '阿富汗是v',
-    click: 0,
-    date: '2017-09-09'
-    },
-    {
-    id: 49,
-    title: '2014松正电动汽车天津大学校招录用情况',
-    click: 26456,
-    date: '2013-10-31'
-    },
-    {
-    id: 48,
-    title: '松正电动汽车录取通知信息',
-    click: 9908,
-    date: '2013-10-29'
-    },
-    {
-    id: 47,
-    title: '天津LG新型建材有限公司 面试名单',
-    click: 9032,
-    date: '2011-03-30'
-    },
-    {
-    id: 46,
-    title: '深圳发展银行深圳分行笔试通知',
-    click: 5172,
-    date: '2010-01-08'
-    },
-    {
-    id: 45,
-    title: '三安光电股份有限公司',
-    click: 799,
-    date: '2009-03-18'
-    },
-    {
-    id: 44,
-    title: '江苏省2009年选调生推荐人选资格审查通过人员名单',
-    click: 6134,
-    date: '2009-02-19'
-    },
-    {
-    id: 43,
-    title: '中国成达工程有限公司',
-    click: 1874,
-    date: '2009-01-05'
-    },
-    {
-    id: 42,
-    title: '美国世能达物流公司',
-    click: 6793,
-    date: '2009-01-04'
-    },
-    {
-    id: 41,
-    title: '北京用尚科技',
-    click: 1167,
-    date: '2008-12-26'
-    },
-    {
-    id: 40,
-    title: '昆明云内动力股份有限公司',
-    click: 1103,
-    date: '2008-12-17'
-    },
-    {
-    id: 39,
-    title: '昆明云内动力股份有限公司',
-    click: 1049,
-    date: '2008-12-17'
-    },
-    {
-    id: 38,
-    title: '国家开发银行吉林省分行',
-    click: 1404,
-    date: '2008-12-15'
-    },
-    {
-    id: 37,
-    title: '天津港（集团）有限公司天津大学招聘笔试名单',
-    click: 2089,
-    date: '2008-12-12'
-    },
-    {
-    id: 36,
-    title: '北京尚用科技有限公司',
-    click: 1192,
-    date: '2008-12-10'
-    }
-    ]
+        {
+            id: 50,
+            title: 'loading',
+            click: 0,
+            date: '1970-01-01'
+        }
+        ]
     }
 
+    detail: Boolean =  true;
     currentPage: any = 1;
     middlePage: any = 3;
     pages: Array<number> =  [];
 
 
-    constructor(private dataService: DataService) {
-        this.refreshContent(1);
+    constructor(private route: ActivatedRoute, private dataService: DataService) {
+        const self = this;
+        if (route.snapshot.params['id'] !== undefined) {
+            this.detail = false;
+            this.dataService.fetchData('http://172.24.74.145:1024/api/recruit/detail/7/'
+             + route.snapshot.params['id']).subscribe(function(data) {
+                self.content = data;
+                console.log(data);
+            })
+        } else {
+            this.detail = true;
+            this.refreshContent(1);
+        }
     }
 
     ngOnInit() {
@@ -155,7 +99,7 @@ export class AdmissionComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.238.215:4567/api/recruit/index/1/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.24.74.145:1024/api/recruit/index/4/' + page).subscribe(function(data) {
             self.admissionData = data;
             if (self.admissionData.total_page <= 5) {
                 self.pages = [];

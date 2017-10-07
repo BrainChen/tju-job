@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { flyIn } from '../../animate/fly-in';
+import { DataService } from '../../data.service';
+import { ActivatedRoute } from '@angular/router';
 
 import { VillageData } from './villageData';
+import { Content } from '../../content';
 
 @Component({
   selector: 'app-village',
@@ -11,6 +14,20 @@ import { VillageData } from './villageData';
   animations: [flyIn]
 })
 export class VillageComponent implements OnInit {
+
+  content: Content = {
+        id: 1,
+        title: 'loading',
+        content: 'loading',
+        date: '1970-01-01',
+        click: 0,
+        attach1: '',
+        attach2: '',
+        attach3: '',
+        attach1_name: '',
+        attach2_name: '',
+        attach3_name: ''
+    }
 
   villageData: VillageData = {
     headers: { },
@@ -70,9 +87,31 @@ export class VillageComponent implements OnInit {
     exception: null
     }
 
-  constructor() { }
+    detail: Boolean =  true;
+  constructor(private route: ActivatedRoute, private dataService: DataService) {
+        const self = this;
+        if (route.snapshot.params['id'] !== undefined) {
+            this.detail = false;
+            this.dataService.fetchData('http://172.24.74.145:1024/api/recruit/detail/2/'
+             + route.snapshot.params['id']).subscribe(function(data) {
+                self.content = data;
+                console.log(data);
+            })
+        } else {
+            this.detail = true;
+            this.refreshContent(1);
+        }
+    }
 
   ngOnInit() {
   }
+
+  refreshContent(page): void {
+        const self = this;
+        this.dataService.fetchData('' + page).subscribe(function(data) {
+            self.villageData = data;
+            console.log(data);
+        })
+    }
 
 }

@@ -2,15 +2,23 @@
 
 <div [@flyIn]="'active'" class="child-content">
     <p>实习生招聘简章</p>
-    <table>
-		<tr *ngFor="let item of internbriefData.shixizp" [@flyIn]="'active'">
-			<td><span class="child-title" title="{{item.title}}"><img src="../../assets/next.png">&nbsp;{{item.title | shorter}}</span></td>
-		</tr>
-	</table>
-	<div class="child-page">
-		<span class="change-page" (click)="frontPage()">上一页</span>
-		<span class="pages" *ngFor="let i of pages" (click)="onSelect(i)" [ngStyle]="{'background-color': i === currentPage?'#51bb95':'white'}">{{i}}</span>
-		<span class="change-page" (click)="nextPage()">下一页</span>
-		<span style="padding-left: 30px;">共 {{internbriefData.total_page}} 页</span>
+    <div *ngIf="detail">
+		<table>
+			<tr *ngFor="let item of internbriefData.shixizp" [@flyIn]="'active'">
+				<td><span class="child-title" title="{{item.title}}" routerLink="{{item.id}}"><img src="../../assets/next.png">&nbsp;{{item.title | shorter}}</span></td>
+			</tr>
+		</table>
+		<div class="child-page">
+			<span class="change-page" (click)="frontPage()">上一页</span>
+			<span class="pages" *ngFor="let i of pages" (click)="onSelect(i)" [ngStyle]="{'background-color': i === currentPage?'#51bb95':'white'}">{{i}}</span>
+			<span class="change-page" (click)="nextPage()">下一页</span>
+			<span style="padding-left: 30px;">共 {{internbriefData.total_page}} 页</span>
+		</div>
+	</div>
+
+	<div *ngIf="!detail">
+		<p class="content-title">{{content.title}}</p>
+		<p class="content-ex">发布时间：{{content.date}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>浏览量：{{content.click}}</p>
+		<div [innerHtml]="content.content"></div>
 	</div>
 </div>

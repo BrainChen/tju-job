@@ -44,7 +44,7 @@ table {
     border-bottom: 15px solid #51bb95;
 }
 
-.guidanceinfo p {
+.guidanceinfo > p {
     font-size: 20px;
     margin: 10px 0;
     padding-left: 10px;
@@ -76,6 +76,17 @@ table {
 
 .change-page:hover {
     color: black;
+}
+
+.content-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.content-ex {
+    text-align: center;
+    font-size: 14px;
 }
 
 @media screen and (max-width: 900px) {
