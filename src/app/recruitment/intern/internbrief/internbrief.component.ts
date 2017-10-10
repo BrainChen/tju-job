@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../../../data.service';
 import { flyIn } from '../../../animate/fly-in';
 import { ActivatedRoute } from '@angular/router';
@@ -11,7 +11,8 @@ import { Content } from '../../../content';
   templateUrl: './internbrief.component.html',
   styleUrls: ['../../recruitment.child.component.css'],
 
-  animations: [flyIn]
+  animations: [flyIn],
+  encapsulation: ViewEncapsulation.None
 })
 export class InternbriefComponent implements OnInit {
 
@@ -116,7 +117,7 @@ export class InternbriefComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.24.74.145:1024/api/recruit/detail/4/'
+            this.dataService.fetchData('http://172.23.9.4:4567/api/recruit/detail/4/'
              + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
@@ -163,7 +164,7 @@ export class InternbriefComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.238.215:4567/api/shixizp/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.9.4:4567/api/shixizp/index/' + page).subscribe(function(data) {
             self.internbriefData = data;
             if (self.internbriefData.total_page <= 5) {
                 self.pages = [];

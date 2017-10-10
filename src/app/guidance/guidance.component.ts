@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,7 +11,8 @@ import { flyIn } from '../animate/fly-in';
   templateUrl: './guidance.component.html',
   styleUrls: ['./guidance.component.css'],
 
-  animations: [flyIn]
+  animations: [flyIn],
+  encapsulation: ViewEncapsulation.None
 })
 export class GuidanceComponent implements OnInit {
 
@@ -123,7 +124,7 @@ export class GuidanceComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.24.74.145:1024/api/detail/4/' + route.snapshot.params['id']).subscribe(function(data) {
+            this.dataService.fetchData('http://172.23.9.4:4567/api/detail/4/' + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
             })
@@ -169,7 +170,7 @@ export class GuidanceComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.238.215:4567/api/guide/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.9.4:4567/api/guide/index/' + page).subscribe(function(data) {
             self.guidanceData = data;
             if (self.guidanceData.all_page <= 5) {
                 self.pages = [];

@@ -1,7 +1,7 @@
 <p class="bread">当前位置&nbsp;：&nbsp;招聘信息&nbsp;>>&nbsp;村官基层专栏</p>
 
 <div [@flyIn]="'active'" class="child-content">
-    <p>大学生村官</p>
+    <p *ngIf="detail">大学生村官</p>
     <div *ngIf="detail">
 		<table>
 			<tr>
@@ -13,7 +13,9 @@
 				<td class="child-time">{{item.date}}</td>
 			</tr>
 		</table>
-		<p>三支一扶</p>
+	</div>
+	<p *ngIf="detail">三支一扶</p>
+	<div *ngIf="detail">
 		<table>
 			<tr>
 				<td></td>
@@ -24,7 +26,9 @@
 				<td class="child-time">{{item.date}}</td>
 			</tr>
 		</table>
-		<p>西部计划</p>
+	</div>
+	<p *ngIf="detail">西部计划</p>
+	<div *ngIf="detail">
 		<table>
 			<tr>
 				<td></td>
@@ -40,6 +44,6 @@
 	<div *ngIf="!detail">
 		<p class="content-title">{{content.title}}</p>
 		<p class="content-ex">发布时间：{{content.date}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>浏览量：{{content.click}}</p>
-		<div [innerHtml]="content.content"></div>
+		<div class="content" [innerHtml]="content.content"></div>
 	</div>
 </div>

@@ -154,7 +154,7 @@ export class DownloadComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.238.215:4567/api/download/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.9.4:4567/api/download/index/' + page).subscribe(function(data) {
             self.downloadData = data;
             if (self.downloadData.all_page <= 5) {
                 self.pages = [];

@@ -1,9 +1,13 @@
-table {
+.policy-right table {
     width: 100%;
     margin-bottom: 50px;
     line-height: 30px;
     padding-left: 10px;
     border-collapse: collapse;
+}
+
+.content img {
+    width: 100%;
 }
 
 .policy-box {

@@ -10,7 +10,7 @@
             <div *ngIf="detail">
                 <div class="head">
                     <div class="head-left">
-                        <img src="../../assets/hero.jpg" alt="head-image">
+                        <img src={{imagesrc}} alt="head-image">
                     </div>
                     <div class="head-right">
                         <ul>
@@ -45,7 +45,7 @@
             <div *ngIf="!detail">
                 <p class="content-title">{{content.title}}</p>
 				<p class="content-ex">发布时间：{{content.date}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>浏览量：{{content.click}}</p>
-				<div [innerHtml]="content.content"></div>
+				<div class="content-content" [innerHtml]="content.content"></div>
             </div>
         </div>
     </div>

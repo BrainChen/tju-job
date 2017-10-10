@@ -1,1 +1,27 @@
 <p class="bread">当前位置&nbsp;：&nbsp;招聘信息&nbsp;>>&nbsp;搜索结果</p>
+
+<div [@flyIn]="'active'" class="child-content">
+    <p>搜索结果&nbsp;&nbsp;&nbsp;&nbsp;<span [ngStyle]="{'color': op?'#51bb95':'black'}" class="result-op" (click)="option()">招聘简章</span>&nbsp;&nbsp;&nbsp;&nbsp;<span [ngStyle]="{'color': !op?'#51bb95':'black'}" class="result-op" (click)="option()">招聘会</span></p>
+    <div [@flyIn]="'active'">
+        <div *ngIf="op">
+            <table>
+                <tr>
+                    <td></td>
+                    <td class="child-time">发布时间</td>
+                    <td class="child-click">浏览量</td>
+                </tr>
+                <tr *ngFor="let item of resultData.infor" [@flyIn]="'active'">
+                    <td><span class="child-title" title="{{item.title}}" routerLink="/recruitment/brief/{{item.id}}"><img src="../../assets/next.png">&nbsp;{{item.title | shorter}}</span></td>
+                    <td class="child-time">{{item.date}}</td>
+                    <td class="child-click">{{item.click}}</td>
+                </tr>
+            </table>
+        </div>
+        <div *ngIf="!op">
+            <div [@flyIn]="'active'" class="meetingDiv" *ngFor="let item of resultData.meeting">
+                <p><img src="../../assets/next.png">&nbsp;<span class="meeting-title" routerLink="/recruitment/meeting/{{item.id}}">{{item.title}}</span><span class="meeting-small">{{item.date}}</span></p>
+                <p><span style="font-size: 14px;">地点：{{item.place}}</span><br><span class="meeting-small">举办时间：{{item.held_date}}&nbsp;&nbsp;{{item.held_time}}</span></p>
+            </div>
+        </div>
+    </div>
+</div>

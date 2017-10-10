@@ -1,11 +1,11 @@
-a {
+.navigation a {
     text-decoration: none;
     color: #444;
     cursor: pointer;
     transition: all 0.5s linear;
 }
 
-a:hover {
+.navigation a:hover {
     color: #51bb95;
 }
 
@@ -45,7 +45,7 @@ a:hover {
 
 .service-info {
     box-sizing: border-box;
-    padding: 0 20px;
+    padding: 20px;
     width: 100%;
     min-height: 800px;
     border: 1px solid #51bb95;
@@ -82,13 +82,13 @@ a:hover {
     }
 }
 
+.active {
+    color: #51bb95 !important;
+}
+
 @media screen and (max-width: 500px) {
 }
 
 @media screen and (min-width: 1400px) {
-    table {
-        color: #444;
-        font-size: 20px;
-        line-height: 40px;
-    }
+    
 }

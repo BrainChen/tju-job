@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { flyIn } from '../../animate/fly-in';
 import { DataService } from '../../data.service';
 import { ActivatedRoute } from '@angular/router';
@@ -11,7 +11,8 @@ import { Content } from '../../content';
   templateUrl: './meeting.component.html',
   styleUrls: ['../recruitment.child.component.css', './meeting.component.css'],
 
-  animations: [flyIn]
+  animations: [flyIn],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class MeetingComponent implements OnInit {
@@ -170,7 +171,7 @@ export class MeetingComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.24.74.145:1024/api/recruit/detail/2/'
+            this.dataService.fetchData('http://172.23.9.4:4567/api/recruit/detail/2/'
              + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
@@ -217,7 +218,7 @@ export class MeetingComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.24.74.145:1024/api/recruit/index/2/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.9.4:4567/api/recruit/index/2/' + page).subscribe(function(data) {
             self.meetingData = data;
             if (self.meetingData.total_page <= 5) {
                 self.pages = [];

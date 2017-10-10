@@ -1,22 +1,26 @@
-button {
-    cursor: pointer;
-    outline: none;
-    border: none;
-    background-color: #51bb95;
-    color: white;
-    padding: 10px;
-    margin-bottom: 10px;
-}
+.intern-button {
+        cursor: pointer;
+        outline: none;
+        border: none;
+        background-color: #51bb95;
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
 
-button:hover {
-    background-color: #358166;
-}
+    .intern-button:hover {
+        background-color: #358166;
+    }
 
-table {
+.child-content table {
     width: 100%;
     margin-bottom: 50px;
     line-height: 30px;
     padding-left: 10px;
+}
+
+.content img {
+    width: 100%;
 }
 
 .bread {
@@ -144,7 +148,7 @@ table {
         font-size: 30px;
     }
 
-    table {
+    .child-content table {
         color: #444;
         font-size: 20px;
         line-height: 40px;

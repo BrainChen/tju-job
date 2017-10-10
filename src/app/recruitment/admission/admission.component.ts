@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../../data.service';
 import { flyIn } from '../../animate/fly-in';
 import { ActivatedRoute } from '@angular/router';
@@ -11,7 +11,8 @@ import { Content } from '../../content';
   templateUrl: './admission.component.html',
   styleUrls: ['../recruitment.child.component.css'],
 
-  animations: [flyIn]
+  animations: [flyIn],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdmissionComponent implements OnInit {
 
@@ -52,7 +53,7 @@ export class AdmissionComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.24.74.145:1024/api/recruit/detail/7/'
+            this.dataService.fetchData('http://172.23.9.4:4567/api/recruit/detail/7/'
              + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
@@ -99,7 +100,7 @@ export class AdmissionComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.24.74.145:1024/api/recruit/index/4/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.9.4:4567/api/recruit/index/4/' + page).subscribe(function(data) {
             self.admissionData = data;
             if (self.admissionData.total_page <= 5) {
                 self.pages = [];

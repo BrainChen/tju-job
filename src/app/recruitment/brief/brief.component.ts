@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../../data.service';
 import { ActivatedRoute } from '@angular/router';
 import { flyIn } from '../../animate/fly-in';
@@ -11,7 +11,8 @@ import { Content } from '../../content';
   templateUrl: './brief.component.html',
   styleUrls: ['../recruitment.child.component.css'],
 
-  animations: [flyIn]
+  animations: [flyIn],
+  encapsulation: ViewEncapsulation.None
 })
 export class BriefComponent implements OnInit {
 
@@ -132,7 +133,7 @@ export class BriefComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.24.74.145:1024/api/recruit/detail/1/'
+            this.dataService.fetchData('http://172.23.9.4:4567/api/recruit/detail/1/'
             + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
@@ -179,7 +180,7 @@ export class BriefComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.238.215:4567/api/recruit/index/1/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.9.4:4567/api/recruit/index/1/' + page).subscribe(function(data) {
             self.briefData = data;
             if (self.briefData.total_page <= 5) {
                 self.pages = [];

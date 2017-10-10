@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../data.service';
 import { flyIn } from '../animate/fly-in';
 import { ActivatedRoute } from '@angular/router';
@@ -11,11 +11,14 @@ import { Content } from '../content';
     templateUrl: './work.component.html',
     styleUrls: ['./work.component.css'],
 
-    animations: [flyIn]
+    animations: [flyIn],
+    encapsulation: ViewEncapsulation.None
 })
 
 
 export class WorkComponent implements OnInit {
+    imagesrc: String = '../../assets/hero.jpg';
+    imagecount: any = 0;
     content: Content = {
         id: 1,
         title: 'loading',
@@ -33,6 +36,20 @@ export class WorkComponent implements OnInit {
     workData: WorkData = {
         all_page: 20,
         page: '1',
+        data_pic: [
+            {
+                id: 1,
+                pic: '../../assets/up1.png'
+            },
+            {
+                id: 2,
+                pic: '../../assets/up2.png'
+            },
+            {
+                id: 3,
+                pic: '../../assets/up3.png'
+            }
+        ],
         data_important: [
         {
         id: 224,
@@ -140,7 +157,7 @@ export class WorkComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.24.74.145:1024/api/detail/3/' + route.snapshot.params['id']).subscribe(function(data) {
+            this.dataService.fetchData('http://172.23.9.4:4567/api/detail/3/' + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
             })
@@ -148,6 +165,8 @@ export class WorkComponent implements OnInit {
             this.detail = true;
             this.refreshContent(1);
         }
+
+        this.circle();
     }
 
     ngOnInit() {
@@ -184,7 +203,7 @@ export class WorkComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.24.74.145:1024/api/dynamic/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData('http://172.23.9.4:4567/api/dynamic/index/' + page).subscribe(function(data) {
             self.workData = data;
             if (self.workData.all_page <= 5) {
                 self.pages = [];
@@ -204,4 +223,15 @@ export class WorkComponent implements OnInit {
         })
     }
 
+    circle(): void {
+        const self = this;
+        setTimeout(function() {
+            self.imagecount++;
+            if (self.imagecount === 3) {
+                self.imagecount = 0;
+            }
+            self.imagesrc = self.workData.data_pic[self.imagecount].pic;
+            self.circle();
+        }, 5000);
+    }
 }
