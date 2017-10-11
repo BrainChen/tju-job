@@ -96,7 +96,6 @@ export class VillageComponent implements OnInit {
             this.dataService.fetchData(this.dataService.getUrl() + '/api/recruit/detail/6/'
              + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
-                console.log(data);
             })
         } else {
             this.detail = true;
@@ -111,7 +110,6 @@ export class VillageComponent implements OnInit {
         const self = this;
         this.dataService.fetchData(this.dataService.getUrl() + '/api/recruit/index/5/1').subscribe(function(data) {
             self.villageData = data;
-            console.log(data);
         })
     }
 

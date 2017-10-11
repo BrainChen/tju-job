@@ -179,7 +179,6 @@ export class MainComponent implements OnInit {
             self.mainDatas = data;
             self.getpublic();
             self.getrecruitment();
-            console.log(data);
         })
     }
 

@@ -164,7 +164,6 @@ export class DownloadComponent implements OnInit {
             } else {
                 self.pages = [self.currentPage, self.currentPage + 1, self.currentPage + 2, self.currentPage + 3, self.currentPage + 4];
             }
-            console.log(data);
         })
     }
 

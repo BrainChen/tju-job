@@ -127,7 +127,6 @@ export class GuidanceComponent implements OnInit {
             this.dataService.fetchData(this.dataService.getUrl() +
             '/api/detail/4/' + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
-                console.log(data);
             })
         } else {
             this.detail = true;
@@ -181,7 +180,6 @@ export class GuidanceComponent implements OnInit {
             } else {
                 self.pages = [self.currentPage, self.currentPage + 1, self.currentPage + 2, self.currentPage + 3, self.currentPage + 4];
             }
-            console.log(data);
         })
     }
 }

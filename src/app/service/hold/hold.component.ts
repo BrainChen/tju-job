@@ -21,7 +21,6 @@ export class HoldComponent implements OnInit {
     const self = this;
     this.dataService.fetchData(this.dataService.getUrl() + '/api/service/index/1').subscribe(function(data) {
       self.holdData = data;
-      console.log(self.holdData);
     });
   }
 

@@ -19,7 +19,6 @@ export class PublishComponent implements OnInit {
     const self = this;
     this.dataService.fetchData(this.dataService.getUrl() + '/api/service/index/2').subscribe(function(data) {
       self.publishData = data;
-      console.log(self.publishData);
     });
   }
 

@@ -120,7 +120,6 @@ export class PolicyComponent implements OnInit {
             this.dataService.fetchData(this.dataService.getUrl() +
             '/api/detail/2/' + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
-                console.log(data);
             })
         } else {
             this.detail = true;
@@ -181,7 +180,6 @@ export class PolicyComponent implements OnInit {
                    self.pages = [self.currentPage - 2, self.currentPage - 1, self.currentPage, self.currentPage + 1, self.currentPage + 2];
                  }
             }
-            console.log(data);
         })
     }
 

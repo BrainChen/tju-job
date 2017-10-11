@@ -136,7 +136,6 @@ export class BriefComponent implements OnInit {
             this.dataService.fetchData(this.dataService.getUrl() + '/api/recruit/detail/1/'
             + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
-                console.log(data);
             })
         } else {
             this.detail = true;
@@ -197,7 +196,6 @@ export class BriefComponent implements OnInit {
                    self.pages = [self.currentPage - 2, self.currentPage - 1, self.currentPage, self.currentPage + 1, self.currentPage + 2];
                  }
             }
-            console.log(data);
         })
     }
 

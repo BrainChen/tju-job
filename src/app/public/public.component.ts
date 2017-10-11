@@ -135,7 +135,6 @@ export class PublicComponent implements OnInit {
             this.dataService.fetchData(this.dataService.getUrl() +
             '/api/detail/1/' + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
-                console.log(data);
             })
         } else {
             this.detail = true;
@@ -179,7 +178,6 @@ export class PublicComponent implements OnInit {
         const self = this;
         this.dataService.fetchData(this.dataService.getUrl() + '/api/notice/index/' + page).subscribe(function(data) {
             self.publicData = data;
-            console.log(data);
         })
     }
 
