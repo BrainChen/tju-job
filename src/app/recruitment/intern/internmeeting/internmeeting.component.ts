@@ -170,7 +170,7 @@ export class InternmeetingComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.23.9.4:4567/api/recruit/detail/3/'
+            this.dataService.fetchData(this.dataService.getUrl() + '/api/recruit/detail/3/'
              + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
@@ -217,7 +217,7 @@ export class InternmeetingComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.9.4:4567/api/shixizph/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData(this.dataService.getUrl() + '/api/shixizph/index/' + page).subscribe(function(data) {
             self.meetingData = data;
             if (self.meetingData.total_page <= 5) {
                 self.pages = [];

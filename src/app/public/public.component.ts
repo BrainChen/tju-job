@@ -36,88 +36,88 @@ export class PublicComponent implements OnInit {
         data_important: [
         {
         id: 1130,
-        title: 'dgG',
+        title: 'loading',
         click: 0,
-        date: '2017-09-16',
+        date: '1970-01-01',
         important: '1'
         },
         {
         id: 1127,
-        title: '天津大学入围江苏选调生名单公示',
-        click: 176,
-        date: '2017-05-15',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: '1'
         }
         ],
         data_notice: [
         {
         id: 1130,
-        title: 'dgG',
+        title: 'loading',
         click: 0,
-        date: '2017-09-16',
+        date: '1970-01-01',
         important: '1'
         },
         {
         id: 1129,
-        title: '重要通知（5.26报名截止）|关于招募赴广西钦州挂职锻炼人员的通知',
-        click: 45,
-        date: '2017-05-16',
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: '0'
         },
         {
-        id: 1128,
-        title: '宝洁俱乐部2017年管理层纳新盛大开幕！',
-        click: 130,
-        date: '2017-05-15',
+        id: 1129,
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: '0'
         },
         {
-        id: 1127,
-        title: '天津大学入围江苏选调生名单公示',
-        click: 176,
-        date: '2017-05-15',
-        important: '1'
-        },
-        {
-        id: 1124,
-        title: '就业协议补办公告',
-        click: 871,
-        date: '2017-05-10',
+        id: 1129,
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: '0'
         },
         {
-        id: 1123,
-        title: '毕业生补办就业协议公告',
-        click: 1006,
-        date: '2017-05-09',
+        id: 1129,
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: '0'
         },
         {
-        id: 1122,
-        title: '就业协议补办公告',
-        click: 973,
-        date: '2017-05-09',
+        id: 1129,
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: '0'
         },
         {
-        id: 1121,
-        title: '就业协议补办公告',
-        click: 1457,
-        date: '2017-05-08',
+        id: 1129,
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: '0'
         },
         {
-        id: 1120,
-        title: '【5.10老校区、5.11新校区】金牌讲师带你玩转简历',
-        click: 1379,
-        date: '2017-05-08',
+        id: 1129,
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: '0'
         },
         {
-        id: 1119,
-        title: '天津大学2017年度暑期实习生洽谈会邀请函',
-        click: 881,
-        date: '2017-05-08',
+        id: 1129,
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
+        important: '0'
+        },
+        {
+        id: 1129,
+        title: 'loading',
+        click: 0,
+        date: '1970-01-01',
         important: '0'
         }
         ]
@@ -132,7 +132,8 @@ export class PublicComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.23.9.4:4567/api/detail/1/' + route.snapshot.params['id']).subscribe(function(data) {
+            this.dataService.fetchData(this.dataService.getUrl() +
+            '/api/detail/1/' + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
             })
@@ -176,7 +177,7 @@ export class PublicComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.9.4:4567/api/notice/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData(this.dataService.getUrl() + '/api/notice/index/' + page).subscribe(function(data) {
             self.publicData = data;
             console.log(data);
         })

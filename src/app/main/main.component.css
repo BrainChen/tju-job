@@ -74,6 +74,7 @@ ul {
 
 .advertisement img {
     width: 100%;
+    max-height: 160px;
     margin-bottom: 30px;
 }
 
@@ -113,5 +114,9 @@ ul {
 
     .box-left li a {
         font-size: 14px;
+    }
+
+    .advertisement img {
+        height: inherit;
     }
 }

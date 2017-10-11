@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { flyIn } from '../../animate/fly-in';
+import { DataService } from '../../data.service';
+import { HoldData } from './holdData';
 
 @Component({
     selector: 'app-hold',
@@ -10,7 +12,18 @@ import { flyIn } from '../../animate/fly-in';
 })
 export class HoldComponent implements OnInit {
 
-  constructor() { }
+  holdData: HoldData = {
+    src: '',
+    content: ''
+  };
+
+  constructor(private dataService: DataService) {
+    const self = this;
+    this.dataService.fetchData(this.dataService.getUrl() + '/api/service/index/1').subscribe(function(data) {
+      self.holdData = data;
+      console.log(self.holdData);
+    });
+  }
 
   ngOnInit() {
   }

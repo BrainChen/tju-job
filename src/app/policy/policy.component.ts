@@ -117,7 +117,8 @@ export class PolicyComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.23.9.4:4567/api/detail/2/' + route.snapshot.params['id']).subscribe(function(data) {
+            this.dataService.fetchData(this.dataService.getUrl() +
+            '/api/detail/2/' + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
             })
@@ -163,7 +164,7 @@ export class PolicyComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.9.4:4567/api/policy/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData(this.dataService.getUrl() + '/api/policy/index/' + page).subscribe(function(data) {
             self.policyData = data;
             if (self.policyData.all_page <= 5) {
                 self.pages = [];

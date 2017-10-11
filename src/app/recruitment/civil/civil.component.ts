@@ -145,7 +145,7 @@ export class CivilComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.23.9.4:4567/api/recruit/detail/5/'
+            this.dataService.fetchData(this.dataService.getUrl() + '/api/recruit/detail/5/'
              + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
@@ -192,7 +192,7 @@ export class CivilComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.9.4:4567/api/recruit/index/3/' + page).subscribe(function(data) {
+        this.dataService.fetchData(this.dataService.getUrl() + '/api/recruit/index/3/' + page).subscribe(function(data) {
             self.civilData = data;
             if (self.civilData.total_page <= 5) {
                 self.pages = [];

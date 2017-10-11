@@ -157,7 +157,8 @@ export class WorkComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.23.9.4:4567/api/detail/3/' + route.snapshot.params['id']).subscribe(function(data) {
+            this.dataService.fetchData(this.dataService.getUrl() +
+            '/api/detail/3/' + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
             })
@@ -203,7 +204,7 @@ export class WorkComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.9.4:4567/api/dynamic/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData(this.dataService.getUrl() + '/api/dynamic/index/' + page).subscribe(function(data) {
             self.workData = data;
             if (self.workData.all_page <= 5) {
                 self.pages = [];

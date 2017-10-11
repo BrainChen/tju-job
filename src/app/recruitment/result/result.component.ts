@@ -99,7 +99,7 @@ export class ResultComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {
     this.key = route.snapshot.params['key'];
-    this.dataService.fetchData('http://172.23.9.4:4567/api/search/' + this.key).subscribe(function(data) {
+    this.dataService.fetchData(this.dataService.getUrl() + '/api/search/' + this.key).subscribe(function(data) {
       this.resultData = data;
     });
   }

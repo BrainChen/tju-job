@@ -2,4 +2,6 @@
 
 <div [@flyIn]="'active'" class="hold-content">
 	<p>招聘会举办流程</p>
+	<img src={{holdData.src}} alt="流程">
+	<div [innerHtml]="holdData.content"></div>
 </div>

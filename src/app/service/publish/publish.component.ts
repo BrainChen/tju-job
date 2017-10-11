@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { flyIn } from '../../animate/fly-in';
+import { DataService } from '../../data.service';
 
 @Component({
     selector: 'app-publish',
@@ -10,7 +11,17 @@ import { flyIn } from '../../animate/fly-in';
 })
 export class PublishComponent implements OnInit {
 
-  constructor() { }
+  publishData: any = {
+    src: '',
+    content: ''
+  }
+  constructor(private dataService: DataService) {
+    const self = this;
+    this.dataService.fetchData(this.dataService.getUrl() + '/api/service/index/2').subscribe(function(data) {
+      self.publishData = data;
+      console.log(self.publishData);
+    });
+  }
 
   ngOnInit() {
   }

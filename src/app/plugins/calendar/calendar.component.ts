@@ -9,27 +9,38 @@ import { DataService } from '../../data.service';
 })
 
 export class CalendarComponent {
+    totalMonth: any = {
+        today: '',
+        meeting: {
+            '1': {
+                held_date: '1970-01-01',
+                message: '',
+                meeting: [],
+                important: 0
+            }
+        }
+    };
     calendarData: any = [
         {
-            time: '6:30',
+            held_time: '6:30',
             place: '天津大学',
             title: 'loading',
             id: 6669
         },
         {
-            time: '6:30',
+            held_time: '6:30',
             place: '天津大学',
             title: 'loading',
             id: 6669
         },
         {
-            time: '6:30',
+            held_time: '6:30',
             place: '天津大学',
             title: 'loading',
             id: 6669
         },
         {
-            time: '6:30',
+            hele_time: '6:30',
             place: '天津大学',
             title: 'loading',
             id: 6669
@@ -48,6 +59,10 @@ export class CalendarComponent {
     date: any = new Date();
     showDate: any;
     currentDate: any = this.date.getDate();
+    importantDate: any = [];
+
+    year: any;
+    month: any;
 
     constructor(private router: Router, private dataService: DataService) {
         this.refreshDate();
@@ -64,6 +79,23 @@ export class CalendarComponent {
     }
 
     refreshDate(): void {
+        const self = this;
+        this.year = this.date.getYear();
+        this.month = this.date.getMonth() + 1;
+        if (this.month < 10) {
+            this.month = '0' + this.month;
+        }
+        this.dataService.fetchData(
+            this.dataService.getUrl() + '/api/calendar/' + (this.year + 1900) + '/' + this.month
+        ).subscribe(function(data) {
+            self.totalMonth = data;
+            self.importantDate = [];
+            for (let i = 1; i <= 31; i++) {
+                if (data.meeting[i].important === 1) {
+                    self.importantDate.push(i);
+                }
+            }
+        })
         this.allMonth = {
             '1': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
             '2': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
@@ -89,10 +121,14 @@ export class CalendarComponent {
         this.week4 = [];
         this.week5 = [];
         this.week6 = [];
-        for (let i = 0; i < this.date.getDay(); i++) {
+        let hamapi: number = this.date.getDay() - (this.date.getDate() % 7 - 1);
+        if (hamapi < 0) {
+            hamapi = hamapi + 7;
+        }
+        for (let i = 0; i < hamapi; i++) {
             this.week1.push('');
         }
-        for (let i = this.date.getDay(); i < 7; i++) {
+        for (let i = hamapi; i < 7; i++) {
             this.week1.push(this.temp.shift());
         }
         for (let i = 0; i < 7; i++) {
@@ -121,6 +157,7 @@ export class CalendarComponent {
     show(i): void {
         this.calendar = true;
         this.showDate = i;
+        this.calendarData = this.totalMonth.meeting[i].meeting;
     }
 
     close(): void {

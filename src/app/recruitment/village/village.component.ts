@@ -36,51 +36,51 @@ export class VillageComponent implements OnInit {
     university: [
     {
     id: 46,
-    title: '大师傅大哥大哥发的规范',
+    title: 'loading',
     date: '2017-09-10'
     },
     {
     id: 44,
-    title: '2014年江苏省“985”高校村官工程实施方案',
+    title: 'loading',
     date: '2013-12-24'
     },
     {
     id: 43,
-    title: '（截止至12月15日）福建省村官和选调生报名通知',
+    title: 'loading',
     date: '2013-12-03'
     },
     {
     id: 42,
-    title: '本溪市2013年选聘优秀高校毕业生到村任职公告',
+    title: 'loading',
     date: '2013-07-01'
     },
     {
     id: 41,
-    title: '2013年天津市东丽区选聘大学生村官报名通知',
+    title: 'loading',
     date: '2013-06-05'
     }
     ],
     western: [
     {
     id: 45,
-    title: '啊风高放火',
+    title: 'loading',
     date: '2017-09-09'
     },
     {
     id: 19,
-    title: '大学生志愿服务西部计划高校项目办招募工作指南',
+    title: 'loading',
     date: '2009-04-15'
     },
     {
     id: 18,
-    title: '2009年大学生志愿服务西部计划问答',
+    title: 'loading',
     date: '2009-04-14'
     }
     ],
     three_one: [
     {
     id: 23,
-    title: '天津市三支一扶招募公告',
+    title: 'loading',
     date: '2009-05-26'
     }
     ]
@@ -93,7 +93,7 @@ export class VillageComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.23.9.4:4567/api/recruit/detail/2/'
+            this.dataService.fetchData(this.dataService.getUrl() + '/api/recruit/detail/6/'
              + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
@@ -109,7 +109,7 @@ export class VillageComponent implements OnInit {
 
   refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('' + page).subscribe(function(data) {
+        this.dataService.fetchData(this.dataService.getUrl() + '/api/recruit/index/5/1').subscribe(function(data) {
             self.villageData = data;
             console.log(data);
         })

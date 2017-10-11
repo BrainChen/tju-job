@@ -124,7 +124,8 @@ export class GuidanceComponent implements OnInit {
         const self = this;
         if (route.snapshot.params['id'] !== undefined) {
             this.detail = false;
-            this.dataService.fetchData('http://172.23.9.4:4567/api/detail/4/' + route.snapshot.params['id']).subscribe(function(data) {
+            this.dataService.fetchData(this.dataService.getUrl() +
+            '/api/detail/4/' + route.snapshot.params['id']).subscribe(function(data) {
                 self.content = data;
                 console.log(data);
             })
@@ -170,7 +171,7 @@ export class GuidanceComponent implements OnInit {
 
     refreshContent(page): void {
         const self = this;
-        this.dataService.fetchData('http://172.23.9.4:4567/api/guide/index/' + page).subscribe(function(data) {
+        this.dataService.fetchData(this.dataService.getUrl() + '/api/guide/index/' + page).subscribe(function(data) {
             self.guidanceData = data;
             if (self.guidanceData.all_page <= 5) {
                 self.pages = [];

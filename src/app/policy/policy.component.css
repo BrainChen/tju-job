@@ -1,3 +1,13 @@
+.attach {
+    color: black;
+    transition: all 0.5s linear;
+    text-decoration: none;
+}
+
+.attach:hover {
+    color: #51bb95;
+}
+
 .policy-right table {
     width: 100%;
     margin-bottom: 50px;
@@ -128,11 +138,5 @@
 @media screen and (min-width: 1400px) {
     .policyinfo p {
         font-size: 30px;
-    }
-
-    table {
-        color: #444;
-        font-size: 20px;
-        line-height: 40px;
     }
 }

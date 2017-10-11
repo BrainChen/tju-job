@@ -1,13 +1,24 @@
-ul {
+.relativelink ul {
     margin-top: 0;
     padding-left: 20px;
     line-height: 25px;
 }
 
-li {
+.relativelink li {
+    padding: 5px 0;
     list-style: none;
     font-size: 14px;
     color: #444;
+}
+
+.relativelink a {
+    text-decoration: none;
+    color: #444;
+    transition: all 0.5s linear;
+}
+
+.relativelink a:hover {
+    color: #51bb95;
 }
 
 .relativelink {

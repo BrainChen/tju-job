@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 export class DataService {
 
   showAbout: Boolean = false;
+  httpURL: String = 'http://jobhtml.liebes.top.';
 
   constructor(private http: Http) {}
 
@@ -15,6 +16,10 @@ export class DataService {
 
   toggleShow(bool): void {
     this.showAbout = bool;
+  }
+
+  getUrl() {
+    return this.httpURL;
   }
 
 }

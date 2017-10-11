@@ -8,7 +8,7 @@
         </div>
         <div class="model-content">
             <div class="model-content-box" *ngFor="let item of calendarData">
-                <p class="content-head">{{item.time}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.place}}</p>
+                <p class="content-head">{{item.held_time}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.place}}</p>
                 <p class="content-title" (click)="navigate(item.id)">{{item.title}}</p>
             </div>
         </div>
@@ -30,22 +30,22 @@
             <td>六</td>
         </tr>
         <tr>
-            <td [ngClass]="{'current': item == currentDate}" *ngFor="let item of week1" (click)="show(item)">{{item}}</td>
+            <td [ngClass]="{'current': item == currentDate, 'important': importantDate.indexOf(item) >= 0}" *ngFor="let item of week1" (click)="show(item)">{{item}}</td>
         </tr>
         <tr>
-            <td [ngClass]="{'current': item == currentDate}" *ngFor="let item of week2" (click)="show(item)">{{item}}</td>
+            <td [ngClass]="{'current': item == currentDate, 'important': importantDate.indexOf(item) >= 0}" *ngFor="let item of week2" (click)="show(item)">{{item}}</td>
         </tr>
         <tr>
-            <td [ngClass]="{'current': item == currentDate}" *ngFor="let item of week3" (click)="show(item)">{{item}}</td>
+            <td [ngClass]="{'current': item == currentDate, 'important': importantDate.indexOf(item) >= 0}" *ngFor="let item of week3" (click)="show(item)">{{item}}</td>
         </tr>
         <tr>
-            <td [ngClass]="{'current': item == currentDate}" *ngFor="let item of week4" (click)="show(item)">{{item}}</td>
+            <td [ngClass]="{'current': item == currentDate, 'important': importantDate.indexOf(item) >= 0}" *ngFor="let item of week4" (click)="show(item)">{{item}}</td>
         </tr>
         <tr>
-            <td [ngClass]="{'current': item == currentDate}" *ngFor="let item of week5" (click)="show(item)">{{item}}</td>
+            <td [ngClass]="{'current': item == currentDate, 'important': importantDate.indexOf(item) >= 0}" *ngFor="let item of week5" (click)="show(item)">{{item}}</td>
         </tr>
         <tr>
-            <td [ngClass]="{'current': item == currentDate}" *ngFor="let item of week6" (click)="show(item)">{{item}}</td>
+            <td [ngClass]="{'current': item == currentDate, 'important': importantDate.indexOf(item) >= 0}" *ngFor="let item of week6" (click)="show(item)">{{item}}</td>
         </tr>
     </table>
     <div class="info"><span class="example1"></span>&nbsp;当前日期&nbsp;&nbsp;&nbsp;<span class="example2"></span>&nbsp;重要活动</div>

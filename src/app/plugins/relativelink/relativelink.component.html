@@ -1,8 +1,6 @@
 <div class="relativelink">
     <p>相关链接</p>
         <ul>
-            <li><a>天津大学求实BBS求职招聘区</a></li>
-            <li><a>天津大学求实BBS求职招聘区</a></li>
-            <li><a>天津大学求实BBS求职招聘区</a></li>
+            <li *ngFor="let item of relativeData"><a href={{item.url}} target="_blank">{{item.title}}</a></li>
         </ul>
 </div>

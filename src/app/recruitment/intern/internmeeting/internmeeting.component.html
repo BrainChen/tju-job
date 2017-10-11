@@ -23,5 +23,10 @@
 		<p class="content-title">{{content.title}}</p>
 		<p class="content-ex">发布时间：{{content.date}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>浏览量：{{content.click}}</p>
 		<div class="content" [innerHtml]="content.content"></div>
+        <p *ngIf="content.attach1_name" style="font-weight: bold;">相关附件</p>
+					<p *ngIf="content.attach1_name">1.<a class="attach" href="{{content.attach1}}" target="_blank">{{content.attach1_name}}</a></p>
+					<p *ngIf="content.attach2_name">2.<a class="attach" href="{{content.attach2}}" target="_blank">{{content.attach2_name}}</a></p>
+					<p *ngIf="content.attach3_name">3.<a class="attach" href="{{content.attach3}}" target="_blank">{{content.attach3_name}}</a></p>
+                    <div style="height: 20px;"></div>
 	</div>
 </div>
