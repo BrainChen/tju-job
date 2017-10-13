@@ -46,6 +46,8 @@
 }
 
 .work-right {
+    height: 100%;
+    background-color: white;
     width: 70%;
 }
 
@@ -197,9 +199,13 @@
     }
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1500px) {
     .workinfo p {
         font-size: 30px;
+    }
+
+    .head-right a {
+        font-size: 20px;
     }
 
     .work-right table {

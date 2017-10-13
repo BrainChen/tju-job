@@ -9,17 +9,7 @@ import { DataService } from '../../data.service';
 })
 
 export class CalendarComponent {
-    totalMonth: any = {
-        today: '',
-        meeting: {
-            '1': {
-                held_date: '1970-01-01',
-                message: '',
-                meeting: [],
-                important: 0
-            }
-        }
-    };
+    totalMonth: any = {};
     calendarData: any = [
         {
             held_time: '6:30',

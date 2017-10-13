@@ -1,6 +1,6 @@
 <div [@flyIn]="'active'" class="service-box">
 	<div class="service-left">
-		<div class="navigation">
+		<div class="navigation small-hide">
 			<p class="navigation-p">栏目导航</p>
 			<p><a routerLink="hold" routerLinkActive="active">招聘会举办流程</a></p>
 			<p><a routerLink="publish" routerLinkActive="active">招聘会信息发布流程</a></p>
@@ -12,6 +12,11 @@
 	</div>
 
 	<div class="service-right">
+		<div class="navigation big-hide">
+			<p class="navigation-p">栏目导航</p>
+			<p><a routerLink="hold" routerLinkActive="active">招聘会举办流程</a></p>
+			<p><a routerLink="publish" routerLinkActive="active">招聘会信息发布流程</a></p>
+		</div>
 		<div class="service-info">
 			<router-outlet></router-outlet>
 		</div>

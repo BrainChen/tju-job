@@ -8,7 +8,12 @@
     color: #51bb95;
 }
 
-.navigate > table {
+.navigate-aaa {
+    display: none;
+}
+
+.navigate > table,
+.navigate-aaa > table {
     width: 100%;
     margin-bottom: 20px;
     padding: 0 10px;
@@ -16,14 +21,16 @@
     border-collapse: collapse;
 }
 
-.navigate table a {
+.navigate table a,
+.navigate-aaa table a {
     text-decoration: none;
     color: #666;
     cursor: pointer;
     transition: all 0.5s linear;
 }
 
-.navigate table a:hover {
+.navigate table a:hover,
+.navigate-aaa table a:hover {
     color: #51bb95;
 }
 
@@ -61,7 +68,9 @@
     color: #444;
 }
 
-.navigate {
+.navigate,
+.navigate-aaa {
+    background-color: white;
     box-sizing: border-box;
     margin-bottom: 40px;
     padding: 0 20px;
@@ -70,7 +79,8 @@
     border-right: 15px solid #51bb95;
 }
 
-.navigate p {
+.navigate p,
+.navigate-aaa p {
     padding-left: 10px;
     border-left: 5px solid #51bb95;
 }
@@ -96,6 +106,11 @@
 @media screen and (max-width: 900px) {
     .navigate {
         box-sizing: border-box;
+        display: none;
+    }
+
+    .navigate-aaa {
+        display: block;
     }
 
     .search-box input {
@@ -154,6 +169,7 @@
 }
 
 .recruitmentinfo {
+    background-color: white;
     box-sizing: border-box;
     margin-bottom: 40px;
     padding: 20px 20px 0 20px;
@@ -229,7 +245,7 @@
     }
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1500px) {
     .recruitmentinfo p {
         font-size: 30px;
     }

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 export class DataService {
 
   showAbout: Boolean = false;
-  httpURL: String = 'http://jobhtml.liebes.top.';
+  httpURL: String = 'http://job.liebes.top.';
 
   constructor(private http: Http) {}
 

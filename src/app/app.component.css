@@ -12,6 +12,14 @@ header {
     background-color: #434343;
 }
 
+header img {
+    position: absolute;
+    right: 12.5%;
+    width: 350px;
+    top: 10px;
+    z-index: 0;
+}
+
 ul {
     background-color: #313131;
 }
@@ -23,6 +31,7 @@ nav {
     background-color: #313131;
     color: white;
     padding: 10px 0;
+    z-index: 1;
 }
 
 nav ul {
@@ -225,6 +234,10 @@ footer p {
         padding-top: 2px;
     }
 
+    header img {
+        display: none;
+    }
+
     nav {
         display: none;
     }
@@ -264,7 +277,7 @@ footer p {
     }
 
     .addabout {
-        height: 280px;
+        height: 340px;
     }
 }
 

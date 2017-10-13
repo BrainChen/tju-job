@@ -28,6 +28,8 @@ a:hover {
 }
 
 .download-right {
+    height: 100%;
+    background-color: white;
     width: 70%;
 }
 
@@ -120,7 +122,7 @@ a:hover {
     }
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1500px) {
     .downloadinfo p {
         font-size: 30px;
     }
