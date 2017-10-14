@@ -121,6 +121,9 @@ export class CalendarComponent {
         for (let i = hamapi; i < 7; i++) {
             this.week1.push(this.temp.shift());
         }
+        if (this.week1[6] === '') {
+            this.week1 = [];
+        }
         for (let i = 0; i < 7; i++) {
             this.week2.push(this.temp.shift());
         }

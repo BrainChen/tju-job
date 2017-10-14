@@ -11,3 +11,7 @@
     padding-left: 10px;
     border-left: 5px solid #51bb95;
 }
+
+.publish-content img {
+    width: 100%;
+}

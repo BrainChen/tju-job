@@ -80,6 +80,14 @@
                 <li>每周二、四上午:办理往届生就业手续以及违约、改派手续</li>
             </ul>
         </div>
+
+        <div class="about-middle">
+            <p>通讯地址：天津大学就业指导中心&nbsp;&nbsp;<br>邮编：300072</p>
+            <p>办公地点：<br>卫津路校区：大学生活动中心一层108、106室<br>北洋园校区：大学生活动中心一层C107、C109室</p>
+            <p>联系电话：<br>卫津路校区 022-83613600&nbsp;&nbsp;<br>北洋园校区 022-27401081转8000或8001</p>
+            <p>传真：022-27401054<br>招聘邮箱：job@tju.edu.cn</p>
+        </div>
+
         <div class="about-right">
             <p>相关链接</p>
             <ul>
@@ -93,12 +101,11 @@
 </div>
 
 <footer>
-    <p>通讯地址：天津大学就业指导中心   邮编：300072</p>
-    <p>卫津路校区：大学生活动中心一层108、106室  北洋园校区：大学生活动中心一层C107、C109室</p>
-    <p>传真：022-27401054</p>
-    <p>联系电话：卫津路校区 022-83613600   北洋园校区 022-27401081转8000或8001</p>
-    <p>招聘邮箱：job@tju.edu.cn</p>
-    <p>&nbsp;</p>
-    <p>天外天工作室 / © 2000-2017 / <a href="http://www.miibeian.gov.cn/" target="_blank">津ICP备05004358号-12</a> / 津教备0767号</p>
-    <p><a href="https://coder.twtstudio.com">关于我们</a>&nbsp;/&nbsp;<a href="https://coder.twtstudio.com/hr">加入我们</a></p>
+    <div *ngIf="!dataService.showAbout">
+        <p>通讯地址：天津大学就业指导中心   邮编：300072   <br>传真：022-27401054  招聘邮箱：job@tju.edu.cn</p>
+        <p>卫津路校区：大学生活动中心一层108、106室 <br> 北洋园校区：大学生活动中心一层C107、C109室</p>
+        <p>联系电话：卫津路校区 022-83613600&nbsp;&nbsp;<br>北洋园校区 022-27401081转8000或8001</p>
+        <p>&nbsp;</p>
+    </div>
+    <p>技术支持：<img src="../assets/logo.png" style="position: relative; top: 10px;" alt="logo"><span style="font-size: 18px;">天外天工作室</span>&nbsp; / © 2000-2017 / <a href="http://www.miibeian.gov.cn/" target="_blank">津ICP备05004358号-12</a> / 津教备0767号</p>
 </footer>

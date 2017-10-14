@@ -56,8 +56,7 @@
     padding: 20px 20px 0 20px;
     width: 100%;
     border: 1px solid #51bb95;
-    border-right: 15px solid #51bb95;
-    border-bottom: 15px solid #51bb95;
+    box-shadow: 15px 15px #51bb95;
 }
 
 .workinfo > p {
@@ -153,10 +152,6 @@
 }
 
 @media screen and (max-width: 900px) {
-    .work-right td {
-        padding: 10px 0;
-    }
-
     .work-right ul {
         padding: 0;
     }
@@ -193,7 +188,7 @@
         order: 0;
     }
 
-    .work-time,
+    .work-date,
     .work-click {
         display: none;
     }

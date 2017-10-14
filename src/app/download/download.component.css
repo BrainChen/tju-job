@@ -52,8 +52,7 @@ a:hover {
     padding: 20px 20px 0 20px;
     width: 100%;
     border: 1px solid #51bb95;
-    border-right: 15px solid #51bb95;
-    border-bottom: 15px solid #51bb95;
+    box-shadow: 15px 15px #51bb95;
 }
 
 .downloadinfo p {
@@ -91,10 +90,6 @@ a:hover {
 }
 
 @media screen and (max-width: 900px) {
-    td {
-        padding: 10px 0;
-    }
-
     .downloadinfo {
          box-sizing: border-box;
     }

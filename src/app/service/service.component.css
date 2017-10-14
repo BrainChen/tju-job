@@ -60,8 +60,7 @@
     width: 100%;
     min-height: 800px;
     border: 1px solid #51bb95;
-    border-right: 15px solid #51bb95;
-    border-bottom: 15px solid #51bb95;
+    box-shadow: 15px 15px #51bb95;
 }
 
 .active {

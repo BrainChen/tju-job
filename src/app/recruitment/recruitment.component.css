@@ -175,8 +175,7 @@
     padding: 20px 20px 0 20px;
     width: 100%;
     border: 1px solid #51bb95;
-    border-right: 15px solid #51bb95;
-    border-bottom: 15px solid #51bb95;
+    box-shadow: 15px 15px #51bb95;
 }
 
 .recruitmentinfo p {
@@ -214,10 +213,6 @@
 }
 
 @media screen and (max-width: 900px) {
-    .recruitment-right td {
-        padding: 10px 0;
-    }
-
     .recruitmentinfo {
         box-sizing: border-box;
     }
