@@ -17,7 +17,6 @@ import { Content } from '../content';
 
 
 export class WorkComponent implements OnInit {
-    imagesrc: String = '../../assets/hero.jpg';
     imagecount: any = 0;
     content: Content = {
         id: 1,
@@ -39,15 +38,24 @@ export class WorkComponent implements OnInit {
         data_pic: [
             {
                 id: 1,
-                pic: '../../assets/up1.png'
+                pic: '../assets/work.png'
             },
             {
                 id: 2,
-                pic: '../../assets/up2.png'
+                pic: ''
             },
             {
                 id: 3,
-                pic: '../../assets/up3.png'
+                pic: ''
+            }
+        ],
+        data_rotation: [
+            {
+                id: 224,
+                title: 'loading',
+                click: 0,
+                date: '1970-01-01',
+                important: 0
             }
         ],
         data_important: [
@@ -147,9 +155,11 @@ export class WorkComponent implements OnInit {
         ]
     }
 
+
+    imagesrc: String = this.workData.data_pic[0].pic;
     detail: Boolean =  true;
-    currentPage: any = 1;
-    middlePage: any = 3;
+    currentPage: any = this.dataService.getWork();
+    middlePage: any;
     pages: Array<number> = [];
 
 
@@ -163,7 +173,7 @@ export class WorkComponent implements OnInit {
             })
         } else {
             this.detail = true;
-            this.refreshContent(1);
+            this.refreshContent(this.dataService.getWork());
         }
 
         this.circle();
@@ -174,6 +184,7 @@ export class WorkComponent implements OnInit {
 
     onSelect(i): void {
         this.currentPage = i;
+        this.dataService.setWork(this.currentPage);
         if (i < this.workData.all_page - 1 && i > 2) {
             this.middlePage = i;
         }

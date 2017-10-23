@@ -52,10 +52,6 @@ app-calendar {
     width: 100%;
 }
 
-br {
-    display: none;
-}
-
 footer {
     text-align: center;
     width: 100%;
@@ -80,6 +76,8 @@ footer p {
 }
 
 .nav-item {
+    outline: none;
+    cursor: pointer;
     width: 75%;
     height: 100%;
     margin: 0 auto;
@@ -184,8 +182,10 @@ footer p {
 }
 
 .aboutinfo {
-    width: 70%;
+    font-size: 12px;
+    width: 75%;
     margin: 0 auto;
+    margin-top: 100px;
     color: #ccc;
     display: flex;
     flex-wrap: wrap;
@@ -193,9 +193,8 @@ footer p {
 
 .aboutinfo ul {
     margin: 0;
-    padding-left: 20px;
+    padding-left: 0;
     list-style: none;
-    font-size: 14px;
 }
 
 .aboutinfo li {
@@ -204,20 +203,23 @@ footer p {
 
 .about-left,
 .about-right {
-    width: 30%;
+    width: 27%;
     text-align: left;
 }
 
 .about-middle {
     box-sizing: border-box;
-    padding: 0 10px;
-    width: 40%;
+    padding-left: 60px;
+    width: 46%;
     text-align: left;
 }
 
 .about-middle p {
     margin-top: 0;
-    font-size: 14px;
+}
+
+.about-middle p > br {
+    display: none;
 }
 
 .about-right a {
@@ -234,6 +236,14 @@ footer p {
     margin: 0;
 }
 
+#aling br {
+    display: block;
+}
+
+#align {
+    visibility: hidden;
+}
+
 @media screen and (max-width: 900px) {
     header {
         padding-top: 2px;
@@ -245,10 +255,6 @@ footer p {
 
     nav {
         display: none;
-    }
-
-    br {
-        display: block;
     }
 
     .nav-item {
@@ -276,6 +282,10 @@ footer p {
         width: 95%;
     }
 
+    .about-middle {
+        padding: 0;
+    }
+
     .about-middle,
     .about-right {
         margin-top: 20px;
@@ -286,6 +296,14 @@ footer p {
     .about-right {
         width: 100%;
         text-align: left;
+    }
+
+    .about-middle p > br {
+        display: block;
+    }
+
+    #align {
+        display: none;
     }
 }
 

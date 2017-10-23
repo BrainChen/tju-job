@@ -1,9 +1,18 @@
 <div [@flyIn]="'active'">
-    <img class="big-image" src={{mainDatas.data_banner.image}} alt="big image">
-
-    <div class="row-box">
+    <div class="bannerContainer">
+        <ul class="bannerPicList">
+            <li *ngFor="let item of mainDatas.data_banner; let i = index;" [class.active]="currentPic == i">
+                <img class="big-image" src="{{item.image}}" alt="big image">                
+            </li>
+        </ul>
+    </div>
+    <div class="picBtns">
+        <span *ngFor="let item of mainDatas.data_banner; let i = index;"><span [ngStyle]="{'background-color': currentPic == i?'#358166':'#51bb95'}" class="picBtn" (click)="changeBanner(i)">{{i + 1}}</span></span>                
+    </div>
+    <div class="row-box" style="margin-top: 10px;">
         <div class="box-left">
-            <p><a [ngStyle]="{'color':isone?'#51bb95':'black'}" (click)="getpublic()"><span [ngStyle]="{ 'font-size':isone?'20px':'14px'}">公告信息</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!isone?'#51bb95':'black'}" (click)="getwork()"><span>工作动态</span></a></p>
+            <p><a [ngStyle]="{'color':isone?'#51bb95':'black'}" (click)="getpublic()"><span [ngStyle]="{ 'font-size':isone?'20px':'14px'}">公告信息</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!isone?'#51bb95':'black'}" (click)="getwork()">
+                <span>工作动态</span></a><span *ngIf="isone" style="float: right;" routerLink="/public">more</span><span *ngIf="!isone" style="float: right;" routerLink="/work">more</span></p>
             <ul *ngFor="let item of publicObj">
                 <li [@flyIn]="'active'">
                     <a href={{item.link}} title="{{item.title}}" routerLink="{{oneTo}}/{{item.id}}">{{item.title | shorter}}</a>
@@ -19,7 +28,8 @@
 
     <div class="row-box">
         <div class="box-left">
-            <p><a [ngStyle]="{'color':istwo?'#51bb95':'black'}" (click)="getrecruitment()"><span [ngStyle]="{ 'font-size':istwo?'20px':'14px'}">招聘会</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!istwo?'#51bb95':'black'}" (click)="getrecruitmentinfo()"><span>招聘简章</span></a></p>
+            <p><a [ngStyle]="{'color':istwo?'#51bb95':'black'}" (click)="getrecruitment()"><span [ngStyle]="{ 'font-size':istwo?'20px':'14px'}">招聘会</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a [ngStyle]="{'color':!istwo?'#51bb95':'black'}" (click)="getrecruitmentinfo()">
+                <span>招聘简章</span></a><span *ngIf="istwo" style="float: right;" routerLink="/recruitment/meeting">more</span><span *ngIf="!istwo" style="float: right;" routerLink="/recruitment/brief">more</span></p>
             <ul *ngFor="let item of recruitmentObj">
                 <li [@flyIn]="'active'">
                     <a href={{item.link}} title="{{item.title}}" routerLink="{{twoTo}}/{{item.id}}">{{item.title | shorter}}</a>
@@ -30,7 +40,16 @@
 
         <div class="advertisement">
             <a href={{mainDatas.data_partner[0].url}} target="_blank"><img src={{mainDatas.data_partner[0].image}} alt="advertisement"></a>
-            <a href={{mainDatas.data_partner[1].url}} target="_blank"><img src={{mainDatas.data_partner[1].image}} alt="advertisement"></a>
+            <div class="qrcode">
+                <div class="qrcode1">
+                    <img src="../../assets/qrcode1.png"><br>
+                    <span>天大就业</span>
+                </div>
+                <div class="qrcode2">
+                    <img src="../../assets/qrcode2.png"><br>
+                    <span>天大公共治理研究会</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

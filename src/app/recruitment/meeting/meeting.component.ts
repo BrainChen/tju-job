@@ -1,10 +1,13 @@
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { flyIn } from '../../animate/fly-in';
 import { DataService } from '../../data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { MeetingData } from './meetingData';
-import { Content } from '../../content';
 
 @Component({
   selector: 'app-meeting',
@@ -17,10 +20,15 @@ import { Content } from '../../content';
 
 export class MeetingComponent implements OnInit {
 
-    content: Content = {
+    content: Object = {
         id: 1,
         title: 'loading',
-        content: 'loading',
+        content: '招聘内容',
+        request: '招聘需求',
+        corporation: '天津大学',
+        held_date: '1970-01-01',
+        held_time: '00:00',
+        place: '',
         date: '1970-01-01',
         click: 0,
         attach1: '',
@@ -162,30 +170,32 @@ export class MeetingComponent implements OnInit {
     }
 
     detail: Boolean =  true;
-    currentPage: any = 1;
-    middlePage: any = 3;
+    currentPage: any = this.dataService.getMeeting();
+    middlePage: any;
     pages: Array<number> =  [];
 
 
-    constructor(private route: ActivatedRoute, private dataService: DataService) {
-        const self = this;
-        if (route.snapshot.params['id'] !== undefined) {
-            this.detail = false;
-            this.dataService.fetchData(this.dataService.getUrl() + '/api/recruit/detail/2/'
-             + route.snapshot.params['id']).subscribe(function(data) {
-                self.content = data;
-            })
+    constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) {
+        if (this.route.snapshot.params['id'] !== undefined) {
+            this.updateMeeting(this.route.snapshot.params['id']);
         } else {
             this.detail = true;
-            this.refreshContent(1);
+            this.refreshContent(this.dataService.getMeeting());
         }
     }
 
     ngOnInit() {
+        const self = this;
+        this.router.events.filter(event => event instanceof NavigationEnd).subscribe(event => {
+            self.updateMeeting(event.toString().slice(event.toString().lastIndexOf('/') + 1, -2));
+        });
     }
+
+
 
     onSelect(i): void {
         this.currentPage = i;
+        this.dataService.setMeeting(this.currentPage);
         if (this.meetingData.total_page > 5) {
             if (i < this.meetingData.total_page - 1 && i > 2) {
                 this.middlePage = i;
@@ -234,6 +244,14 @@ export class MeetingComponent implements OnInit {
                    self.pages = [self.currentPage - 2, self.currentPage - 1, self.currentPage, self.currentPage + 1, self.currentPage + 2];
                  }
             }
+        })
+    }
+
+    updateMeeting(index): void {
+        const self = this;
+        this.detail = false;
+        this.dataService.fetchData(this.dataService.getUrl() + '/api/recruit/detail/2/' + index).subscribe(function(data) {
+            self.content = data;
         })
     }
 

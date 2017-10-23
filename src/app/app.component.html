@@ -12,7 +12,7 @@
 </nav>
 
 <header>
-    <div class="nav-item">
+    <div class="nav-item" routerLink="/">
         <h2>天津大学就业指导中心</h2>
         <h3>THE CAREER CENTER OF TIANJIN <br>UNIVERSITY</h3>
     </div>
@@ -72,7 +72,7 @@
 <div *ngIf="dataService.showAbout" class="about addabout">
     <div class="aboutinfo">
         <div class="about-left">
-            <p>办公时间  <sub>（节假日除外）</sub></p>
+            <p style="font-size: 16px;">办公时间  <sub>（节假日除外）</sub></p>
             <ul>
                 <li>上午 8:30-12:00</li>
                 <li>下午 13:00-16:30</li>
@@ -82,14 +82,15 @@
         </div>
 
         <div class="about-middle">
+            <p style="font-size: 16px;">联系方式</p>
             <p>通讯地址：天津大学就业指导中心&nbsp;&nbsp;<br>邮编：300072</p>
-            <p>办公地点：<br>卫津路校区：大学生活动中心一层108、106室<br>北洋园校区：大学生活动中心一层C107、C109室</p>
-            <p>联系电话：<br>卫津路校区 022-83613600&nbsp;&nbsp;<br>北洋园校区 022-27401081转8000或8001</p>
+            <p>办公地点：<br>卫津路校区：大学生活动中心一层108、106室<br><span id="align"><br>办公地点：</span>北洋园校区：大学生活动中心一层C107、C109室</p>
+            <p>联系电话：<br>卫津路校区 022-83613600&nbsp;&nbsp;<br><span id="align"><br>联系电话：</span>北洋园校区 022-27401081转8000或8001</p>
             <p>传真：022-27401054<br>招聘邮箱：job@tju.edu.cn</p>
         </div>
 
         <div class="about-right">
-            <p>相关链接</p>
+            <p style="font-size: 16px;">相关链接</p>
             <ul>
                 <li><a href="http://qnzs.youth.cn/2016jyj/" target="_blank">青年之声·2016年就业服务季</a></li>
                 <li><a href="http://sbc.tju.edu.cn/CNA/index.html" target="_blank">天津大学职业导航协会</a></li>
@@ -107,5 +108,5 @@
         <p>联系电话：卫津路校区 022-83613600&nbsp;&nbsp;<br>北洋园校区 022-27401081转8000或8001</p>
         <p>&nbsp;</p>
     </div>
-    <p>技术支持：<img src="../assets/logo.png" style="position: relative; top: 10px;" alt="logo"><span style="font-size: 18px;">天外天工作室</span>&nbsp; / © 2000-2017 / <a href="http://www.miibeian.gov.cn/" target="_blank">津ICP备05004358号-12</a> / 津教备0767号</p>
+    <p>技术支持：<img src="../assets/logo.png" style="position: relative; top: 10px;" alt="logo"><span>天外天工作室</span>&nbsp; / © 2000-2017 / <a href="http://www.miibeian.gov.cn/" target="_blank">津ICP备05004358号</a> / 津教备0316号</p>
 </footer>

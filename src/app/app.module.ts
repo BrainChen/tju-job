@@ -36,6 +36,7 @@ import { ServiceComponent } from './service/service.component';
 
 import { InternmeetingComponent } from './recruitment/intern/internmeeting/internmeeting.component';
 import { InternbriefComponent } from './recruitment/intern/internbrief/internbrief.component';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { InternbriefComponent } from './recruitment/intern/internbrief/internbri
     PublishComponent,
     InternmeetingComponent,
     InternbriefComponent,
-    ResultComponent
+    ResultComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

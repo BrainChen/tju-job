@@ -21,19 +21,19 @@ export class CalendarComponent {
             held_time: '6:30',
             place: '天津大学',
             title: 'loading',
-            id: 6669
+            id: 6668
         },
         {
             held_time: '6:30',
             place: '天津大学',
             title: 'loading',
-            id: 6669
+            id: 6667
         },
         {
             hele_time: '6:30',
             place: '天津大学',
             title: 'loading',
-            id: 6669
+            id: 6666
         }
     ]
     calendar: Boolean = false;

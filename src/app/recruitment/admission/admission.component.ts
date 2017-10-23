@@ -44,8 +44,8 @@ export class AdmissionComponent implements OnInit {
     }
 
     detail: Boolean =  true;
-    currentPage: any = 1;
-    middlePage: any = 3;
+    currentPage: any = this.dataService.getAdmission();
+    middlePage: any;
     pages: Array<number> =  [];
 
 
@@ -59,7 +59,7 @@ export class AdmissionComponent implements OnInit {
             })
         } else {
             this.detail = true;
-            this.refreshContent(1);
+            this.refreshContent(this.dataService.getAdmission());
         }
     }
 
@@ -68,6 +68,7 @@ export class AdmissionComponent implements OnInit {
 
     onSelect(i): void {
         this.currentPage = i;
+        this.dataService.setAdmission(this.currentPage);
         if (this.admissionData.total_page > 5) {
             if (i < this.admissionData.total_page - 1 && i > 2) {
                 this.middlePage = i;

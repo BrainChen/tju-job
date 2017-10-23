@@ -44,7 +44,7 @@
 			<div [@flyIn]="'active'" class="brief-content">
 				<p>职位搜索</p>
 				<div class="search-box">
-					<input [(ngModel)]="keyword" placeholder="输入招聘单位名称查询">
+					<input (keyup)="onKey($event)" [(ngModel)]="keyword" placeholder="输入招聘单位名称查询">
 					<button (click)="search()">查 询</button>
 				</div>
 			</div>

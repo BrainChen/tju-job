@@ -1,5 +1,5 @@
 export class MainDatas {
-    data_banner: any;
+    data_banner: Array<Object>;
     data_notice: Array<Object>;
     data_dynamic: Array<Object>;
     data_meeting: Array<Object>;

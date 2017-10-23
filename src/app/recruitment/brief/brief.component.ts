@@ -124,8 +124,8 @@ export class BriefComponent implements OnInit {
     }
 
     detail: Boolean =  true;
-    currentPage: any = 1;
-    middlePage: any = 3;
+    currentPage: any = this.dataService.getBrief();
+    middlePage: any;
     pages: Array<number> =  [];
 
 
@@ -139,7 +139,7 @@ export class BriefComponent implements OnInit {
             })
         } else {
             this.detail = true;
-            this.refreshContent(1);
+            this.refreshContent(this.dataService.getBrief());
         }
     }
 
@@ -148,6 +148,7 @@ export class BriefComponent implements OnInit {
 
     onSelect(i): void {
         this.currentPage = i;
+        this.dataService.setBrief(this.currentPage);
         if (this.briefData.total_page > 5) {
             if (i < this.briefData.total_page - 1 && i > 2) {
                 this.middlePage = i;

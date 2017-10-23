@@ -124,8 +124,8 @@ export class PublicComponent implements OnInit {
     };
 
     detail: Boolean =  true;
-    currentPage: any = 1;
-    middlePage: any = 3;
+    currentPage: any = this.dataService.getPublic();
+    middlePage: any;
     pages: Array<number> = [this.currentPage, this.currentPage + 1, this.currentPage + 2, this.currentPage + 3, this.currentPage + 4];
 
     constructor(private route: ActivatedRoute, private dataService: DataService) {
@@ -138,7 +138,7 @@ export class PublicComponent implements OnInit {
             })
         } else {
             this.detail = true;
-            this.refreshContent(1);
+            this.refreshContent(this.dataService.getPublic());
         }
     }
 
@@ -147,6 +147,7 @@ export class PublicComponent implements OnInit {
 
     onSelect(i): void {
         this.currentPage = i;
+        this.dataService.setPublic(this.currentPage);
         if (i < this.publicData.all_page - 1 && i > 2) {
             this.middlePage = i;
         }

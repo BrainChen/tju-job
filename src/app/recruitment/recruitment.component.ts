@@ -22,4 +22,10 @@ export class RecruitmentComponent implements OnInit {
     this.router.navigate(['/recruitment/result', this.keyword]);
   }
 
+  onKey(e): void {
+    if (e.keyCode === 13) {
+      this.search();
+    }
+  }
+
 }

@@ -4,7 +4,6 @@ import { flyIn } from '../../../animate/fly-in';
 import { ActivatedRoute } from '@angular/router';
 
 import { MeetingData } from '../../meeting/meetingData';
-import { Content } from '../../../content';
 
 @Component({
   selector: 'app-internmeeting',
@@ -16,9 +15,10 @@ import { Content } from '../../../content';
 })
 export class InternmeetingComponent implements OnInit {
 
-    content: Content = {
+    content: Object = {
         id: 1,
         title: 'loading',
+        request: 'loading',
         content: 'loading',
         date: '1970-01-01',
         click: 0,
@@ -161,8 +161,8 @@ export class InternmeetingComponent implements OnInit {
     }
 
     detail: Boolean =  true;
-    currentPage: any = 1;
-    middlePage: any = 3;
+    currentPage: any = this.dataService.getInternMeeting();
+    middlePage: any;
     pages: Array<number> =  [];
 
 
@@ -176,7 +176,7 @@ export class InternmeetingComponent implements OnInit {
             })
         } else {
             this.detail = true;
-            this.refreshContent(1);
+            this.refreshContent(this.dataService.getInternMeeting());
         }
     }
 
@@ -185,6 +185,7 @@ export class InternmeetingComponent implements OnInit {
 
     onSelect(i): void {
         this.currentPage = i;
+        this.dataService.setInternMeeting(this.currentPage);
         if (this.meetingData.total_page > 5) {
             if (i < this.meetingData.total_page - 1 && i > 2) {
                 this.middlePage = i;

@@ -24,6 +24,7 @@ import { PublishComponent } from './service/publish/publish.component';
 
 import { InternmeetingComponent } from './recruitment/intern/internmeeting/internmeeting.component';
 import { InternbriefComponent } from './recruitment/intern/internbrief/internbrief.component';
+import { ErrorComponent } from './error/error.component';
 
 const appRoutes: Routes = [
     {
@@ -175,6 +176,15 @@ const appRoutes: Routes = [
                 component: PublishComponent
             }
         ]
+    },
+    {
+        path: 'error',
+        component: ErrorComponent
+    },
+    {
+        path: '**',
+        redirectTo: '/error',
+        pathMatch: 'full'
     }
 ]
 

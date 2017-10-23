@@ -44,6 +44,10 @@
     background-color: #e5e5e5;
 }
 
+.search-box input:focus {
+    border: 1px solid #666;
+}
+
 .search-box button {
     margin-left: 40px;
     font-size: 16px;
@@ -52,7 +56,12 @@
     background-color: #b5b5b5;
     color: white;
     border: none;
+    border-radius: 10px;
     cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #959595;
 }
 
 

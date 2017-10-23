@@ -33,6 +33,15 @@ export class InternbriefComponent implements OnInit {
   internbriefData: InternbriefData = {
     page: '1',
     total_page: 2333,
+    important: [
+        {
+            id: 48762,
+            important: 1,
+            title: 'loading',
+            click: 0,
+            date: '1970-01-01'
+        },
+    ],
     shixizp: [
     {
     id: 48762,
@@ -108,8 +117,8 @@ export class InternbriefComponent implements OnInit {
 }
 
     detail: Boolean =  true;
-    currentPage: any = 1;
-    middlePage: any = 3;
+    currentPage: any = this.dataService.getInternBrief();
+    middlePage: any;
     pages: Array<number> =  [];
 
 
@@ -123,7 +132,7 @@ export class InternbriefComponent implements OnInit {
             })
         } else {
             this.detail = true;
-            this.refreshContent(1);
+            this.refreshContent(this.dataService.getInternBrief());
         }
     }
 
@@ -132,6 +141,7 @@ export class InternbriefComponent implements OnInit {
 
     onSelect(i): void {
         this.currentPage = i;
+        this.dataService.setInternBrief(this.currentPage);
         if (this.internbriefData.total_page > 5) {
             if (i < this.internbriefData.total_page - 1 && i > 2) {
                 this.middlePage = i;

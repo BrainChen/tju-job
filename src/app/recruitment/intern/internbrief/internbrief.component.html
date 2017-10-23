@@ -4,6 +4,9 @@
     <p>实习生招聘简章</p>
     <div *ngIf="detail">
 		<table>
+			<tr *ngFor="let item of internbriefData.important" [@flyIn]="'active'">
+				<td><span style="color: #358166;" class="child-title" title="{{item.title}}" routerLink="{{item.id}}"><img src="../../assets/up1.png">&nbsp;{{item.title | shorter}}</span></td>
+			</tr>
 			<tr *ngFor="let item of internbriefData.shixizp" [@flyIn]="'active'">
 				<td><span class="child-title" title="{{item.title}}" routerLink="{{item.id}}"><img src="../../assets/next.png">&nbsp;{{item.title | shorter}}</span></td>
 			</tr>

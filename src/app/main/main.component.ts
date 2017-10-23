@@ -14,10 +14,17 @@ import { MainDatas } from './mainData';
 
 export class MainComponent implements OnInit {
 
-    mainDatas: MainDatas = {
-    data_banner: {
-    image: ''
-    },
+  mainDatas: MainDatas = {
+    data_banner: [
+        {
+            id: 0,
+            image: '../../assets/big1.png',
+        },
+        {
+            id: 1,
+            image: '../../assets/big2.png'
+        }
+    ],
     data_notice: [
     {
     id: 1130,
@@ -161,6 +168,8 @@ export class MainComponent implements OnInit {
     ]
     };
 
+    currentPic = 0;
+
     innerHeight: Number = window.screen.availHeight;
     innerWidth: Number = window.screen.availWidth;
 
@@ -180,6 +189,16 @@ export class MainComponent implements OnInit {
             self.getpublic();
             self.getrecruitment();
         })
+
+        setInterval(() => {
+            let len = this.mainDatas.data_banner.length
+            let id = (this.currentPic + 1) % len;
+            this.currentPic = id;
+        }, 6000);
+    }
+
+    changeBanner(id) {
+        this.currentPic = id;
     }
 
     ngOnInit() {

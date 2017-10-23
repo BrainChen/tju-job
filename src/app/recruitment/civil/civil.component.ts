@@ -136,8 +136,8 @@ export class CivilComponent implements OnInit {
     }
 
     detail: Boolean =  true;
-    currentPage: any = 1;
-    middlePage: any = 3;
+    currentPage: any = this.dataService.getCivil();
+    middlePage: any;
     pages: Array<number> =  [];
 
 
@@ -151,7 +151,7 @@ export class CivilComponent implements OnInit {
             })
         } else {
             this.detail = true;
-            this.refreshContent(1);
+            this.refreshContent(this.dataService.getCivil());
         }
     }
 
@@ -160,6 +160,7 @@ export class CivilComponent implements OnInit {
 
     onSelect(i): void {
         this.currentPage = i;
+        this.dataService.setCivil(this.currentPage);
         if (this.civilData.total_page > 5) {
             if (i < this.civilData.total_page - 1 && i > 2) {
                 this.middlePage = i;

@@ -33,6 +33,15 @@
     width: 100%;
 }
 
+.content p {
+    margin: 5px 0;
+}
+
+.content table {
+    border: 0;
+    border-collapse: collapse;
+}
+
 .bread {
     margin-top: 0;
     color: #888;

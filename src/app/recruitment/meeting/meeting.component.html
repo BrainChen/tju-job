@@ -4,12 +4,12 @@
     <p>招聘会</p>
     <div *ngIf="detail">
         <div class="meetingDiv" *ngFor="let item of meetingData.important">
-            <p><img src="../../assets/up1.png">&nbsp;<span class="meeting-title" routerLink="{{item.id}}">{{item.title}}</span><span class="meeting-small">{{item.date}}</span></p>
-            <p><span style="font-size: 14px;">地点：{{item.place}}</span><br><span class="meeting-small">举办时间：{{item.held_date}}&nbsp;&nbsp;{{item.held_time}}</span></p>
+            <p><img src="../../assets/up1.png">&nbsp;<span style="color: #46846d" class="meeting-title" routerLink="{{item.id}}">{{item.title}}</span></p>
+            <p><span style="font-size: 14px;">地点：{{item.place}}</span><br class="meeting-br"><span class="meeting-small">举办时间：{{item.held_date}}&nbsp;&nbsp;{{item.held_time}}</span></p>
         </div>
         <div [@flyIn]="'active'" class="meetingDiv" *ngFor="let item of meetingData.info">
-            <p><img src="../../assets/next.png">&nbsp;<span class="meeting-title" routerLink="{{item.id}}">{{item.title}}</span><span class="meeting-small">{{item.date}}</span></p>
-            <p><span style="font-size: 14px;">地点：{{item.place}}</span><br><span class="meeting-small">举办时间：{{item.held_date}}&nbsp;&nbsp;{{item.held_time}}</span></p>
+            <p><img src="../../assets/next.png">&nbsp;<span class="meeting-title" routerLink="{{item.id}}">{{item.title}}</span></p>
+            <p><span style="font-size: 14px;">地点：{{item.place}}</span><br class="meeting-br"><span class="meeting-small">举办时间：{{item.held_date}}&nbsp;&nbsp;{{item.held_time}}</span></p>
         </div>
         <div [@flyIn]="'active'" class="child-page" style="margin-top: 30px;">
             <span class="change-page" (click)="frontPage()">上一页</span>
@@ -21,12 +21,15 @@
 
     <div *ngIf="!detail">
 		<p class="content-title">{{content.title}}</p>
-		<p class="content-ex">发布时间：{{content.date}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>浏览量：{{content.click}}</p>
-		<div class="content" [innerHtml]="content.content"></div>
+        <p class="content-ex">发布时间：{{content.date}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>浏览量：{{content.click}}</p>
+        <p>举办公司：{{content.corporation}}</p>
+        <p>具体信息：{{content.held_date}}&nbsp;&nbsp;{{content.held_time}}&nbsp;&nbsp;{{content.place}}</p>
+        <div [@flyIn]="'active'" class="content" [innerHtml]="content.content"></div>
+        <div [@flyIn]="'active'" class="content" [innerHtml]="content.request"></div>
         <p *ngIf="content.attach1_name" style="font-weight: bold;">相关附件</p>
-					<p *ngIf="content.attach1_name">1.<a class="attach" href="{{content.attach1}}" target="_blank">{{content.attach1_name}}</a></p>
-					<p *ngIf="content.attach2_name">2.<a class="attach" href="{{content.attach2}}" target="_blank">{{content.attach2_name}}</a></p>
-					<p *ngIf="content.attach3_name">3.<a class="attach" href="{{content.attach3}}" target="_blank">{{content.attach3_name}}</a></p>
-                    <div style="height: 20px;"></div>
+		<p *ngIf="content.attach1_name">1.<a class="attach" href="{{content.attach1}}" target="_blank">{{content.attach1_name}}</a></p>
+		<p *ngIf="content.attach2_name">2.<a class="attach" href="{{content.attach2}}" target="_blank">{{content.attach2_name}}</a></p>
+		<p *ngIf="content.attach3_name">3.<a class="attach" href="{{content.attach3}}" target="_blank">{{content.attach3_name}}</a></p>
+        <div style="height: 20px;"></div>
 	</div>
 </div>
